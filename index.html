@@ -1863,4 +1863,254 @@ displayStops();
         document.getElementById("kierowca").value = "";
     }
 </script>
+        <section id="zarzadzanie-adminami">
+    <h2>🔐 Zarządzanie uprawnieniami</h2>
+
+    <div id="panelAdminow">
+        <p>Brak dodanych użytkowników.</p>
+    </div>
+</section>
+
+<script>
+    let administratorzy = [];
+
+    function dodajAdministratora() {
+        const nick = document.getElementById("adminNick").value.trim();
+        const rola = document.getElementById("rola").value;
+
+        if (nick === "") {
+            alert("Wpisz nick użytkownika!");
+            return;
+        }
+
+        administratorzy.push({
+            nick: nick,
+            rola: rola
+        });
+
+        document.getElementById("adminNick").value = "";
+
+        pokazAdministratorow();
+    }
+
+    function pokazAdministratorow() {
+        const panel = document.getElementById("panelAdminow");
+
+        panel.innerHTML = "";
+
+        administratorzy.forEach((admin, index) => {
+            const div = document.createElement("div");
+
+            div.innerHTML = `
+                <p>
+                    👤 <b>${admin.nick}</b>
+                    — <b>${admin.rola}</b>
+                    <button onclick="zmienRole(${index})">
+                        Zmień rolę
+                    </button>
+                    <button onclick="usunAdministratora(${index})">
+                        Usuń
+                    </button>
+                </p>
+            `;
+
+            panel.appendChild(div);
+        });
+    }
+
+    function zmienRole(index) {
+        const nowaRola = prompt(
+            "Podaj nową rolę:",
+            administratorzy[index].rola
+        );
+
+        if (nowaRola) {
+            administratorzy[index].rola = nowaRola;
+            pokazAdministratorow();
+        }
+    }
+
+    function usunAdministratora(index) {
+        administratorzy.splice(index, 1);
+        pokazAdministratorow();
+    }
+</script>
+
+
+        <section id="dziennik-administracji">
+    <h2>📋 Dziennik działań administracji</h2>
+
+    <div id="dziennik">
+        <p>Brak zapisanych działań.</p>
+    </div>
+</section>
+
+<script>
+    let dziennik = [];
+
+    function zapiszDzialanie(tekst) {
+        const czas = new Date().toLocaleString("pl-PL");
+
+        dziennik.push({
+            tekst: tekst,
+            czas: czas
+        });
+
+        pokazDziennik();
+    }
+
+    function pokazDziennik() {
+        const element = document.getElementById("dziennik");
+
+        element.innerHTML = "";
+
+        if (dziennik.length === 0) {
+            element.innerHTML = "<p>Brak zapisanych działań.</p>";
+            return;
+        }
+
+        dziennik.forEach((wpis) => {
+            const div = document.createElement("div");
+
+            div.innerHTML = `
+                <p>
+                    🕒 <b>${wpis.czas}</b><br>
+                    ${wpis.tekst}
+                </p>
+                <hr>
+            `;
+
+            element.appendChild(div);
+        });
+    }
+</script>
+        <section id="panel-dyspozytora">
+    <h2>📡 Panel dyspozytora</h2>
+
+    <label for="dyspozytorKierowca">Kierowca:</label>
+    <input
+        type="text"
+        id="dyspozytorKierowca"
+        placeholder="Nick kierowcy"
+    >
+
+    <br><br>
+
+    <label for="dyspozytorLinia">Linia:</label>
+    <input
+        type="text"
+        id="dyspozytorLinia"
+        placeholder="np. 185"
+    >
+
+    <br><br>
+
+    <label for="dyspozytorAutobus">Numer autobusu:</label>
+    <input
+        type="text"
+        id="dyspozytorAutobus"
+        placeholder="np. 5870"
+    >
+
+    <br><br>
+
+    <button onclick="przydzielKierowce()">
+        🚍 Przydziel kierowcę
+    </button>
+
+    <h3>Aktualne przydziały</h3>
+
+    <div id="przydzialy">
+        <p>Brak przydziałów.</p>
+    </div>
+</section>
+
+<script>
+    let przydzialy = [];
+
+    function przydzielKierowce() {
+        const kierowca =
+            document.getElementById("dyspozytorKierowca").value.trim();
+
+        const linia =
+            document.getElementById("dyspozytorLinia").value.trim();
+
+        const autobus =
+            document.getElementById("dyspozytorAutobus").value.trim();
+
+        if (!kierowca || !linia || !autobus) {
+            alert("Uzupełnij kierowcę, linię i autobus!");
+            return;
+        }
+
+        przydzialy.push({
+            kierowca: kierowca,
+            linia: linia,
+            autobus: autobus
+        });
+
+        document.getElementById("dyspozytorKierowca").value = "";
+        document.getElementById("dyspozytorLinia").value = "";
+        document.getElementById("dyspozytorAutobus").value = "";
+
+        pokazPrzydzialy();
+
+        if (typeof zapiszDzialanie === "function") {
+            zapiszDzialanie(
+                "Przydzielono kierowcę " +
+                kierowca +
+                " do linii " +
+                linia +
+                " i autobusu " +
+                autobus
+            );
+        }
+    }
+
+    function pokazPrzydzialy() {
+        const lista = document.getElementById("przydzialy");
+
+        lista.innerHTML = "";
+
+        if (przydzialy.length === 0) {
+            lista.innerHTML = "<p>Brak przydziałów.</p>";
+            return;
+        }
+
+        przydzialy.forEach((przydzial, index) => {
+            const element = document.createElement("div");
+
+            element.innerHTML = `
+                <p>
+                    👤 <b>${przydzial.kierowca}</b>
+                    — 🚌 linia <b>${przydzial.linia}</b>
+                    — autobus <b>${przydzial.autobus}</b>
+                    <button onclick="usunPrzydzial(${index})">
+                        Usuń
+                    </button>
+                </p>
+                <hr>
+            `;
+
+            lista.appendChild(element);
+        });
+    }
+
+    function usunPrzydzial(index) {
+        const przydzial = przydzialy[index];
+
+        przydzialy.splice(index, 1);
+
+        pokazPrzydzialy();
+
+        if (typeof zapiszDzialanie === "function") {
+            zapiszDzialanie(
+                "Usunięto przydział kierowcy " +
+                przydzial.kierowca +
+                " z linii " +
+                przydzial.linia
+            );
+        }
+    }
+</script>
 
