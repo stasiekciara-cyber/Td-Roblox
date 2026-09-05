@@ -19,3 +19,183 @@ DOCTYPE html, html lang pl, head, meta charset UTF8, title Transportowe Dzielnic
       <p> Znajdziesz U Nas NA stronie Rózne Rzeczy Serwery Linie Autobusy I tramwaje Linki i inne Rzeczy</p>
         
       <H2> Miłego Kozystania Ze strony</H2>
+
+
+
+
+
+        <!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transportowe Dzielnice</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f2f4f7;color:#17202a}
+header{background:#123b5d;color:white;padding:24px 18px;text-align:center}
+header h1{margin:0;font-size:32px}
+header p{margin:8px 0 0;opacity:.9}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;background:white;padding:14px;box-shadow:0 2px 8px #0001}
+nav a{color:#123b5d;text-decoration:none;font-weight:bold;padding:10px 14px;border-radius:8px}
+nav a:hover{background:#e7eef4}
+main{max-width:1050px;margin:25px auto;padding:0 15px}
+.hero{background:white;border-radius:14px;padding:28px;box-shadow:0 3px 12px #0001}
+.hero h2{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px}
+.card{background:white;border-radius:12px;padding:20px;box-shadow:0 3px 10px #0001}
+.card h3{margin-top:0;color:#123b5d}
+.btn{display:inline-block;background:#123b5d;color:white;padding:11px 15px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-weight:bold}
+section{margin-top:28px}
+table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden}
+th,td{padding:13px;text-align:left;border-bottom:1px solid #ddd}
+th{background:#123b5d;color:white}
+.stop{font-weight:bold}
+.map{height:230px;background:#dce8ef;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:#123b5d;font-weight:bold}
+footer{margin-top:40px;background:#123b5d;color:white;text-align:center;padding:22px}
+@media(max-width:600px){header h1{font-size:25px}.hero{padding:20px}th,td{padding:10px;font-size:14px}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚌 Transportowe Dzielnice</h1>
+  <p>Centrum komunikacji miejskiej</p>
+</header>
+
+<nav>
+  <a href="#start">Strona główna</a>
+  <a href="#rozklady">Rozkłady jazdy</a>
+  <a href="#mapa">Mapa tras</a>
+  <a href="#z8">Linia Z-8</a>
+  <a href="#g2">Linia G2</a>
+  <a href="#kierowca">Panel kierowcy</a>
+  <a href="#pojazdy">Autobusy i tramwaje</a>
+</nav>
+
+<main id="start">
+  <div class="hero">
+    <h2>Witaj w Transportowych Dzielnicach!</h2>
+    <p>Znajdź rozkład jazdy, trasę, przystanek albo informacje dla kierowców.</p>
+    <a class="btn" href="#rozklady">Sprawdź rozkłady</a>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🚏 Rozkłady jazdy</h3>
+      <p>Rozkłady linii autobusowych i tramwajowych.</p>
+      <a class="btn" href="#rozklady">Otwórz</a>
+    </div>
+    <div class="card">
+      <h3>🗺️ Mapa tras</h3>
+      <p>Trasy, przystanki i miasta Transportowych Dzielnic.</p>
+      <a class="btn" href="#mapa">Zobacz</a>
+    </div>
+    <div class="card">
+      <h3>👨‍✈️ Kierowca</h3>
+      <p>Panel kierowcy z miejscem na przyszłe logowanie i kursy.</p>
+      <a class="btn" href="#kierowca">Panel</a>
+    </div>
+  </div>
+
+  <section id="rozklady">
+    <h2>🚏 Rozkłady jazdy</h2>
+    <div class="card">
+      <h3>Linia G1 — kierunek: Zajezdnia PKS</h3>
+      <p><strong>Trasa najkrótsza</strong></p>
+      <table>
+        <tr><th>Nr</th><th>Przystanek</th></tr>
+        <tr><td>1</td><td class="stop">Zajezdnia PKS</td></tr>
+        <tr><td>2</td><td class="stop">Sierakowskiego</td></tr>
+        <tr><td>3</td><td class="stop">Osiedlowa</td></tr>
+        <tr><td>4</td><td class="stop">Zajezdnia MZK</td></tr>
+        <tr><td>5</td><td class="stop">Osiedle Derby</td></tr>
+      </table>
+    </div>
+  </section>
+
+
+
+  <section id="g2">
+    <h2>🚌 Linia G2 — rozkład jazdy</h2>
+    <div class="card">
+      <h3>🟩 Kierunek: Osiedle Zamkowe</h3>
+      <p><strong>Trasa G2</strong></p>
+      <table>
+        <tr><th>Nr</th><th>Przystanek</th></tr>
+        <tr><td>1</td><td class="stop">Zamkowa</td></tr>
+        <tr><td>2</td><td class="stop">Osiedle MZK</td></tr>
+        <tr><td>3</td><td class="stop">Mazowieckie Centrum Neuropsychiatrii</td></tr>
+        <tr><td>4</td><td class="stop">Rybno</td></tr>
+        <tr><td>5</td><td class="stop">Osiedle Ząbkowskiego</td></tr>
+        <tr><td>6</td><td class="stop">Osiedle Zamkowe</td></tr>
+      </table>
+      <p><strong>Osiedle Zamkowe — koniec trasy.</strong></p>
+    </div>
+  </section>
+
+  <section id="z8">
+    <h2>🚍 Linia Z-8 — rozkład jazdy</h2>
+    <div class="card">
+      <h3>🟦 Kierunek: Stegny / EC Siekierki</h3>
+      <p><strong>Dni powszednie</strong> · częstotliwość: około 15 minut w godzinach szczytu</p>
+      <div style="overflow-x:auto">
+        <table>
+          <tr>
+            <th>Przystanek</th>
+            <th>05:00</th><th>05:15</th><th>05:30</th><th>05:45</th>
+            <th>06:00</th><th>06:15</th><th>06:30</th><th>06:45</th><th>07:00</th>
+          </tr>
+          <tr><td class="stop">EC Siekierki</td><td>05:00</td><td>05:15</td><td>05:30</td><td>05:45</td><td>06:00</td><td>06:15</td><td>06:30</td><td>06:45</td><td>07:00</td></tr>
+          <tr><td class="stop">Statkowskiego</td><td>05:02</td><td>05:17</td><td>05:32</td><td>05:47</td><td>06:02</td><td>06:17</td><td>06:32</td><td>06:47</td><td>07:02</td></tr>
+          <tr><td class="stop">Sypniewska</td><td>05:04</td><td>05:19</td><td>05:34</td><td>05:49</td><td>06:04</td><td>06:19</td><td>06:34</td><td>06:49</td><td>07:04</td></tr>
+          <tr><td class="stop">Jeziorko Czerniakowskie</td><td>05:06</td><td>05:21</td><td>05:36</td><td>05:51</td><td>06:06</td><td>06:21</td><td>06:36</td><td>06:51</td><td>07:06</td></tr>
+          <tr><td class="stop">Osiedle Bernardyńska</td><td>05:08</td><td>05:23</td><td>05:38</td><td>05:53</td><td>06:08</td><td>06:23</td><td>06:38</td><td>06:53</td><td>07:08</td></tr>
+          <tr><td class="stop">Gołkowska</td><td>05:10</td><td>05:25</td><td>05:40</td><td>05:55</td><td>06:10</td><td>06:25</td><td>06:40</td><td>06:55</td><td>07:10</td></tr>
+          <tr><td class="stop">Gołkowska</td><td>05:11</td><td>05:26</td><td>05:41</td><td>05:56</td><td>06:11</td><td>06:26</td><td>06:41</td><td>06:56</td><td>07:11</td></tr>
+          <tr><td class="stop">Limanowskiego</td><td>05:13</td><td>05:28</td><td>05:43</td><td>05:58</td><td>06:13</td><td>06:28</td><td>06:43</td><td>06:58</td><td>07:13</td></tr>
+          <tr><td class="stop">Goraszewska</td><td>05:15</td><td>05:30</td><td>05:45</td><td>06:00</td><td>06:15</td><td>06:30</td><td>06:45</td><td>07:00</td><td>07:15</td></tr>
+          <tr><td class="stop">Klarysewska</td><td>05:17</td><td>05:32</td><td>05:47</td><td>06:02</td><td>06:17</td><td>06:32</td><td>06:47</td><td>07:02</td><td>07:17</td></tr>
+          <tr><td class="stop">Świętego Bonifacego</td><td>05:19</td><td>05:34</td><td>05:49</td><td>06:04</td><td>06:19</td><td>06:34</td><td>06:49</td><td>07:04</td><td>07:19</td></tr>
+          <tr><td class="stop">Batumi</td><td>05:21</td><td>05:36</td><td>05:51</td><td>06:06</td><td>06:21</td><td>06:36</td><td>06:51</td><td>07:06</td><td>07:21</td></tr>
+          <tr><td class="stop">Stegny (koniec trasy)</td><td>05:24</td><td>05:39</td><td>05:54</td><td>06:09</td><td>06:24</td><td>06:39</td><td>06:54</td><td>07:09</td><td>07:24</td></tr>
+        </table>
+      </div>
+      <p><strong>Stegny — koniec trasy.</strong> Prosimy o opuszczenie pojazdu.</p>
+      <p>Informacje: 22 19 115 · wszystkie kursy obsługiwane taborem niskopodłogowym.</p>
+    </div>
+  </section>
+
+  <section id="mapa">
+    <h2>🗺️ Mapa tras i przystanków</h2>
+    <div class="map">
+      Tutaj możemy później dodać prawdziwą interaktywną mapę<br>
+      z trasami G1, G2, G3 i kolejnymi liniami.
+    </div>
+  </section>
+
+  <section id="kierowca">
+    <h2>👨‍✈️ Panel kierowcy</h2>
+    <div class="card">
+      <h3>Logowanie kierowcy</h3>
+      <p>W tej pierwszej wersji panel jest przygotowany jako miejsce na prawdziwe logowanie.</p>
+      <button class="btn" onclick="alert('Logowanie kierowcy dodamy w następnym etapie.')">Zaloguj się</button>
+    </div>
+  </section>
+
+  <section id="pojazdy">
+    <h2>🚌 Autobusy i tramwaje</h2>
+    <div class="grid">
+      <div class="card"><h3>Autobusy</h3><p>Miejsce na bazę pojazdów Transportowych Dzielnic.</p></div>
+      <div class="card"><h3>Tramwaje</h3><p>Miejsce na numery taborowe, linie i informacje o pojazdach.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Transportowe Dzielnice © 2026<br>
+  Projekt strony komunikacji miejskiej
+</footer>
+
+</body>
+</html>
