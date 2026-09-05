@@ -1731,7 +1731,6 @@ displayVehicles();
 displayDrivers();
 displayLines();
 displayStops();
-
 </script>
         <!DOCTYPE html>
 <html lang="pl">
@@ -1756,3 +1755,112 @@ displayStops();
     <button>Dowiedz się więcej</button>
 </body>
 </html>
+        <section id="administracja">
+    <h2>⚙️ Zarządzanie administracją</h2>
+
+    <label for="adminNick">Nick użytkownika:</label>
+    <input type="text" id="adminNick" placeholder="np. Kierowca123">
+
+    <br><br>
+
+    <label for="rola">Wybierz rolę:</label>
+    <select id="rola">
+        <option value="Administrator">Administrator</option>
+        <option value="Moderator">Moderator</option>
+        <option value="Dyspozytor">Dyspozytor</option>
+        <option value="Kierowca">Kierowca</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="dodajAdministratora()">
+        Dodaj / zmień rolę
+    </button>
+
+    <h3>👥 Lista administracji</h3>
+
+    <div id="listaAdministracji"></div>
+</section>
+
+<script>
+    function dodajAdministratora() {
+        const nick = document.getElementById("adminNick").value;
+        const rola = document.getElementById("rola").value;
+
+        if (nick === "") {
+            alert("Wpisz nick użytkownika!");
+            return;
+        }
+
+        const wpis = document.createElement("p");
+
+        wpis.innerHTML =
+            "👤 <b>" + nick + "</b> — rola: <b>" + rola + "</b>";
+
+        document
+            .getElementById("listaAdministracji")
+            .appendChild(wpis);
+
+        document.getElementById("adminNick").value = "";
+    }
+</script>
+        <section id="zarzadzanie">
+    <h2>🚌 Zarządzanie liniami</h2>
+
+    <label for="linia">Wybierz linię:</label>
+    <select id="linia">
+        <option value="X1">X1</option>
+        <option value="X3">X3</option>
+        <option value="X7">X7</option>
+        <option value="185">185</option>
+        <option value="187">187</option>
+        <option value="Z-8">Z-8</option>
+        <option value="B7">B7</option>
+    </select>
+
+    <br><br>
+
+    <label for="autobus">Wybierz autobus:</label>
+    <input type="text" id="autobus" placeholder="np. 5870">
+
+    <br><br>
+
+    <label for="kierowca">Kierowca:</label>
+    <input type="text" id="kierowca" placeholder="Nick kierowcy">
+
+    <br><br>
+
+    <button onclick="przypiszAutobus()">
+        Przypisz autobus kierowcy
+    </button>
+
+    <h3>Aktualne przypisania</h3>
+
+    <div id="listaPrzypisan"></div>
+</section>
+
+<script>
+    function przypiszAutobus() {
+        const linia = document.getElementById("linia").value;
+        const autobus = document.getElementById("autobus").value;
+        const kierowca = document.getElementById("kierowca").value;
+
+        if (autobus === "" || kierowca === "") {
+            alert("Uzupełnij numer autobusu i kierowcę!");
+            return;
+        }
+
+        const wpis = document.createElement("p");
+
+        wpis.innerHTML =
+            "🚌 Linia <b>" + linia +
+            "</b> — autobus <b>" + autobus +
+            "</b> → kierowca <b>" + kierowca + "</b>";
+
+        document.getElementById("listaPrzypisan").appendChild(wpis);
+
+        document.getElementById("autobus").value = "";
+        document.getElementById("kierowca").value = "";
+    }
+</script>
+
