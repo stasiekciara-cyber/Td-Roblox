@@ -2252,3 +2252,223 @@ Przypisany pojazd:
 
 Przypisana linia:
 G1
+       Kierowca
+   ↓
+login + hasło
+   ↓
+serwer sprawdza konto
+   ↓
+rola = KIEROWCA?
+   ├── TAK → Panel Kierowcy
+   └── NIE → Brak dostępu
+       ```html
+<!-- =========================================================
+     TRANSPORTOWE DZIELNICE
+     KOD 3 — STRONA PUBLICZNA
+     
+     WAŻNE:
+     Panel administracyjny NIE znajduje się tutaj.
+     Nie dodajemy do publicznego HTML:
+     - panelu administratora
+     - listy kierowców
+     - zarządzania pojazdami
+     - zarządzania liniami
+     - danych pracowników
+     ========================================================= -->
+
+
+<!-- =========================
+     PUBLICZNE MENU
+     ========================= -->
+
+<header class="main-header">
+
+    <div class="logo">
+        🚍 Transportowe Dzielnice
+    </div>
+
+    <nav class="main-navigation">
+
+        <a href="index.html">
+            🏠 Strona główna
+        </a>
+
+        <a href="linie.html">
+            🚌 Linie
+        </a>
+
+        <a href="rozklady.html">
+            📅 Rozkłady jazdy
+        </a>
+
+        <a href="aktualnosci.html">
+            📢 Aktualności
+        </a>
+
+        <a href="kontakt.html">
+            📞 Kontakt
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     STRONA GŁÓWNA
+     ========================= -->
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Transportowe Dzielnice
+            </h1>
+
+            <p>
+                Oficjalna strona Transportowych Dzielnic
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="linie.html" class="button">
+                    🚌 Zobacz linie
+                </a>
+
+                <a href="rozklady.html" class="button">
+                    📅 Rozkłady jazdy
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INFORMACJE
+         ========================= -->
+
+    <section class="information">
+
+        <h2>
+            🚍 Transportowe Dzielnice
+        </h2>
+
+        <p>
+            Witamy na stronie Transportowych Dzielnic.
+            Znajdziesz tutaj informacje dotyczące linii,
+            rozkładów jazdy oraz komunikatów transportowych.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         PUBLICZNE KARTY
+         ========================= -->
+
+    <section class="public-cards">
+
+        <div class="public-card">
+
+            <h3>🚌 Linie</h3>
+
+            <p>
+                Sprawdź dostępne linie autobusowe
+                i tramwajowe.
+            </p>
+
+            <a href="linie.html">
+                Zobacz linie →
+            </a>
+
+        </div>
+
+
+        <div class="public-card">
+
+            <h3>📅 Rozkłady</h3>
+
+            <p>
+                Sprawdź rozkłady jazdy
+                Transportowych Dzielnic.
+            </p>
+
+            <a href="rozklady.html">
+                Zobacz rozkłady →
+            </a>
+
+        </div>
+
+
+        <div class="public-card">
+
+            <h3>📢 Aktualności</h3>
+
+            <p>
+                Najnowsze informacje i komunikaty
+                transportowe.
+            </p>
+
+            <a href="aktualnosci.html">
+                Aktualności →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PANEL PRACOWNIKÓW
+         
+         UWAGA:
+         To NIE jest panel administracyjny.
+         Jest tylko wejściem do osobnej strony.
+         ========================= -->
+
+    <section class="employees-login">
+
+        <h2>
+            🔐 Strefa pracowników
+        </h2>
+
+        <p>
+            Panel przeznaczony wyłącznie dla
+            uprawnionych pracowników Transportowych Dzielnic.
+        </p>
+
+        <a
+            href="logowanie.html"
+            class="employee-login-button"
+        >
+            🔐 Zaloguj się
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     STOPKA
+     ========================= -->
+
+<footer class="main-footer">
+
+    <p>
+        © 2026 Transportowe Dzielnice
+    </p>
+
+    <p>
+        Oficjalna strona Transportowych Dzielnic
+    </p>
+
+</footer>
+```
+
