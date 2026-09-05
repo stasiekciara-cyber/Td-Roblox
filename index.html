@@ -19,6 +19,7 @@ DOCTYPE html, html lang pl, head, meta charset UTF8, title Transportowe Dzielnic
       <p> Znajdziesz U Nas NA stronie Rózne Rzeczy Serwery Linie Autobusy I tramwaje Linki i inne Rzeczy</p>
         
       <H2> Miłego Kozystania Ze strony</H2>
+        
 
 
 
@@ -828,5 +829,930 @@ function addNews() {
 
 </script>
 
+</body>
+</html>
+        <!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transportowe Dzielnice</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+      color: #222;
+    }
+
+    header {
+      background: #1769aa;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    nav {
+      background: white;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 8px #0002;
+    }
+
+    nav button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 5px;
+      cursor: pointer;
+      background: #1769aa;
+      color: white;
+      font-size: 15px;
+    }
+
+    nav button:hover {
+      background: #0d4f82;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 25px auto;
+      padding: 15px;
+    }
+
+    .panel {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px #0002;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .login-box {
+      max-width: 450px;
+      margin: 30px auto;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 7px 0 15px;
+      border: 1px solid #bbb;
+      border-radius: 7px;
+      font-size: 15px;
+    }
+
+    .main-button {
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      background: #1769aa;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .logout {
+      background: #b3261e;
+    }
+
+    .card {
+      background: #f5f7f9;
+      padding: 18px;
+      margin: 12px 0;
+      border-radius: 9px;
+    }
+
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+
+    .error {
+      color: #b00020;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background: #ddd;
+      padding: 25px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚍 Transportowe Dzielnice</h1>
+  <p>Strona projektu komunikacji miejskiej</p>
+</header>
+
+<nav>
+  <button onclick="showPage('home')">
+    🏠 Strona główna
+  </button>
+
+  <button onclick="showPage('driverLogin')">
+    🚌 Panel kierowcy
+  </button>
+
+  <button onclick="showPage('adminLogin')">
+    ⚙️ Panel administracyjny
+  </button>
+</nav>
+
+<div class="container">
+
+  <!-- STRONA GŁÓWNA -->
+
+  <section id="home" class="panel">
+
+    <h2>Witaj w Transportowych Dzielnicach!</h2>
+
+    <p>
+      To jest oficjalna strona projektu Transportowe Dzielnice.
+    </p>
+
+    <div class="card">
+      <h3>🚌 Autobusy i tramwaje</h3>
+      <p>
+        Informacje o pojazdach komunikacji miejskiej.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚏 Linie i przystanki</h3>
+      <p>
+        Informacje o trasach, liniach i przystankach.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📅 Rozkłady jazdy</h3>
+      <p>
+        Rozkłady jazdy naszych linii.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📢 Aktualności</h3>
+      <p>
+        Najnowsze informacje pojawią się tutaj.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- LOGOWANIE KIEROWCY -->
+
+  <section id="driverLogin"
+           class="panel login-box hidden">
+
+    <h2>🚌 Logowanie kierowcy</h2>
+
+    <label>Login:</label>
+
+    <input
+      type="text"
+      id="driverUser"
+      placeholder="Wpisz login"
+    >
+
+    <label>Hasło:</label>
+
+    <input
+      type="password"
+      id="driverPassword"
+      placeholder="Wpisz hasło"
+    >
+
+    <button
+      class="main-button"
+      onclick="driverLogin()"
+    >
+      Zaloguj się
+    </button>
+
+    <p id="driverMessage"></p>
+
+    <p>
+      Konto demonstracyjne:
+      <b>kierowca</b> / <b>1234</b>
+    </p>
+
+  </section>
+
+
+  <!-- PANEL KIEROWCY -->
+
+  <section id="driverPanel"
+           class="panel hidden">
+
+    <h2>🚌 Panel kierowcy</h2>
+
+    <div class="card">
+      <h3>👤 Konto</h3>
+      <p>
+        Zalogowany kierowca:
+        <b>kierowca</b>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚍 Pojazd</h3>
+      <p>
+        Solaris Urbino 18
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🔵 Linia</h3>
+      <p>
+        X3 — Metro Polinezyjskie
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📅 Służba</h3>
+      <p>
+        08:00 – 16:00
+      </p>
+    </div>
+
+    <button
+      class="main-button logout"
+      onclick="logout()"
+    >
+      Wyloguj
+    </button>
+
+  </section>
+
+
+  <!-- LOGOWANIE ADMINISTRATORA -->
+
+  <section id="adminLogin"
+           class="panel login-box hidden">
+
+    <h2>⚙️ Logowanie administratora</h2>
+
+    <label>Login:</label>
+
+    <input
+      type="text"
+      id="adminUser"
+      placeholder="Wpisz login"
+    >
+
+    <label>Hasło:</label>
+
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Wpisz hasło"
+    >
+
+    <button
+      class="main-button"
+      onclick="adminLogin()"
+    >
+      Zaloguj się
+    </button>
+
+    <p id="adminMessage"></p>
+
+    <p>
+      Konto demonstracyjne:
+      <b>admin</b> / <b>1234</b>
+    </p>
+
+  </section>
+
+
+  <!-- PANEL ADMINISTRATORA -->
+
+  <section id="adminPanel"
+           class="panel hidden">
+
+    <h2>⚙️ Panel administracyjny</h2>
+
+    <p>
+      Witaj w panelu administracyjnym
+      Transportowych Dzielnic.
+    </p>
+
+    <div class="card">
+      <h3>🚍 Pojazdy</h3>
+      <p>
+        Tutaj będziemy zarządzać autobusami
+        i tramwajami.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚏 Linie i przystanki</h3>
+      <p>
+        Tutaj będziemy zarządzać liniami
+        i przystankami.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📅 Rozkłady jazdy</h3>
+      <p>
+        Tutaj będą dostępne rozkłady jazdy.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>👥 Kierowcy</h3>
+      <p>
+        Tutaj będziemy zarządzać kierowcami.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📢 Aktualności</h3>
+      <p>
+        Tutaj będziemy zarządzać aktualnościami.
+      </p>
+    </div>
+
+    <button
+      class="main-button logout"
+      onclick="logout()"
+    >
+      Wyloguj administratora
+    </button>
+
+  </section>
+
+</div>
+
+
+<footer>
+  © 2026 Transportowe Dzielnice
+</footer>
+
+
+<script>
+
+function showPage(page) {
+
+  const pages = [
+    "home",
+    "driverLogin",
+    "driverPanel",
+    "adminLogin",
+    "adminPanel"
+  ];
+
+  pages.forEach(function(id) {
+    document
+      .getElementById(id)
+      .classList.add("hidden");
+  });
+
+  document
+    .getElementById(page)
+    .classList.remove("hidden");
+}
+
+
+function driverLogin() {
+
+  const login =
+    document.getElementById("driverUser").value;
+
+  const password =
+    document.getElementById("driverPassword").value;
+
+  if (
+    login === "kierowca" &&
+    password === "1234"
+  ) {
+
+    document.getElementById(
+      "driverMessage"
+    ).innerHTML =
+      "<span class='success'>Zalogowano pomyślnie!</span>";
+
+    showPage("driverPanel");
+
+  } else {
+
+    document.getElementById(
+      "driverMessage"
+    ).innerHTML =
+      "<span class='error'>Nieprawidłowy login lub hasło.</span>";
+
+  }
+}
+
+
+function adminLogin() {
+
+  const login =
+    document.getElementById("adminUser").value;
+
+  const password =
+    document.getElementById("adminPassword").value;
+
+  if (
+    login === "admin" &&
+    password === "1234"
+  ) {
+
+    document.getElementById(
+      "adminMessage"
+    ).innerHTML =
+      "<span class='success'>Zalogowano pomyślnie!</span>";
+
+    showPage("adminPanel");
+
+  } else {
+
+    document.getElementById(
+      "adminMessage"
+    ).innerHTML =
+      "<span class='error'>Nieprawidłowy login lub hasło.</span>";
+
+  }
+}
+
+
+function logout() {
+  showPage("home");
+}
+
+</script>
+
+</body>
+</html>
+
+        <!-- ============================= -->
+<!-- ZARZĄDZANIE POJAZDAMI -->
+<!-- ============================= -->
+
+<div class="card">
+    <h2>🚍 Zarządzanie pojazdami</h2>
+
+    <input id="vehicleNumber" type="text"
+           placeholder="Numer taborowy">
+
+    <input id="vehicleModel" type="text"
+           placeholder="Model pojazdu">
+
+    <select id="vehicleType">
+        <option value="Autobus">Autobus</option>
+        <option value="Tramwaj">Tramwaj</option>
+    </select>
+
+    <select id="vehicleStatus">
+        <option value="🟢 Dostępny">🟢 Dostępny</option>
+        <option value="🟡 Na trasie">🟡 Na trasie</option>
+        <option value="🔴 Awaria">🔴 Awaria</option>
+    </select>
+
+    <button onclick="addVehicle()">
+        ➕ Dodaj pojazd
+    </button>
+
+    <div id="vehicleList"></div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ZARZĄDZANIE KIEROWCAMI -->
+<!-- ============================= -->
+
+<div class="card">
+    <h2>👨‍✈️ Kierowcy</h2>
+
+    <input id="driverName" type="text"
+           placeholder="Imię i nazwisko kierowcy">
+
+    <input id="driverLogin" type="text"
+           placeholder="Login kierowcy">
+
+    <button onclick="addDriver()">
+        ➕ Dodaj kierowcę
+    </button>
+
+    <div id="driverList"></div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ZARZĄDZANIE LINIAMI -->
+<!-- ============================= -->
+
+<div class="card">
+    <h2>🚏 Linie</h2>
+
+    <input id="lineNumber" type="text"
+           placeholder="Numer linii">
+
+    <input id="lineDirection" type="text"
+           placeholder="Kierunek">
+
+    <button onclick="addLine()">
+        ➕ Dodaj linię
+    </button>
+
+    <div id="lineList"></div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ZARZĄDZANIE PRZYSTANKAMI -->
+<!-- ============================= -->
+
+<div class="card">
+    <h2>📍 Przystanki</h2>
+
+    <input id="stopName" type="text"
+           placeholder="Nazwa przystanku">
+
+    <button onclick="addStop()">
+        ➕ Dodaj przystanek
+    </button>
+
+    <div id="stopList"></div>
+</div>
+
+
+<script>
+
+/* ============================= */
+/* DANE */
+/* ============================= */
+
+let vehicles =
+    JSON.parse(localStorage.getItem("vehicles")) || [];
+
+let drivers =
+    JSON.parse(localStorage.getItem("drivers")) || [];
+
+let lines =
+    JSON.parse(localStorage.getItem("lines")) || [];
+
+let stops =
+    JSON.parse(localStorage.getItem("stops")) || [];
+
+
+/* ============================= */
+/* POJAZDY */
+/* ============================= */
+
+function addVehicle() {
+
+    const number =
+        document.getElementById("vehicleNumber").value.trim();
+
+    const model =
+        document.getElementById("vehicleModel").value.trim();
+
+    const type =
+        document.getElementById("vehicleType").value;
+
+    const status =
+        document.getElementById("vehicleStatus").value;
+
+    if (!number || !model) {
+        alert("Uzupełnij numer i model pojazdu.");
+        return;
+    }
+
+    vehicles.push({
+        number: number,
+        model: model,
+        type: type,
+        status: status
+    });
+
+    localStorage.setItem(
+        "vehicles",
+        JSON.stringify(vehicles)
+    );
+
+    document.getElementById("vehicleNumber").value = "";
+    document.getElementById("vehicleModel").value = "";
+
+    displayVehicles();
+}
+
+
+function displayVehicles() {
+
+    const list =
+        document.getElementById("vehicleList");
+
+    list.innerHTML = "";
+
+    vehicles.forEach(function(vehicle, index) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "card";
+
+        div.innerHTML = `
+            <b>${vehicle.number}</b><br>
+            ${vehicle.type}<br>
+            ${vehicle.model}<br>
+            Status: ${vehicle.status}<br>
+
+            <button onclick="deleteVehicle(${index})">
+                🗑️ Usuń
+            </button>
+        `;
+
+        list.appendChild(div);
+    });
+}
+
+
+function deleteVehicle(index) {
+
+    vehicles.splice(index, 1);
+
+    localStorage.setItem(
+        "vehicles",
+        JSON.stringify(vehicles)
+    );
+
+    displayVehicles();
+}
+
+
+/* ============================= */
+/* KIEROWCY */
+/* ============================= */
+
+function addDriver() {
+
+    const name =
+        document.getElementById("driverName").value.trim();
+
+    const login =
+        document.getElementById("driverLogin").value.trim();
+
+    if (!name || !login) {
+        alert("Uzupełnij dane kierowcy.");
+        return;
+    }
+
+    drivers.push({
+        name: name,
+        login: login
+    });
+
+    localStorage.setItem(
+        "drivers",
+        JSON.stringify(drivers)
+    );
+
+    document.getElementById("driverName").value = "";
+    document.getElementById("driverLogin").value = "";
+
+    displayDrivers();
+}
+
+
+function displayDrivers() {
+
+    const list =
+        document.getElementById("driverList");
+
+    list.innerHTML = "";
+
+    drivers.forEach(function(driver, index) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "card";
+
+        div.innerHTML = `
+            👨‍✈️ <b>${driver.name}</b><br>
+            Login: ${driver.login}<br>
+
+            <button onclick="deleteDriver(${index})">
+                🗑️ Usuń
+            </button>
+        `;
+
+        list.appendChild(div);
+    });
+}
+
+
+function deleteDriver(index) {
+
+    drivers.splice(index, 1);
+
+    localStorage.setItem(
+        "drivers",
+        JSON.stringify(drivers)
+    );
+
+    displayDrivers();
+}
+
+
+/* ============================= */
+/* LINIE */
+/* ============================= */
+
+function addLine() {
+
+    const number =
+        document.getElementById("lineNumber").value.trim();
+
+    const direction =
+        document.getElementById("lineDirection").value.trim();
+
+    if (!number || !direction) {
+        alert("Uzupełnij numer linii i kierunek.");
+        return;
+    }
+
+    lines.push({
+        number: number,
+        direction: direction
+    });
+
+    localStorage.setItem(
+        "lines",
+        JSON.stringify(lines)
+    );
+
+    document.getElementById("lineNumber").value = "";
+    document.getElementById("lineDirection").value = "";
+
+    displayLines();
+}
+
+
+function displayLines() {
+
+    const list =
+        document.getElementById("lineList");
+
+    list.innerHTML = "";
+
+    lines.forEach(function(line, index) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "card";
+
+        div.innerHTML = `
+            🚍 <b>Linia ${line.number}</b><br>
+            Kierunek: ${line.direction}<br>
+
+            <button onclick="deleteLine(${index})">
+                🗑️ Usuń
+            </button>
+        `;
+
+        list.appendChild(div);
+    });
+}
+
+
+function deleteLine(index) {
+
+    lines.splice(index, 1);
+
+    localStorage.setItem(
+        "lines",
+        JSON.stringify(lines)
+    );
+
+    displayLines();
+}
+
+
+/* ============================= */
+/* PRZYSTANKI */
+/* ============================= */
+
+function addStop() {
+
+    const name =
+        document.getElementById("stopName").value.trim();
+
+    if (!name) {
+        alert("Wpisz nazwę przystanku.");
+        return;
+    }
+
+    stops.push({
+        name: name
+    });
+
+    localStorage.setItem(
+        "stops",
+        JSON.stringify(stops)
+    );
+
+    document.getElementById("stopName").value = "";
+
+    displayStops();
+}
+
+
+function displayStops() {
+
+    const list =
+        document.getElementById("stopList");
+
+    list.innerHTML = "";
+
+    stops.forEach(function(stop, index) {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "card";
+
+        div.innerHTML = `
+            📍 <b>${stop.name}</b><br>
+
+            <button onclick="deleteStop(${index})">
+                🗑️ Usuń
+            </button>
+        `;
+
+        list.appendChild(div);
+    });
+}
+
+
+function deleteStop(index) {
+
+    stops.splice(index, 1);
+
+    localStorage.setItem(
+        "stops",
+        JSON.stringify(stops)
+    );
+
+    displayStops();
+}
+
+
+/* ============================= */
+/* URUCHOMIENIE */
+/* ============================= */
+
+displayVehicles();
+displayDrivers();
+displayLines();
+displayStops();
+
+</script>
+        <!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportowe Dzielnice</title>
+</head>
+
+<body>
+    <h1>Witaj na stronie Transportowe Dzielnice!</h1>
+
+    <p>To jest moja pierwsza strona internetowa.</p>
+
+    <h2>Transportowe Dzielnice</h2>
+
+    <p>
+        Witamy na naszej stronie poświęconej transportowi,
+        komunikacji miejskiej i naszym projektom.
+    </p>
+
+    <button>Dowiedz się więcej</button>
 </body>
 </html>
