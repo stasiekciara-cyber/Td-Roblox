@@ -199,3 +199,634 @@ footer{margin-top:40px;background:#123b5d;color:white;text-align:center;padding:
 
 </body>
 </html>
+
+        <!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef2f5;
+    color: #222;
+}
+
+header {
+    background: #1769aa;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+nav {
+    background: white;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px #0002;
+}
+
+nav button,
+button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    margin: 4px;
+    cursor: pointer;
+    background: #1769aa;
+    color: white;
+    font-size: 15px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px #0002;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-box {
+    max-width: 450px;
+    margin: 30px auto;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0 15px;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+}
+
+.card {
+    background: #f5f7f9;
+    padding: 18px;
+    margin: 10px 0;
+    border-radius: 9px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: #b00020;
+    font-weight: bold;
+}
+
+.logout {
+    background: #b3261e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #1769aa;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    background: #ddd;
+    padding: 25px;
+    margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚍 Transportowe Dzielnice</h1>
+    <p>Strona projektu komunikacji miejskiej</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">🏠 Start</button>
+    <button onclick="showPage('driverLogin')">🚌 Panel kierowcy</button>
+    <button onclick="showPage('adminLogin')">⚙️ Administracja</button>
+</nav>
+
+<div class="container">
+
+<!-- STRONA GŁÓWNA -->
+
+<section id="home" class="panel">
+    <h2>Witaj w Transportowych Dzielnicach!</h2>
+
+    <p>
+        To jest strona projektu Transportowe Dzielnice.
+        Znajdziesz tutaj informacje o autobusach, tramwajach,
+        liniach, przystankach oraz rozkładach jazdy.
+    </p>
+
+    <div class="card">
+        <h3>🚌 Komunikacja</h3>
+        <p>Autobusy i tramwaje Transportowych Dzielnic.</p>
+    </div>
+
+    <div class="card">
+        <h3>🚏 Linie i przystanki</h3>
+        <p>Informacje o trasach oraz przystankach.</p>
+    </div>
+
+    <div class="card">
+        <h3>📢 Aktualności</h3>
+        <p id="newsHome">
+            Brak nowych aktualności.
+        </p>
+    </div>
+</section>
+
+
+<!-- LOGOWANIE KIEROWCY -->
+
+<section id="driverLogin" class="panel login-box hidden">
+
+    <h2>🚌 Panel kierowcy</h2>
+
+    <label>Login</label>
+    <input id="driverUser" type="text" placeholder="Login">
+
+    <label>Hasło</label>
+    <input id="driverPassword" type="password" placeholder="Hasło">
+
+    <button onclick="driverLogin()">Zaloguj się</button>
+
+    <p id="driverMessage"></p>
+
+    <p>
+        Demo:
+        <b>kierowca</b> /
+        <b>1234</b>
+    </p>
+
+</section>
+
+
+<!-- PANEL KIEROWCY -->
+
+<section id="driverPanel" class="panel hidden">
+
+    <h2>🚌 Panel kierowcy</h2>
+
+    <div class="card">
+        <h3>👤 Kierowca</h3>
+        <p>Zalogowany jako: <b>kierowca</b></p>
+    </div>
+
+    <div class="card">
+        <h3>🚍 Przydzielony pojazd</h3>
+        <p>Solaris Urbino 18</p>
+        <p>Numer taborowy: 5870</p>
+    </div>
+
+    <div class="card">
+        <h3>🔵 Przydzielona linia</h3>
+        <p>Linia: X3</p>
+        <p>Kierunek: Metro Polinezyjskie</p>
+    </div>
+
+    <div class="card">
+        <h3>📅 Dzisiejszy kurs</h3>
+        <p>Rozpoczęcie służby: 08:00</p>
+        <p>Zakończenie służby: 16:00</p>
+    </div>
+
+    <button class="logout" onclick="logout()">
+        Wyloguj
+    </button>
+
+</section>
+
+
+<!-- LOGOWANIE ADMINA -->
+
+<section id="adminLogin" class="panel login-box hidden">
+
+    <h2>⚙️ Panel administracyjny</h2>
+
+    <label>Login</label>
+    <input id="adminUser" type="text" placeholder="Login">
+
+    <label>Hasło</label>
+    <input id="adminPassword" type="password" placeholder="Hasło">
+
+    <button onclick="adminLogin()">Zaloguj się</button>
+
+    <p id="adminMessage"></p>
+
+    <p>
+        Demo:
+        <b>admin</b> /
+        <b>1234</b>
+    </p>
+
+</section>
+
+
+<!-- PANEL ADMINISTRACYJNY -->
+
+<section id="adminPanel" class="panel hidden">
+
+    <h2>⚙️ Panel administracyjny</h2>
+
+    <p>
+        Witaj w panelu administracyjnym Transportowych Dzielnic.
+    </p>
+
+    <hr>
+
+    <!-- POJAZDY -->
+
+    <h2>🚍 Pojazdy</h2>
+
+    <div class="card">
+        <h3>Autobusy</h3>
+
+        <table>
+            <tr>
+                <th>Numer</th>
+                <th>Model</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>5870</td>
+                <td>Solaris Urbino 18</td>
+                <td>🟢 Dostępny</td>
+            </tr>
+
+            <tr>
+                <td>9870</td>
+                <td>Solaris Urbino 18</td>
+                <td>🟡 Na trasie</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="card">
+        <h3>Tramwaje</h3>
+
+        <table>
+            <tr>
+                <th>Numer</th>
+                <th>Model</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>1001</td>
+                <td>Tramwaj</td>
+                <td>🟢 Dostępny</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- LINIE -->
+
+    <h2>🚏 Linie</h2>
+
+    <div class="card">
+
+        <table>
+            <tr>
+                <th>Linia</th>
+                <th>Kierunek</th>
+            </tr>
+
+            <tr>
+                <td>X3</td>
+                <td>Metro Polinezyjskie</td>
+            </tr>
+
+            <tr>
+                <td>X7</td>
+                <td>Ośrodek psychiatrii dzieci i młodzieży</td>
+            </tr>
+
+            <tr>
+                <td>185</td>
+                <td>Aleja Witosa</td>
+            </tr>
+
+            <tr>
+                <td>187</td>
+                <td>Stegny</td>
+            </tr>
+
+            <tr>
+                <td>B7</td>
+                <td>SP 109 im. Mikołaja Bielańskiego</td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <!-- PRZYSTANKI -->
+
+    <h2>📍 Przystanki</h2>
+
+    <div class="card">
+
+        <ul>
+            <li>Al. Witosa</li>
+            <li>Gołgowska</li>
+            <li>Limanowskiego</li>
+            <li>Goraszewska</li>
+            <li>Klarysewska</li>
+            <li>Świętego Bonifacego</li>
+            <li>Batumi</li>
+            <li>Stegny</li>
+        </ul>
+
+    </div>
+
+
+    <!-- ROZKŁAD -->
+
+    <h2>📅 Rozkład jazdy</h2>
+
+    <div class="card">
+
+        <label>Wybierz linię:</label>
+
+        <select id="lineSelect">
+            <option value="X3">X3</option>
+            <option value="X7">X7</option>
+            <option value="185">185</option>
+            <option value="187">187</option>
+            <option value="B7">B7</option>
+        </select>
+
+        <button onclick="showSchedule()">
+            Pokaż rozkład
+        </button>
+
+        <div id="schedule"></div>
+
+    </div>
+
+
+    <!-- AKTUALNOŚCI -->
+
+    <h2>📢 Aktualności</h2>
+
+    <div class="card">
+
+        <input
+            id="newsInput"
+            type="text"
+            placeholder="Wpisz aktualność"
+        >
+
+        <button onclick="addNews()">
+            Dodaj aktualność
+        </button>
+
+        <div id="newsList"></div>
+
+    </div>
+
+
+    <button class="logout" onclick="logout()">
+        Wyloguj administratora
+    </button>
+
+</section>
+
+</div>
+
+
+<footer>
+    © 2026 Transportowe Dzielnice
+</footer>
+
+
+<script>
+
+function showPage(page) {
+
+    const pages = [
+        "home",
+        "driverLogin",
+        "driverPanel",
+        "adminLogin",
+        "adminPanel"
+    ];
+
+    pages.forEach(function(id) {
+        document.getElementById(id).classList.add("hidden");
+    });
+
+    document.getElementById(page).classList.remove("hidden");
+}
+
+
+/* LOGOWANIE KIEROWCY */
+
+function driverLogin() {
+
+    const login =
+        document.getElementById("driverUser").value;
+
+    const password =
+        document.getElementById("driverPassword").value;
+
+    if (login === "kierowca" && password === "1234") {
+
+        document.getElementById("driverMessage").innerHTML =
+            "<span class='success'>Zalogowano!</span>";
+
+        showPage("driverPanel");
+
+    } else {
+
+        document.getElementById("driverMessage").innerHTML =
+            "<span class='error'>Nieprawidłowy login lub hasło.</span>";
+
+    }
+}
+
+
+/* LOGOWANIE ADMINA */
+
+function adminLogin() {
+
+    const login =
+        document.getElementById("adminUser").value;
+
+    const password =
+        document.getElementById("adminPassword").value;
+
+    if (login === "admin" && password === "1234") {
+
+        document.getElementById("adminMessage").innerHTML =
+            "<span class='success'>Zalogowano!</span>";
+
+        showPage("adminPanel");
+
+    } else {
+
+        document.getElementById("adminMessage").innerHTML =
+            "<span class='error'>Nieprawidłowy login lub hasło.</span>";
+
+    }
+}
+
+
+/* WYLOGOWANIE */
+
+function logout() {
+    showPage("home");
+}
+
+
+/* ROZKŁAD */
+
+function showSchedule() {
+
+    const line =
+        document.getElementById("lineSelect").value;
+
+    const schedules = {
+
+        "X3": [
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "12:00",
+            "14:00",
+            "16:00"
+        ],
+
+        "X7": [
+            "06:30",
+            "08:30",
+            "10:30",
+            "12:30",
+            "14:30",
+            "16:30"
+        ],
+
+        "185": [
+            "05:40",
+            "06:10",
+            "06:40",
+            "07:10",
+            "07:40",
+            "08:10"
+        ],
+
+        "187": [
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00"
+        ],
+
+        "B7": [
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00"
+        ]
+
+    };
+
+    let html = "<h3>Linia " + line + "</h3>";
+
+    html += "<ul>";
+
+    schedules[line].forEach(function(time) {
+        html += "<li>" + time + "</li>";
+    });
+
+    html += "</ul>";
+
+    document.getElementById("schedule").innerHTML = html;
+}
+
+
+/* AKTUALNOŚCI */
+
+function addNews() {
+
+    const input =
+        document.getElementById("newsInput");
+
+    const text = input.value.trim();
+
+    if (text === "") {
+        return;
+    }
+
+    const item =
+        document.createElement("p");
+
+    item.innerHTML = "📢 " + text;
+
+    document.getElementById("newsList").appendChild(item);
+
+    document.getElementById("newsHome").innerText = text;
+
+    input.value = "";
+}
+
+</script>
+
+</body>
+</html>
