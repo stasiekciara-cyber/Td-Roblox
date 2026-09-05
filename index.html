@@ -2113,4 +2113,128 @@ displayStops();
         }
     }
 </script>
+<!-- ================================
+     ZABEZPIECZENIE STRONY
+     TRANSPORTOWE DZIELNICE
+     ================================ -->
 
+<style>
+
+    /* Blokada zaznaczania tekstu */
+    body {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+
+    /* Pozwala zaznaczać tekst w polach formularzy */
+    input,
+    textarea,
+    select {
+        user-select: text;
+        -webkit-user-select: text;
+    }
+
+</style>
+
+<script>
+
+    // Blokada prawego przycisku myszy
+    document.addEventListener("contextmenu", function(event) {
+        event.preventDefault();
+    });
+
+
+    // Blokada wybranych skrótów klawiaturowych
+    document.addEventListener("keydown", function(event) {
+
+        // Ctrl + C
+        if (event.ctrlKey && event.key.toLowerCase() === "c") {
+            event.preventDefault();
+        }
+
+        // Ctrl + U
+        if (event.ctrlKey && event.key.toLowerCase() === "u") {
+            event.preventDefault();
+        }
+
+        // Ctrl + S
+        if (event.ctrlKey && event.key.toLowerCase() === "s") {
+            event.preventDefault();
+        }
+
+        // Ctrl + Shift + I
+        if (
+            event.ctrlKey &&
+            event.shiftKey &&
+            event.key.toLowerCase() === "i"
+        ) {
+            event.preventDefault();
+        }
+
+        // Ctrl + Shift + J
+        if (
+            event.ctrlKey &&
+            event.shiftKey &&
+            event.key.toLowerCase() === "j"
+        ) {
+            event.preventDefault();
+        }
+
+        // F12
+        if (event.key === "F12") {
+            event.preventDefault();
+        }
+
+    });
+
+</script>
+
+
+<footer class="copyright">
+
+    <p>
+        © 2026 Transportowe Dzielnice.
+        Wszelkie prawa zastrzeżone.
+    </p>
+
+    <p>
+        Kopiowanie, modyfikowanie lub publikowanie
+        strony bez zgody właściciela jest zabronione.
+    </p>
+
+</footer>
+       LOGOWANIE
+   ↓
+SPRAWDZENIE KONTA
+   ↓
+SPRAWDZENIE ROLI
+   ↓
+┌───────────────────────┐
+│ Administrator → ADMIN │
+│ Kierowca → KIEROWCA   │
+│ Motorniczy → TRAMWAJ  │
+│ Dyspozytor → DYSP     │
+│ Użytkownik → BRAK     │
+└───────────────────────┘
+const kierowca = "kierowca";
+const haslo = "7531
+               TRANSPORTOWE DZIELNICE
+              PANEL KIEROWCY
+
+        👤 Login kierowcy
+        [____kierowca__________]
+
+        🔒 Hasło
+        [_____7531_________]
+
+        [   ZALOGUJ SIĘ   ]
+
+                 ↓
+
+          sprawdzenie konta
+
+                 ↓
+
+        ✅ Kierowca → dostęp
+        ❌ Inna osoba → brak dostępu";
