@@ -1,1854 +1,166 @@
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f8;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      padding: 25px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 16px;
-      opacity: 0.95;
-    }
-
-    nav {
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 55px 20px;
-      background: white;
-    }
-
-    .hero h2 {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    .buttons {
-      margin-top: 25px;
-    }
-
-    .button {
-      display: inline-block;
-      margin: 5px;
-      padding: 13px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      background: #0b5ed7;
-      color: white;
-    }
-
-    .button.discord {
-      background: #5865F2;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .section h2 {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-      color: #0b5ed7;
-    }
-
-    .card p {
-      color: #666;
-      line-height: 1.5;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    footer p {
-      margin: 5px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🚍 Transportowe Dzielnice</h1>
-    <p>Oficjalna strona projektu transportowego</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <section class="hero">
-    <h2>Witamy w Transportowych Dzielnicach! 👋</h2>
-
-    <p>
-      Transportowe Dzielnice to projekt związany z komunikacją miejską,
-      transportem oraz światem Roblox. Znajdziesz tutaj informacje o liniach,
-      pojazdach, rozkładach jazdy, mapach i wielu innych elementach projektu.
-    </p>
-
-    <div class="buttons">
-      <a class="button" href="#">🎮 Zagraj w Roblox</a>
-      <a class="button discord" href="#">💬 Dołącz do Discorda</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>🚍 Co znajdziesz na stronie?</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>🚍 Linie</h3>
-        <p>
-          Sprawdź numery linii, kierunki oraz listę przystanków.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🕐 Rozkłady</h3>
-        <p>
-          Zobacz rozkłady jazdy autobusów, tramwajów i innych pojazdów.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🚌 Pojazdy</h3>
-        <p>
-          Poznaj flotę Transportowych Dzielnic i numery taborowe.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🗺️ Mapa</h3>
-        <p>
-          Zobacz dzielnice, ulice, przystanki, dworce i zajezdnie.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🔊 Zapowiedzi</h3>
-        <p>
-          Informacje o zapowiedziach przystankowych i komunikatach.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📢 Aktualności</h3>
-        <p>
-          Najnowsze informacje, aktualizacje oraz wydarzenia projektu.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>📢 Ostatnie informacje</h2>
-
-    <div class="card">
-      <h3>🚍 Start nowej strony</h3>
-      <p>
-        Witamy na oficjalnej stronie Transportowych Dzielnic.
-        Kolejne funkcje będą dodawane podczas rozwoju projektu.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Linie | Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f8;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    nav {
-      background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      margin-bottom: 30px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .line {
-      background: white;
-      border-radius: 14px;
-      margin-bottom: 25px;
-      padding: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .line-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .number {
-      background: #0b5ed7;
-      color: white;
-      font-size: 28px;
-      font-weight: bold;
-      padding: 10px 18px;
-      border-radius: 10px;
-    }
-
-    .direction {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .route {
-      list-style: none;
-      margin-top: 15px;
-    }
-
-    .route li {
-      position: relative;
-      padding: 12px 15px 12px 35px;
-      border-left: 3px solid #0b5ed7;
-      margin-left: 10px;
-      background: #f7f9fc;
-      margin-bottom: 4px;
-    }
-
-    .route li::before {
-      content: "";
-      position: absolute;
-      left: -9px;
-      top: 13px;
-      width: 12px;
-      height: 12px;
-      background: #0b5ed7;
-      border-radius: 50%;
-    }
-
-    .end {
-      font-weight: bold;
-      background: #e7f0ff !important;
-    }
-
-    .unknown {
-      border-left-color: #888;
-    }
-
-    .unknown::before {
-      background: #888 !important;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 25px;
-      }
-
-      .direction {
-        font-size: 17px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🚍 Linie Transportowych Dzielnic</h1>
-    <p>Trasy, kierunki i przystanki</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <main class="container">
-
-    <section class="intro">
-      <h2>🚍 Linie autobusowe</h2>
-      <p>
-        Poniżej znajdują się aktualnie ustalone trasy komunikacji
-        Transportowych Dzielnic.
-      </p>
-    </section>
-
-    <!-- G1 -->
-
-    <section class="line">
-
-      <div class="line-header">
-        <div class="number">G1</div>
-        <div class="direction">
-          Kierunek: Zajezdnia PKS
-        </div>
-      </div>
-
-      <h3>📍 Trasa G1</h3>
-
-      <ol class="route">
-        <li>Zajezdnia PKS</li>
-        <li>Osiedlowa</li>
-        <li>Zajezdnia MZK</li>
-        <li class="end">Zajezdnia Osiedle Derby — koniec trasy</li>
-      </ol>
-
-    </section>
-
-
-    <!-- G2 -->
-
-    <section class="line">
-
-      <div class="line-header">
-        <div class="number">G2</div>
-        <div class="direction">
-          Kierunek: Osiedle Zamkowe
-        </div>
-      </div>
-
-      <h3>📍 Trasa G2</h3>
-
-      <ol class="route">
-        <li>Zamkowa</li>
-        <li>Osiedle MZK</li>
-        <li>Mazowieckie Centrum Neuropsychiatrii Rybno</li>
-        <li>Osiedle Ząbkowskiego</li>
-        <li class="end">Osiedle Zamkowe — koniec trasy</li>
-      </ol>
-
-    </section>
-
-
-    <!-- G3 -->
-
-    <section class="line">
-
-      <div class="line-header">
-        <div class="number">G3</div>
-        <div class="direction">
-          Trasa w przygotowaniu
-        </div>
-      </div>
-
-      <h3>📍 Linia G3</h3>
-
-      <ol class="route">
-        <li class="unknown">
-          Trasa G3 zostanie dodana po ustaleniu przystanków.
-        </li>
-      </ol>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rozkłady jazdy | Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f8;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    nav {
-      background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      margin-bottom: 30px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .timetable {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .timetable h2 {
-      color: #0b5ed7;
-      margin-bottom: 8px;
-    }
-
-    .direction {
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .times {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 10px;
-    }
-
-    .time {
-      background: #f2f5f8;
-      padding: 14px;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .soon {
-      background: #e7f0ff;
-      border: 2px dashed #0b5ed7;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      color: #555;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 25px;
-      }
-
-      .times {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🕐 Rozkłady jazdy</h1>
-    <p>Transportowe Dzielnice</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <main class="container">
-
-    <section class="intro">
-      <h2>📅 Rozkład jazdy</h2>
-      <p>
-        Wybierz interesującą Cię linię i sprawdź godziny odjazdów.
-      </p>
-    </section>
-
-    <!-- G1 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G1</h2>
-
-      <p class="direction">
-        Kierunek: <strong>Zajezdnia PKS</strong>
-      </p>
-
-      <h3>Odjazdy</h3>
-
-      <div class="times">
-        <div class="time">06:00</div>
-        <div class="time">06:30</div>
-        <div class="time">07:00</div>
-        <div class="time">07:30</div>
-        <div class="time">08:00</div>
-        <div class="time">08:30</div>
-        <div class="time">09:00</div>
-        <div class="time">09:30</div>
-        <div class="time">10:00</div>
-        <div class="time">10:30</div>
-        <div class="time">11:00</div>
-        <div class="time">11:30</div>
-        <div class="time">12:00</div>
-        <div class="time">12:30</div>
-        <div class="time">13:00</div>
-        <div class="time">13:30</div>
-        <div class="time">14:00</div>
-        <div class="time">14:30</div>
-        <div class="time">15:00</div>
-        <div class="time">15:30</div>
-        <div class="time">16:00</div>
-        <div class="time">16:30</div>
-        <div class="time">17:00</div>
-        <div class="time">17:30</div>
-        <div class="time">18:00</div>
-        <div class="time">18:30</div>
-        <div class="time">19:00</div>
-        <div class="time">19:30</div>
-        <div class="time">20:00</div>
-      </div>
-
-    </section>
-
-
-    <!-- G2 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G2</h2>
-
-      <p class="direction">
-        Kierunek: <strong>Osiedle Zamkowe</strong>
-      </p>
-
-      <h3>Odjazdy</h3>
-
-      <div class="times">
-        <div class="time">06:15</div>
-        <div class="time">06:45</div>
-        <div class="time">07:15</div>
-        <div class="time">07:45</div>
-        <div class="time">08:15</div>
-        <div class="time">08:45</div>
-        <div class="time">09:15</div>
-        <div class="time">09:45</div>
-        <div class="time">10:15</div>
-        <div class="time">10:45</div>
-        <div class="time">11:15</div>
-        <div class="time">11:45</div>
-        <div class="time">12:15</div>
-        <div class="time">12:45</div>
-        <div class="time">13:15</div>
-        <div class="time">13:45</div>
-        <div class="time">14:15</div>
-        <div class="time">14:45</div>
-        <div class="time">15:15</div>
-        <div class="time">15:45</div>
-        <div class="time">16:15</div>
-        <div class="time">16:45</div>
-        <div class="time">17:15</div>
-        <div class="time">17:45</div>
-        <div class="time">18:15</div>
-        <div class="time">18:45</div>
-        <div class="time">19:15</div>
-        <div class="time">19:45</div>
-        <div class="time">20:15</div>
-      </div>
-
-    </section>
-
-
-    <!-- G3 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G3</h2>
-
-      <p class="direction">
-        Kierunek: <strong>W przygotowaniu</strong>
-      </p>
-
-      <div class="soon">
-        🚧 Rozkład linii G3 zostanie dodany
-        po ustaleniu trasy i godzin odjazdów.
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rozkłady jazdy | Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f8;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    nav {
-      background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      margin-bottom: 30px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .timetable {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .timetable h2 {
-      color: #0b5ed7;
-      margin-bottom: 8px;
-    }
-
-    .direction {
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .times {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 10px;
-    }
-
-    .time {
-      background: #f2f5f8;
-      padding: 14px;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .soon {
-      background: #e7f0ff;
-      border: 2px dashed #0b5ed7;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      color: #555;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 25px;
-      }
-
-      .times {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🕐 Rozkłady jazdy</h1>
-    <p>Transportowe Dzielnice</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <main class="container">
-
-    <section class="intro">
-      <h2>📅 Rozkład jazdy</h2>
-      <p>
-        Wybierz interesującą Cię linię i sprawdź godziny odjazdów.
-      </p>
-    </section>
-
-    <!-- G1 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G1</h2>
-
-      <p class="direction">
-        Kierunek: <strong>Zajezdnia PKS</strong>
-      </p>
-
-      <h3>Odjazdy</h3>
-
-      <div class="times">
-        <div class="time">06:00</div>
-        <div class="time">06:30</div>
-        <div class="time">07:00</div>
-        <div class="time">07:30</div>
-        <div class="time">08:00</div>
-        <div class="time">08:30</div>
-        <div class="time">09:00</div>
-        <div class="time">09:30</div>
-        <div class="time">10:00</div>
-        <div class="time">10:30</div>
-        <div class="time">11:00</div>
-        <div class="time">11:30</div>
-        <div class="time">12:00</div>
-        <div class="time">12:30</div>
-        <div class="time">13:00</div>
-        <div class="time">13:30</div>
-        <div class="time">14:00</div>
-        <div class="time">14:30</div>
-        <div class="time">15:00</div>
-        <div class="time">15:30</div>
-        <div class="time">16:00</div>
-        <div class="time">16:30</div>
-        <div class="time">17:00</div>
-        <div class="time">17:30</div>
-        <div class="time">18:00</div>
-        <div class="time">18:30</div>
-        <div class="time">19:00</div>
-        <div class="time">19:30</div>
-        <div class="time">20:00</div>
-      </div>
-
-    </section>
-
-
-    <!-- G2 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G2</h2>
-
-      <p class="direction">
-        Kierunek: <strong>Osiedle Zamkowe</strong>
-      </p>
-
-      <h3>Odjazdy</h3>
-
-      <div class="times">
-        <div class="time">06:15</div>
-        <div class="time">06:45</div>
-        <div class="time">07:15</div>
-        <div class="time">07:45</div>
-        <div class="time">08:15</div>
-        <div class="time">08:45</div>
-        <div class="time">09:15</div>
-        <div class="time">09:45</div>
-        <div class="time">10:15</div>
-        <div class="time">10:45</div>
-        <div class="time">11:15</div>
-        <div class="time">11:45</div>
-        <div class="time">12:15</div>
-        <div class="time">12:45</div>
-        <div class="time">13:15</div>
-        <div class="time">13:45</div>
-        <div class="time">14:15</div>
-        <div class="time">14:45</div>
-        <div class="time">15:15</div>
-        <div class="time">15:45</div>
-        <div class="time">16:15</div>
-        <div class="time">16:45</div>
-        <div class="time">17:15</div>
-        <div class="time">17:45</div>
-        <div class="time">18:15</div>
-        <div class="time">18:45</div>
-        <div class="time">19:15</div>
-        <div class="time">19:45</div>
-        <div class="time">20:15</div>
-      </div>
-
-    </section>
-
-
-    <!-- G3 -->
-
-    <section class="timetable">
-
-      <h2>🚍 Linia G3</h2>
-
-      <p class="direction">
-        Kierunek: <strong>W przygotowaniu</strong>
-      </p>
-
-      <div class="soon">
-        🚧 Rozkład linii G3 zostanie dodany
-        po ustaleniu trasy i godzin odjazdów.
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Mapa | Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #eef2f5;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    nav {
-      background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 14px;
-      text-align: center;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .map {
-      position: relative;
-      width: 100%;
-      height: 650px;
-      background: #dfe8d8;
-      border: 5px solid white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    }
-
-    /* DZIELNICE */
-
-    .district {
-      position: absolute;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      font-weight: bold;
-      border: 2px solid rgba(0,0,0,0.15);
-    }
-
-    .centrum {
-      top: 180px;
-      left: 370px;
-      width: 280px;
-      height: 190px;
-      background: #f7d794;
-    }
-
-    .polnoc {
-      top: 20px;
-      left: 350px;
-      width: 320px;
-      height: 130px;
-      background: #b8e0d2;
-    }
-
-    .zachod {
-      top: 180px;
-      left: 20px;
-      width: 300px;
-      height: 190px;
-      background: #c7d8ff;
-    }
-
-    .wschod {
-      top: 180px;
-      right: 20px;
-      width: 300px;
-      height: 190px;
-      background: #f6c5d0;
-    }
-
-    .poludnie {
-      bottom: 20px;
-      left: 350px;
-      width: 320px;
-      height: 190px;
-      background: #c8e6a0;
-    }
-
-    /* ULICE */
-
-    .road {
-      position: absolute;
-      background: #777;
-      z-index: 5;
-    }
-
-    .road.horizontal {
-      height: 14px;
-      left: 0;
-      right: 0;
-    }
-
-    .road.vertical {
-      width: 14px;
-      top: 0;
-      bottom: 0;
-    }
-
-    .road.one {
-      top: 175px;
-    }
-
-    .road.two {
-      top: 365px;
-    }
-
-    .road.three {
-      left: 345px;
-    }
-
-    .road.four {
-      right: 335px;
-    }
-
-    /* PRZYSTANKI */
-
-    .stop {
-      position: absolute;
-      z-index: 20;
-      background: #0b5ed7;
-      color: white;
-      padding: 7px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.25);
-    }
-
-    .stop1 {
-      top: 160px;
-      left: 365px;
-    }
-
-    .stop2 {
-      top: 350px;
-      left: 300px;
-    }
-
-    .stop3 {
-      top: 350px;
-      right: 300px;
-    }
-
-    .stop4 {
-      bottom: 200px;
-      left: 365px;
-    }
-
-    .stop5 {
-      top: 90px;
-      left: 670px;
-    }
-
-    /* DWORCE */
-
-    .station {
-      position: absolute;
-      z-index: 30;
-      background: #17202a;
-      color: white;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .station1 {
-      top: 35px;
-      left: 25px;
-    }
-
-    .station2 {
-      bottom: 30px;
-      right: 25px;
-    }
-
-    /* ZAJEZDNIE */
-
-    .depot {
-      position: absolute;
-      z-index: 30;
-      background: #e67e22;
-      color: white;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .depot1 {
-      top: 30px;
-      right: 25px;
-    }
-
-    .depot2 {
-      bottom: 30px;
-      left: 25px;
-    }
-
-    /* LEGENDA */
-
-    .legend {
-      background: white;
-      margin-top: 25px;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .legend h2 {
-      margin-bottom: 15px;
-    }
-
-    .legend-item {
-      display: inline-block;
-      margin: 8px 15px 8px 0;
-      font-weight: bold;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-
-    @media (max-width: 700px) {
-      .map {
-        height: 500px;
-      }
-
-      .district {
-        padding: 10px;
-        font-size: 11px;
-      }
-
-      .centrum {
-        left: 25%;
-        width: 50%;
-      }
-
-      .polnoc,
-      .poludnie {
-        left: 25%;
-        width: 50%;
-      }
-
-      .zachod {
-        left: 10px;
-        width: 25%;
-      }
-
-      .wschod {
-        right: 10px;
-        width: 25%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🗺️ Mapa Transportowych Dzielnic</h1>
-    <p>Dzielnice, ulice, przystanki, dworce i zajezdnie</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <main class="container">
-
-    <section class="intro">
-      <h2>🏙️ Plan miasta</h2>
-      <p>
-        Schematyczna mapa Transportowych Dzielnic.
-        Kolejne ulice, przystanki i linie mogą być dodawane wraz z rozwojem projektu.
-      </p>
-    </section>
-
-    <section class="map">
-
-      <!-- DZIELNICE -->
-
-      <div class="district polnoc">
-        🏘️ DZIELNICA PÓŁNOCNA
-      </div>
-
-      <div class="district zachod">
-        🏘️ DZIELNICA ZACHODNIA
-      </div>
-
-      <div class="district centrum">
-        🏙️ CENTRUM<br>
-        WIELKIE MIASTO
-      </div>
-
-      <div class="district wschod">
-        🏘️ DZIELNICA WSCHODNIA
-      </div>
-
-      <div class="district poludnie">
-        🏘️ DZIELNICA POŁUDNIOWA
-      </div>
-
-      <!-- ULICE -->
-
-      <div class="road horizontal one"></div>
-      <div class="road horizontal two"></div>
-
-      <div class="road vertical three"></div>
-      <div class="road vertical four"></div>
-
-      <!-- PRZYSTANKI -->
-
-      <div class="stop stop1">
-        🚏 Centrum
-      </div>
-
-      <div class="stop stop2">
-        🚏 Osiedlowa
-      </div>
-
-      <div class="stop stop3">
-        🚏 Zamkowa
-      </div>
-
-      <div class="stop stop4">
-        🚏 Południowa
-      </div>
-
-      <div class="stop stop5">
-        🚏 Północna
-      </div>
-
-      <!-- DWORCE -->
-
-      <div class="station station1">
-        🚉 Dworzec Główny
-      </div>
-
-      <div class="station station2">
-        🚉 Dworzec Południowy
-      </div>
-
-      <!-- ZAJEZDNIE -->
-
-      <div class="depot depot1">
-        🏢 Zajezdnia PKS
-      </div>
-
-      <div class="depot depot2">
-        🏢 Zajezdnia MZK
-      </div>
-
-    </section>
-
-    <section class="legend">
-
-      <h2>📍 Legenda</h2>
-
-      <div class="legend-item">
-        🚏 Przystanek
-      </div>
-
-      <div class="legend-item">
-        🚉 Dworzec
-      </div>
-
-      <div class="legend-item">
-        🏢 Zajezdnia
-      </div>
-
-      <div class="legend-item">
-        🏙️ Centrum
-      </div>
-
-      <div class="legend-item">
-        🏘️ Dzielnica
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Zapowiedzi | Transportowe Dzielnice</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f5f8;
-      color: #17202a;
-    }
-
-    header {
-      background: #0b5ed7;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-
-    nav {
-      background: white;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #0b5ed7;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 8px;
-    }
-
-    nav a:hover {
-      background: #e7f0ff;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 35px auto;
-      padding: 0 20px;
-    }
-
-    .intro,
-    .announcement {
-      background: white;
-      border-radius: 14px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .intro {
-      text-align: center;
-    }
-
-    .announcement h2 {
-      color: #0b5ed7;
-      margin-bottom: 10px;
-    }
-
-    .announcement p {
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .announcement-text {
-      background: #f2f5f8;
-      border-left: 5px solid #0b5ed7;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0;
-      font-weight: bold;
-    }
-
-    button {
-      border: none;
-      background: #0b5ed7;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    button:hover {
-      opacity: 0.85;
-    }
-
-    .stop-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-
-    .stop {
-      background: #f7f9fc;
-      border: 1px solid #ddd;
-      padding: 15px;
-      border-radius: 8px;
-    }
-
-    .stop strong {
-      color: #0b5ed7;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #17202a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <h1>🔊 Zapowiedzi przystankowe</h1>
-    <p>Transportowe Dzielnice</p>
-  </header>
-
-  <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="linie.html">🚍 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚌 Pojazdy</a>
-    <a href="mapa.html">🗺️ Mapa</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="kontakt.html">📞 Kontakt</a>
-  </nav>
-
-  <main class="container">
-
-    <section class="intro">
-      <h2>🔊 System zapowiedzi</h2>
-
-      <p>
-        Tutaj znajdują się przykładowe zapowiedzi przystankowe
-        Transportowych Dzielnic.
-      </p>
-    </section>
-
-    <!-- G1 -->
-
-    <section class="announcement">
-
-      <h2>🚍 Linia G1</h2>
-
-      <p>
-        Kierunek: <strong>Zajezdnia PKS</strong>
-      </p>
-
-      <div class="announcement-text">
-        „Następny przystanek: Osiedlowa.”
-      </div>
-
-      <button onclick="speak('Następny przystanek: Osiedlowa.')">
-        🔊 Odtwórz zapowiedź
-      </button>
-
-      <div class="stop-list">
-
-        <div class="stop">
-          🚏 <strong>Zajezdnia PKS</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Osiedlowa</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Zajezdnia MZK</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Zajezdnia Osiedle Derby</strong>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- G2 -->
-
-    <section class="announcement">
-
-      <h2>🚍 Linia G2</h2>
-
-      <p>
-        Kierunek: <strong>Osiedle Zamkowe</strong>
-      </p>
-
-      <div class="announcement-text">
-        „Następny przystanek: Osiedle MZK.”
-      </div>
-
-      <button onclick="speak('Następny przystanek: Osiedle MZK.')">
-        🔊 Odtwórz zapowiedź
-      </button>
-
-      <div class="stop-list">
-
-        <div class="stop">
-          🚏 <strong>Zamkowa</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Osiedle MZK</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Mazowieckie Centrum Neuropsychiatrii Rybno</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Osiedle Ząbkowskiego</strong>
-        </div>
-
-        <div class="stop">
-          🚏 <strong>Osiedle Zamkowe</strong>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- KONIEC TRASY -->
-
-    <section class="announcement">
-
-      <h2>🏁 Zapowiedź końcowa</h2>
-
-      <div class="announcement-text">
-        „Koniec trasy. Prosimy o opuszczenie pojazdu.”
-      </div>
-
-      <button onclick="speak('Koniec trasy. Prosimy o opuszczenie pojazdu.')">
-        🔊 Odtwórz zapowiedź
-      </button>
-
-    </section>
-
-
-    <!-- DRZWI -->
-
-    <section class="announcement">
-
-      <h2>🚪 Komunikaty drzwi</h2>
-
-      <div class="announcement-text">
-        „Proszę odsunąć się od drzwi.”
-      </div>
-
-      <button onclick="speak('Proszę odsunąć się od drzwi.')">
-        🔊 Odtwórz
-      </button>
-
-      <div class="announcement-text">
-        „Drzwi zamykają się.”
-      </div>
-
-      <button onclick="speak('Drzwi zamykają się.')">
-        🔊 Odtwórz
-      </button>
-
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>🚍 Transportowe Dzielnice</strong></p>
-    <p>© 2026 Transportowe Dzielnice</p>
-  </footer>
-
-
-  <script>
-
-    function speak(text) {
-
-      if ("speechSynthesis" in window) {
-
-        window.speechSynthesis.cancel();
-
-        const message = new SpeechSynthesisUtterance(text);
-
-        message.lang = "pl-PL";
-        message.rate = 0.9;
-        message.pitch = 1;
-
-        window.speechSynthesis.speak(message);
-
-      } else {
-
-        alert("Twoja przeglądarka nie obsługuje odtwarzania mowy.");
-
-      }
-
-    }
-
-  </script>
-
-</body>
-</html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linie — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f4f7;
+    color: #17202a;
+}
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 20px 7%;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 13px;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,.2);
+}
+
+.hero {
+    background: linear-gradient(135deg, #004d80, #0094c6);
+    color: white;
+    padding: 70px 7%;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 65px);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 55px 7%;
+}
+
+.title {
+    margin-bottom: 25px;
+}
+
+.title h2 {
+    font-size: 32px;
+    margin-bottom: 7px;
+}
+
+.title p {
+    color: #66727c;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+}
+
+.line {
+    background: white;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.08);
+    transition: .2s;
+}
+
+.line:hover {
+    transform: translateY(-4px);
+}
+
+.number {
+    display: inline-flex;
+    min-width: 65px;
+    height: 44px;
+    padding: 0 12px;
+    justify-content: center;
+    align-items: center;
+    background: #008bc2;
+    color: white;
+    border-radius: 8px;
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.line h3 {
+    margin-bottom: 8px;
+}
+
+.route {
+    color: #66727c;
+    line-height: 1.5;
+}
+
+.tram .number {
+    background: #d71920;
+}
+
+.metro .number {
+    background: #333;
+}
+
+.info {
+    margin-
+```
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt | Transportowe Dzielnice</title>
+
+    <title>Transportowe Dzielnice — Warszawa Mokotów</title>
 
     <style>
         * {
@@ -1858,1036 +170,322 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #eef3f8;
-            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f4f7;
+            color: #17202a;
         }
 
         header {
-            background: #0878d1;
+            background: linear-gradient(135deg, #005b96, #008bc2);
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 18px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,.18);
         }
 
-        header h1 {
-            margin-bottom: 12px;
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            opacity: .85;
+            margin-top: 3px;
         }
 
         nav {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: flex-end;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            background: rgba(255,255,255,0.15);
             padding: 9px 13px;
             border-radius: 8px;
+            font-size: 14px;
+            transition: .2s;
         }
 
         nav a:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
+            background: rgba(255,255,255,.18);
         }
 
         .hero {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(rgba(0,65,105,.78), rgba(0,120,165,.72)),
+                radial-gradient(circle at 80% 20%, #f6c945 0 8%, transparent 9%),
+                linear-gradient(135deg, #123, #167);
+            color: white;
         }
 
-        .hero h2 {
-            color: #0878d1;
-            margin-bottom: 10px;
+        .hero-content {
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f4c542;
+            color: #17202a;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 72px);
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 19px;
+            line-height: 1.6;
+            opacity: .95;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary {
+            background: #f4c542;
+            color: #17202a;
+        }
+
+        .secondary {
+            background: white;
+            color: #005b96;
+        }
+
+        section {
+            padding: 65px 7%;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-title {
+            margin-bottom: 28px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #65727e;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
         }
 
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            border-top: 5px solid #008bc2;
+            transition: .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 9px 25px rgba(0,0,0,.12);
+        }
+
+        .card .icon {
+            font-size: 34px;
+            margin-bottom: 14px;
         }
 
         .card h3 {
-            color: #0878d1;
-            margin-bottom: 12px;
+            margin-bottom: 9px;
         }
 
         .card p {
+            color: #65727e;
+            line-height: 1.5;
+        }
+
+        .lines {
+            background: #e8edf1;
+        }
+
+        .line-card {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.06);
+        }
+
+        .line-number {
+            min-width: 62px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #008bc2;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .line-card strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .line-card span {
+            color: #65727e;
+            font-size: 14px;
+        }
+
+        .event {
+            background: linear-gradient(135deg, #151515, #292929);
+            color: white;
+        }
+
+        .event-box {
+            display: grid;
+            grid-template-columns: 1.4fr .8fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .event h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .event p {
+            color: #ddd;
             line-height: 1.6;
         }
 
-        .contact-button {
-            display: inline-block;
-            margin-top: 15px;
-            background: #0878d1;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 8px;
-            text-decoration: none;
+        .event-info {
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 16px;
+            padding: 25px;
         }
 
-        .contact-button:hover {
-            background: #075fa6;
+        .news {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
         }
 
-        form {
-            margin-top: 15px;
+        .news article {
+            background: white;
+            padding: 24px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
         }
 
-        label {
-            display: block;
-            margin-top: 12px;
-            margin-bottom: 5px;
+        .news-date {
+            color: #008bc2;
+            font-size: 13px;
             font-weight: bold;
+            margin-bottom: 9px;
         }
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
+        .news h3 {
+            margin-bottom: 9px;
         }
 
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        button {
-            margin-top: 15px;
-            border: none;
-            background: #0878d1;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background: #075fa6;
-        }
-
-        #message {
-            margin-top: 15px;
-            font-weight: bold;
+        .news p {
+            color: #65727e;
+            line-height: 1.5;
         }
 
         footer {
-            margin-top: 40px;
-            background: #123;
+            background: #101820;
             color: white;
-            text-align: center;
-            padding: 25px;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🚍 Transportowe Dzielnice</h1>
-
-    <nav>
-        <a href="index.html">🏠 Start</a>
-        <a href="linie.html">🚌 Linie</a>
-        <a href="rozklady.html">🕐 Rozkłady</a>
-        <a href="pojazdy.html">🚍 Pojazdy</a>
-        <a href="mapa.html">🗺️ Mapa</a>
-        <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-        <a href="kontakt.html">📞 Kontakt</a>
-    </nav>
-</header>
-
-<div class="container">
-
-    <section class="hero">
-        <h2>📞 Kontakt</h2>
-        <p>
-            Masz pytanie, znalazłeś błąd albo chcesz zaproponować
-            nową linię lub funkcję? Napisz do nas!
-        </p>
-    </section>
-
-    <section class="cards">
-
-        <div class="card">
-            <h3>💬 Discord</h3>
-            <p>
-                Dołącz do społeczności Transportowych Dzielnic
-                i skontaktuj się z administracją.
-            </p>
-
-            <a href="#" class="contact-button">
-                Otwórz Discord
-            </a>
-        </div>
-
-        <div class="card">
-            <h3>🚌 Zgłoś błąd</h3>
-            <p>
-                Znalazłeś błąd na stronie, w rozkładzie,
-                na mapie lub w danych pojazdu?
-            </p>
-
-            <a href="#formularz" class="contact-button">
-                Zgłoś błąd
-            </a>
-        </div>
-
-        <div class="card">
-            <h3>💡 Pomysł</h3>
-            <p>
-                Masz pomysł na nową linię, pojazd, przystanek
-                albo funkcję strony?
-            </p>
-
-            <a href="#formularz" class="contact-button">
-                Wyślij pomysł
-            </a>
-        </div>
-
-    </section>
-
-    <section class="card" id="formularz" style="margin-top: 25px;">
-
-        <h3>📝 Formularz kontaktowy</h3>
-
-        <form id="contactForm">
-
-            <label for="name">Nick / imię</label>
-            <input
-                type="text"
-                id="name"
-                placeholder="Wpisz swój nick"
-                required
-            >
-
-            <label for="email">E-mail</label>
-            <input
-                type="email"
-                id="email"
-                placeholder="Wpisz adres e-mail"
-                required
-            >
-
-            <label for="topic">Temat</label>
-            <input
-                type="text"
-                id="topic"
-                placeholder="Np. błąd na stronie"
-                required
-            >
-
-            <label for="content">Wiadomość</label>
-            <textarea
-                id="content"
-                placeholder="Napisz swoją wiadomość..."
-                required
-            ></textarea>
-
-            <button type="submit">
-                📤 Wyślij wiadomość
-            </button>
-
-            <div id="message"></div>
-
-        </form>
-
-    </section>
-
-</div>
-
-<footer>
-    <p>🚍 Transportowe Dzielnice</p>
-    <p>© 2026 Transportowe Dzielnice</p>
-</footer>
-
-<script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        const message = document.getElementById("message");
-
-        message.textContent =
-            "✅ Formularz został wypełniony. Aby wiadomości były naprawdę wysyłane, trzeba podłączyć formularz do systemu wysyłki.";
-
-        message.style.color = "green";
-
-        document.getElementById("contactForm").reset();
-    });
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Logowanie kierowcy | Transportowe Dzielnice</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            padding: 35px 7%;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0878d1, #123);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-box {
-            width: 95%;
-            max-width: 430px;
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        .logo {
-            text-align: center;
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #0878d1;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 9px;
-            font-size: 16px;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #0878d1;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px;
-            border: none;
-            border-radius: 9px;
-            background: #0878d1;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #075fa6;
-        }
-
-        #error {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            background: #ffe5e5;
-            color: #b00000;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        #success {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            background: #e5ffe9;
-            color: #08752a;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .back {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #0878d1;
-            text-decoration: none;
-        }
-
-        .back:hover {
-            text-decoration: underline;
-        }
-
-        .info {
-            margin-top: 20px;
-            padding: 12px;
-            background: #eef6ff;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #555;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="login-box">
-
-    <div class="logo">🚌</div>
-
-    <h1>Logowanie kierowcy</h1>
-
-    <p class="subtitle">
-        Transportowe Dzielnice
-    </p>
-
-    <form id="loginForm">
-
-        <label for="login">
-            👤 Login kierowcy
-        </label>
-
-        <input
-            type="text"
-            id="login"
-            placeholder="Wpisz login"
-            required
-        >
-
-        <label for="password">
-            🔒 Hasło
-        </label>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Wpisz hasło"
-            required
-        >
-
-        <button type="submit">
-            🚍 Zaloguj się
-        </button>
-
-    </form>
-
-    <div id="error">
-        ❌ Nieprawidłowy login lub hasło.
-    </div>
-
-    <div id="success">
-        ✅ Logowanie udane! Przekierowanie do panelu kierowcy...
-    </div>
-
-    <a href="index.html" class="back">
-        ← Powrót na stronę główną
-    </a>
-
-    <div class="info">
-        🔐 Dostęp przeznaczony dla uprawnionych kierowców.
-    </div>
-
-</div>
-
-<script>
-
-    /*
-        DEMONSTRACYJNE LOGOWANIE
-
-        Login: kierowca
-        Hasło: transport123
-    */
-
-    document
-        .getElementById("loginForm")
-        .addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const login =
-                document.getElementById("login").value;
-
-            const password =
-                document.getElementById("password").value;
-
-            const error =
-                document.getElementById("error");
-
-            const success =
-                document.getElementById("success");
-
-            if (
-                login === "kierowca" &&
-                password === "transport123"
-            ) {
-
-                error.style.display = "none";
-                success.style.display = "block";
-
-                setTimeout(function() {
-
-                    window.location.href =
-                        "panel-kierowcy.html";
-
-                }, 1200);
-
-            } else {
-
-                success.style.display = "none";
-                error.style.display = "block";
-
-            }
-
-        });
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Logowanie kierowcy | Transportowe Dzielnice</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0878d1, #123);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-box {
-            width: 95%;
-            max-width: 430px;
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        }
-
-        .logo {
-            text-align: center;
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #0878d1;
-            margin-bottom: 8px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 9px;
-            font-size: 16px;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #0878d1;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px;
-            border: none;
-            border-radius: 9px;
-            background: #0878d1;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #075fa6;
-        }
-
-        #error {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            background: #ffe5e5;
-            color: #b00000;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        #success {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            background: #e5ffe9;
-            color: #08752a;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .back {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #0878d1;
-            text-decoration: none;
-        }
-
-        .back:hover {
-            text-decoration: underline;
-        }
-
-        .info {
-            margin-top: 20px;
-            padding: 12px;
-            background: #eef6ff;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #555;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="login-box">
-
-    <div class="logo">🚌</div>
-
-    <h1>Logowanie kierowcy</h1>
-
-    <p class="subtitle">
-        Transportowe Dzielnice
-    </p>
-
-    <form id="loginForm">
-
-        <label for="login">
-            👤 Login kierowcy
-        </label>
-
-        <input
-            type="text"
-            id="login"
-            placeholder="Wpisz login"
-            required
-        >
-
-        <label for="password">
-            🔒 Hasło
-        </label>
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Wpisz hasło"
-            required
-        >
-
-        <button type="submit">
-            🚍 Zaloguj się
-        </button>
-
-    </form>
-
-    <div id="error">
-        ❌ Nieprawidłowy login lub hasło.
-    </div>
-
-    <div id="success">
-        ✅ Logowanie udane! Przekierowanie do panelu kierowcy...
-    </div>
-
-    <a href="index.html" class="back">
-        ← Powrót na stronę główną
-    </a>
-
-    <div class="info">
-        🔐 Dostęp przeznaczony dla uprawnionych kierowców.
-    </div>
-
-</div>
-
-<script>
-
-    /*
-        DEMONSTRACYJNE LOGOWANIE
-
-        Login: kierowca
-        Hasło: transport123
-    */
-
-    document
-        .getElementById("loginForm")
-        .addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const login =
-                document.getElementById("login").value;
-
-            const password =
-                document.getElementById("password").value;
-
-            const error =
-                document.getElementById("error");
-
-            const success =
-                document.getElementById("success");
-
-            if (
-                login === "kierowca" &&
-                password === "transport123"
-            ) {
-
-                error.style.display = "none";
-                success.style.display = "block";
-
-                setTimeout(function() {
-
-                    window.location.href =
-                        "panel-kierowcy.html";
-
-                }, 1200);
-
-            } else {
-
-                success.style.display = "none";
-                error.style.display = "block";
-
-            }
-
-        });
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Panel kierowcy | Transportowe Dzielnice</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #eef3f8;
-            color: #222;
-        }
-
-        header {
-            background: #123;
-            color: white;
-            padding: 20px;
-        }
-
-        header h1 {
-            margin-bottom: 6px;
-        }
-
-        .subtitle {
-            color: #ccd6dd;
-        }
-
-        .layout {
-            display: flex;
-            min-height: calc(100vh - 90px);
-        }
-
-        .sidebar {
-            width: 240px;
-            background: #0878d1;
-            padding: 20px 12px;
-        }
-
-        .driver-box {
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: rgba(0,0,0,0.15);
-            border-radius: 10px;
-        }
-
-        .driver-icon {
-            font-size: 45px;
-        }
-
-        .sidebar button {
-            width: 100%;
-            border: none;
-            background: transparent;
-            color: white;
-            text-align: left;
-            padding: 13px;
-            margin-bottom: 5px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .sidebar button:hover,
-        .sidebar button.active {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .logout {
-            margin-top: 20px;
-            background: rgba(0,0,0,0.2) !important;
-        }
-
-        .content {
-            flex: 1;
-            padding: 25px;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .title {
-            margin-bottom: 20px;
-        }
-
-        .title h2 {
-            color: #0878d1;
-            margin-bottom: 5px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(200px, 1fr));
-            gap: 18px;
-            margin-bottom: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 13px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .big {
-            font-size: 28px;
-            font-weight: bold;
-            color: #0878d1;
-        }
-
-        .status {
-            font-weight: bold;
-        }
-
-        .green {
-            color: #16833a;
-        }
-
-        .yellow {
-            color: #c58b00;
-        }
-
-        .red {
-            color: #c00000;
-        }
-
-        .panel {
-            background: white;
-            padding: 22px;
-            border-radius: 13px;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .panel h3 {
-            color: #0878d1;
-            margin-bottom: 15px;
-        }
-
-        .info-row {
+        .footer-content {
+            max-width: 1250px;
+            margin: auto;
             display: flex;
             justify-content: space-between;
-            padding: 11px 0;
-            border-bottom: 1px solid #eee;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
-        .info-row:last-child {
-            border-bottom: none;
+        footer p {
+            color: #aeb7bf;
+            margin-top: 7px;
+            font-size: 14px;
         }
 
-        .btn {
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            color: white;
-            font-weight: bold;
-            margin: 5px;
-        }
-
-        .btn-blue {
-            background: #0878d1;
-        }
-
-        .btn-green {
-            background: #16833a;
-        }
-
-        .btn-red {
-            background: #c62828;
-        }
-
-        .btn-yellow {
-            background: #c58b00;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-
-        .stop {
-            padding: 13px;
-            margin: 7px 0;
-            background: #f4f7fa;
-            border-left: 5px solid #0878d1;
-            border-radius: 6px;
-        }
-
-        .current-stop {
-            background: #dff2ff;
-            border-left-color: #16833a;
-            font-weight: bold;
-        }
-
-        .announcement {
-            background: #eef6ff;
-            padding: 15px;
-            border-radius: 9px;
-            margin-bottom: 10px;
-        }
-
-        #courseStatus {
-            padding: 14px;
-            border-radius: 8px;
-            background: #fff4d6;
-            color: #7a5800;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        #clock {
-            font-size: 25px;
-            font-weight: bold;
-            color: #0878d1;
-        }
-
-        @media (max-width: 700px) {
-
-            .layout {
+        @media (max-width: 800px) {
+            .nav {
                 flex-direction: column;
+                align-items: flex-start;
             }
 
-            .sidebar {
-                width: 100%;
+            nav {
+                justify-content: flex-start;
             }
 
-            .content {
-                padding: 15px;
+            .event-box {
+                grid-template-columns: 1fr;
             }
 
-            .info-row {
-                flex-direction: column;
-                gap: 4px;
+            .hero {
+                min-height: 480px;
             }
         }
     </style>
@@ -2896,2243 +494,1055 @@
 <body>
 
 <header>
-    <h1>🚌 Panel kierowcy</h1>
-    <p class="subtitle">
-        Transportowe Dzielnice
-    </p>
-</header>
-
-
-<div class="layout">
-
-    <aside class="sidebar">
-
-        <div class="driver-box">
-            <div class="driver-icon">👨‍✈️</div>
-            <strong>Kierowca</strong>
-            <p>kierowca</p>
+    <div class="nav">
+        <div class="logo">
+            🚍 TRANSPORTOWE DZIELNICE
+            <span>Warszawa Mokotów • Projekt Roblox</span>
         </div>
 
-        <button
-            class="active"
-            onclick="showSection('dashboard', this)">
-            🏠 Pulpit
-        </button>
+        <nav>
+            <a href="#start">Start</a>
+            <a href="#linie">Linie</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#event">Event</a>
+            <a href="#aktualnosci">Aktualności</a>
+        </nav>
+    </div>
+</header>
 
-        <button
-            onclick="showSection('kurs', this)">
-            🚌 Mój kurs
-        </button>
+<main>
 
-        <button
-            onclick="showSection('trasa', this)">
-            📍 Trasa
-        </button>
+<section class="hero" id="start">
+    <div class="hero-content">
+        <div class="badge">🚌 WITAJ W TRANSPORTOWYCH DZIELNICACH</div>
 
-        <button
-            onclick="showSection('zapowiedzi', this)">
-            🔊 Zapowiedzi
-        </button>
+        <h1>Warszawa<br>Mokotów</h1>
 
-        <button
-            onclick="showSection('rozklad', this)">
-            🕐 Rozkład
-        </button>
+        <p>
+            Oficjalna strona projektu Transportowe Dzielnice.
+            Poznaj linie autobusowe, trasy, wydarzenia i świat
+            komunikacji miejskiej w naszej grze Roblox.
+        </p>
 
-        <button
-            onclick="showSection('komunikaty', this)">
-            📢 Komunikaty
-        </button>
+        <div class="buttons">
+            <a class="button primary" href="#linie">🚍 Zobacz linie</a>
+            <a class="button secondary" href="https://www.roblox.com/" target="_blank">
+                🎮 Roblox
+            </a>
+        </div>
+    </div>
+</section>
 
-        <button
-            class="logout"
-            onclick="logout()">
-            🚪 Wyloguj
-        </button>
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2>Transportowa Dzielnica</h2>
+            <p>Jedno miejsce dla wszystkich informacji o projekcie.</p>
+        </div>
 
-    </aside>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🚌</div>
+                <h3>Autobusy</h3>
+                <p>Linie autobusowe obsługujące Mokotów i okolice.</p>
+            </div>
 
+            <div class="card">
+                <div class="icon">🚋</div>
+                <h3>Tramwaje</h3>
+                <p>Trasy tramwajowe oraz specjalne linie eventowe.</p>
+            </div>
 
-    <main class="content">
+            <div class="card">
+                <div class="icon">🚇</div>
+                <h3>Metro</h3>
+                <p>Sieć metra i najważniejsze stacje w projekcie.</p>
+            </div>
 
+            <div class="card">
+                <div class="icon">🗺️</div>
+                <h3>Mapa</h3>
+                <p>Rozwijająca się mapa Warszawy Mokotów i okolic.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <!-- PULPIT -->
+<section class="lines" id="linie">
+    <div class="container">
+        <div class="section-title">
+            <h2>🚍 Najważniejsze linie</h2>
+            <p>Wybrane połączenia dostępne w projekcie.</p>
+        </div>
 
-        <section
-            id="dashboard"
-            class="section active">
+        <div class="cards">
 
-            <div class="title">
+            <div class="line-card">
+                <div class="line-number">187</div>
+                <div>
+                    <strong>Linia 187</strong>
+                    <span>Stegny → Aleja Witosa → EC Siekierki → Nowoursynowska → Wilanów</span>
+                </div>
+            </div>
 
-                <h2>🏠 Pulpit kierowcy</h2>
+            <div class="line-card">
+                <div class="line-number">136</div>
+                <div>
+                    <strong>Linia 136</strong>
+                    <span>Mokotów → Rondo Unii Europejskiej</span>
+                </div>
+            </div>
+
+            <div class="line-card">
+                <div class="line-number">118</div>
+                <div>
+                    <strong>Linia 118</strong>
+                    <span>Spartańska → Rakowiecka</span>
+                </div>
+            </div>
+
+            <div class="line-card">
+                <div class="line-number">185</div>
+                <div>
+                    <strong>Linia 185</strong>
+                    <span>Dolina Służewiecka → Aleja Witosa</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="mapa">
+    <div class="container">
+        <div class="section-title">
+            <h2>🗺️ Mapa projektu</h2>
+            <p>Warszawa Mokotów rozwija się wraz z kolejnymi aktualizacjami.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏙️</div>
+            <h3>Warszawa Mokotów — Transportowe Dzielnice</h3>
+            <p>
+                Nowe ulice, przystanki, pętle, zajezdnie oraz połączenia
+                autobusowe i tramwajowe są sukcesywnie dodawane do gry.
+            </p>
+
+            <div class="buttons">
+                <a class="button primary" href="#linie">Sprawdź linie</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="event" id="event">
+    <div class="container">
+        <div class="event-box">
+
+            <div>
+                <div class="badge">🎃 SPECJALNE WYDARZENIE</div>
+
+                <h2>Halloween Party</h2>
 
                 <p>
-                    Witaj w panelu kierowcy Transportowych Dzielnic.
+                    Specjalne linie, dekoracje, konkursy i komunikaty
+                    przygotowane na Halloween w Transportowych Dzielnicach.
                 </p>
 
+                <div class="buttons">
+                    <a class="button primary" href="#aktualnosci">
+                        Zobacz informacje
+                    </a>
+                </div>
             </div>
 
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>🚌 Linia</h3>
-                    <div class="big">G1</div>
-                    <p>Zajezdnia PKS</p>
-                </div>
-
-                <div class="card">
-                    <h3>🚍 Pojazd</h3>
-                    <div class="big">TD-101</div>
-                    <p>Solaris Urbino 18</p>
-                </div>
-
-                <div class="card">
-                    <h3>📍 Kierunek</h3>
-                    <div class="big">Zajezdnia PKS</div>
-                </div>
-
-                <div class="card">
-                    <h3>🕐 Czas</h3>
-                    <div id="clock">
-                        00:00:00
-                    </div>
-                </div>
-
+            <div class="event-info">
+                <h3>🎃 Event TD</h3>
+                <p>Specjalne kursy i wydarzenia w świecie Roblox.</p>
+                <br>
+                <strong>Linie eventowe: H1 • H2 • H3</strong>
             </div>
 
+        </div>
+    </div>
+</section>
 
-            <div class="panel">
+<section id="aktualnosci">
+    <div class="container">
 
-                <h3>🚦 Status kursu</h3>
+        <div class="section-title">
+            <h2>📰 Aktualności</h2>
+            <p>Najnowsze informacje dotyczące projektu.</p>
+        </div>
 
-                <div id="courseStatus">
-                    ⚪ Kurs nie został rozpoczęty.
-                </div>
+        <div class="news">
 
-                <button
-                    class="btn btn-green"
-                    onclick="startCourse()">
-                    ▶️ Rozpocznij kurs
-                </button>
-
-                <button
-                    class="btn btn-red"
-                    onclick="endCourse()">
-                    ⏹️ Zakończ kurs
-                </button>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>📋 Informacje o służbie</h3>
-
-                <div class="info-row">
-                    <span>Linia</span>
-                    <strong>G1</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Pojazd</span>
-                    <strong>TD-101</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Model</span>
-                    <strong>Solaris Urbino 18</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Zmiana</span>
-                    <strong>Poranna</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- KURS -->
-
-        <section
-            id="kurs"
-            class="section">
-
-            <div class="title">
-
-                <h2>🚌 Mój kurs</h2>
-
+            <article>
+                <div class="news-date">02.10.2026</div>
+                <h3>Nowa rozbudowa mapy</h3>
                 <p>
-                    Informacje dotyczące aktualnie przydzielonego kursu.
+                    Transportowe Dzielnice rozwijają Warszawę Mokotów
+                    o kolejne obszary i połączenia.
                 </p>
+            </article>
 
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🚍 Przydział</h3>
-
-                <div class="info-row">
-                    <span>Linia</span>
-                    <strong>G1</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Kierunek</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Numer pojazdu</span>
-                    <strong>TD-101</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>Model</span>
-                    <strong>Solaris Urbino 18</strong>
-                </div>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🚦 Obsługa kursu</h3>
-
-                <button
-                    class="btn btn-green"
-                    onclick="startCourse()">
-                    ▶️ Rozpocznij kurs
-                </button>
-
-                <button
-                    class="btn btn-yellow"
-                    onclick="pauseCourse()">
-                    ⏸️ Przerwa
-                </button>
-
-                <button
-                    class="btn btn-red"
-                    onclick="endCourse()">
-                    ⏹️ Zakończ kurs
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- TRASA -->
-
-        <section
-            id="trasa"
-            class="section">
-
-            <div class="title">
-
-                <h2>📍 Trasa G1</h2>
-
+            <article>
+                <div class="news-date">02.10.2026</div>
+                <h3>Nowa linia 187</h3>
                 <p>
-                    Kierunek: <strong>Zajezdnia PKS</strong>
+                    Do projektu trafia nowe połączenie przez Stegny,
+                    Aleję Witosa, EC Siekierki i Wilanów.
                 </p>
+            </article>
 
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🚌 Przystanki</h3>
-
-                <div class="stop current-stop">
-                    1. Zajezdnia PKS
-                </div>
-
-                <div class="stop">
-                    2. Osiedlowa
-                </div>
-
-                <div class="stop">
-                    3. Zajezdnia MZK
-                </div>
-
-                <div class="stop">
-                    4. Zajezdnia Osiedle Derby
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ZAPOWIEDZI -->
-
-        <section
-            id="zapowiedzi"
-            class="section">
-
-            <div class="title">
-
-                <h2>🔊 Zapowiedzi przystankowe</h2>
-
+            <article>
+                <div class="news-date">01.10.2026</div>
+                <h3>Halloween Party</h3>
                 <p>
-                    Panel zapowiedzi dla kierowcy.
+                    Przygotowania do specjalnego wydarzenia
+                    Halloween w Transportowych Dzielnicach.
                 </p>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🔊 Następny przystanek</h3>
-
-                <div class="announcement">
-                    <strong>
-                        Następny przystanek: Osiedlowa.
-                    </strong>
-                </div>
-
-                <button
-                    class="btn btn-blue"
-                    onclick="speak('Następny przystanek: Osiedlowa.')">
-                    🔊 Odtwórz
-                </button>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🚪 Drzwi</h3>
-
-                <button
-                    class="btn btn-blue"
-                    onclick="speak('Proszę odsunąć się od drzwi.')">
-                    🔊 Proszę odsunąć się od drzwi
-                </button>
-
-                <button
-                    class="btn btn-blue"
-                    onclick="speak('Drzwi zamykają się.')">
-                    🔊 Drzwi zamykają się
-                </button>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🏁 Koniec trasy</h3>
-
-                <button
-                    class="btn btn-red"
-                    onclick="speak('Koniec trasy. Prosimy o opuszczenie pojazdu.')">
-                    🔊 Odtwórz komunikat
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ROZKŁAD -->
-
-        <section
-            id="rozklad"
-            class="section">
-
-            <div class="title">
-
-                <h2>🕐 Rozkład jazdy</h2>
-
-                <p>
-                    Dzisiejszy rozkład linii G1.
-                </p>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>🚍 Odjazdy</h3>
-
-                <div class="info-row">
-                    <span>06:00</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>06:30</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>07:00</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>07:30</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>08:00</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-                <div class="info-row">
-                    <span>08:30</span>
-                    <strong>Zajezdnia PKS</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- KOMUNIKATY -->
-
-        <section
-            id="komunikaty"
-            class="section">
-
-            <div class="title">
-
-                <h2>📢 Komunikaty</h2>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>📢 Informacja od dyspozytora</h3>
-
-                <div class="announcement">
-
-                    <strong>
-                        Brak nowych komunikatów.
-                    </strong>
-
-                    <p>
-                        Wszystkie kursy odbywają się zgodnie
-                        z aktualnym planem.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
-<script>
-
-    let courseStarted = false;
-
-
-    function showSection(sectionId, button) {
-
-        const sections =
-            document.querySelectorAll(".section");
-
-        sections.forEach(function(section) {
-
-            section.classList.remove("active");
-
-        });
-
-
-        document
-            .getElementById(sectionId)
-            .classList.add("active");
-
-
-        const buttons =
-            document.querySelectorAll(".sidebar button");
-
-        buttons.forEach(function(btn) {
-
-            btn.classList.remove("active");
-
-        });
-
-
-        button.classList.add("active");
-
-    }
-
-
-    function startCourse() {
-
-        courseStarted = true;
-
-        document
-            .getElementById("courseStatus")
-            .textContent =
-            "🟢 Kurs jest aktualnie wykonywany.";
-
-        document
-            .getElementById("courseStatus")
-            .style.background =
-            "#e5f7e9";
-
-        document
-            .getElementById("courseStatus")
-            .style.color =
-            "#146b2c";
-
-    }
-
-
-    function endCourse() {
-
-        courseStarted = false;
-
-        document
-            .getElementById("courseStatus")
-            .textContent =
-            "🔴 Kurs został zakończony.";
-
-        document
-            .getElementById("courseStatus")
-            .style.background =
-            "#ffe5e5";
-
-        document
-            .getElementById("courseStatus")
-            .style.color =
-            "#a00000";
-
-    }
-
-
-    function pauseCourse() {
-
-        document
-            .getElementById("courseStatus")
-            .textContent =
-            "🟡 Kurs jest na przerwie.";
-
-        document
-            .getElementById("courseStatus")
-            .style.background =
-            "#fff4d6";
-
-        document
-            .getElementById("courseStatus")
-            .style.color =
-            "#7a5800";
-
-    }
-
-
-    function speak(text) {
-
-        if ("speechSynthesis" in window) {
-
-            const voice =
-                new SpeechSynthesisUtterance(text);
-
-            voice.lang = "pl-PL";
-            voice.rate = 0.9;
-            voice.pitch = 1;
-
-            speechSynthesis.cancel();
-
-            speechSynthesis.speak(voice);
-
-        } else {
-
-            alert(
-                "Twoja przeglądarka nie obsługuje syntezatora mowy."
-            );
-
-        }
-
-    }
-
-
-    function logout() {
-
-        if (
-            confirm("Czy na pewno chcesz się wylogować?")
-        ) {
-
-            window.location.href =
-                "index.html";
-
-        }
-
-    }
-
-
-    function updateClock() {
-
-        const now = new Date();
-
-        const hours =
-            String(now.getHours()).padStart(2, "0");
-
-        const minutes =
-            String(now.getMinutes()).padStart(2, "0");
-
-        const seconds =
-            String(now.getSeconds()).padStart(2, "0");
-
-        document
-            .getElementById("clock")
-            .textContent =
-            hours + ":" + minutes + ":" + seconds;
-
-    }
-
-
-    updateClock();
-
-    setInterval(updateClock, 1000);
-
-</script>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2>🎮 Dołącz do projektu</h2>
+            <p>Transportowe Dzielnice łączą świat Roblox, komunikacji miejskiej i społeczności.</p>
+        </div>
+
+        <div class="buttons">
+            <a class="button primary" href="https://www.roblox.com/" target="_blank">
+                🎮 Zagraj w Roblox
+            </a>
+
+            <a class="button secondary" href="#" onclick="alert('Tutaj wstaw link do swojego Discorda!'); return false;">
+                💬 Discord
+            </a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <strong>🚍 Transportowe Dzielnice</strong>
+            <p>Warszawa Mokotów • Projekt Roblox</p>
+        </div>
+
+        <div>
+            <strong>TD</strong>
+            <p>© 2026 Transportowe Dzielnice</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
+```
+
+```html
 <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Panel dyspozytora | Transportowe Dzielnice</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #eef3f8;
-            color: #222;
-        }
-
-        header {
-            background: #123;
-            color: white;
-            padding: 20px;
-        }
-
-        header h1 {
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #cfd8df;
-        }
-
-        .layout {
-            display: flex;
-            min-height: calc(100vh - 90px);
-        }
-
-        .sidebar {
-            width: 245px;
-            background: #0878d1;
-            padding: 20px 12px;
-        }
-
-        .dispatcher-box {
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: rgba(0,0,0,0.15);
-            border-radius: 10px;
-        }
-
-        .dispatcher-icon {
-            font-size: 45px;
-        }
-
-        .sidebar button {
-            width: 100%;
-            border: none;
-            background: transparent;
-            color: white;
-            text-align: left;
-            padding: 13px;
-            margin-bottom: 5px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .sidebar button:hover,
-        .sidebar button.active {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .logout {
-            margin-top: 20px;
-            background: rgba(0,0,0,0.2) !important;
-        }
-
-        .content {
-            flex: 1;
-            padding: 25px;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .title {
-            margin-bottom: 20px;
-        }
-
-        .title h2 {
-            color: #0878d1;
-            margin-bottom: 5px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(190px, 1fr));
-            gap: 18px;
-            margin-bottom: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 13px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-        }
-
-        .number {
-            font-size: 30px;
-            font-weight: bold;
-            color: #0878d1;
-        }
-
-        .panel {
-            background: white;
-            padding: 22px;
-            border-radius: 13px;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-
-        .panel h3 {
-            color: #0878d1;
-            margin-bottom: 15px;
-        }
-
-        .table-box {
-            background: white;
-            padding: 20px;
-            border-radius: 13px;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th {
-            background: #f1f5f8;
-        }
-
-        .green {
-            color: #16833a;
-            font-weight: bold;
-        }
-
-        .yellow {
-            color: #c58b00;
-            font-weight: bold;
-        }
-
-        .red {
-            color: #c00000;
-            font-weight: bold;
-        }
-
-        .btn {
-            border: none;
-            padding: 9px 13px;
-            border-radius: 7px;
-            cursor: pointer;
-            color: white;
-            font-weight: bold;
-            margin: 3px;
-        }
-
-        .blue {
-            background: #0878d1;
-        }
-
-        .green-btn {
-            background: #16833a;
-        }
-
-        .red-btn {
-            background: #c62828;
-        }
-
-        .yellow-btn {
-            background: #c58b00;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-
-        .form-box {
-            background: white;
-            padding: 22px;
-            border-radius: 13px;
-            max-width: 750px;
-        }
-
-        label {
-            display: block;
-            margin-top: 13px;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
-            font-size: 15px;
-        }
-
-        textarea {
-            min-height: 110px;
-            resize: vertical;
-        }
-
-        .save {
-            margin-top: 18px;
-            background: #16833a;
-            color: white;
-            border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .message {
-            display: none;
-            margin-top: 15px;
-            padding: 12px;
-            background: #e5f7e9;
-            color: #146b2c;
-            border-radius: 8px;
-            font-weight: bold;
-        }
-
-        .alert {
-            padding: 14px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            background: #eef6ff;
-        }
-
-        .online {
-            color: #16833a;
-            font-weight: bold;
-        }
-
-        @media (max-width: 700px) {
-            .layout {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-            }
-
-            .content {
-                padding: 15px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🚦 Panel dyspozytora</h1>
-    <p class="subtitle">
-        Transportowe Dzielnice — centrum ruchu
-    </p>
-</header>
-
-
-<div class="layout">
-
-    <aside class="sidebar">
-
-        <div class="dispatcher-box">
-            <div class="dispatcher-icon">🚦</div>
-            <strong>Dyspozytor</strong>
-            <p>dyspozytor</p>
-        </div>
-
-        <button
-            class="active"
-            onclick="showSection('dashboard', this)">
-            🏠 Pulpit
-        </button>
-
-        <button
-            onclick="showSection('pojazdy', this)">
-            🚍 Pojazdy
-        </button>
-
-        <button
-            onclick="showSection('kierowcy', this)">
-            👨‍✈️ Kierowcy
-        </button>
-
-        <button
-            onclick="showSection('przydzial', this)">
-            🔄 Przydział
-        </button>
-
-        <button
-            onclick="showSection('kursy', this)">
-            🚌 Kursy
-        </button>
-
-        <button
-            onclick="showSection('komunikaty', this)">
-            📢 Komunikaty
-        </button>
-
-        <button
-            onclick="showSection('awarie', this)">
-            ⚠️ Awarie
-        </button>
-
-        <button
-            class="logout"
-            onclick="logout()">
-            🚪 Wyloguj
-        </button>
-
-    </aside>
-
-
-    <main class="content">
-
-
-        <!-- DASHBOARD -->
-
-        <section
-            id="dashboard"
-            class="section active">
-
-            <div class="title">
-
-                <h2>🏠 Pulpit dyspozytora</h2>
-
-                <p>
-                    Monitorowanie komunikacji Transportowych Dzielnic.
-                </p>
-
-            </div>
-
-
-            <div class="cards">
-
-                <div class="card">
-                    <h3>🚍 Pojazdy na trasie</h3>
-                    <div class="number">2</div>
-                </div>
-
-                <div class="card">
-                    <h3>👨‍✈️ Kierowcy online</h3>
-                    <div class="number">2</div>
-                </div>
-
-                <div class="card">
-                    <h3>🚌 Aktywne kursy</h3>
-                    <div class="number">2</div>
-                </div>
-
-                <div class="card">
-                    <h3>⚠️ Awarie</h3>
-                    <div class="number">0</div>
-                </div>
-
-            </div>
-
-
-            <div class="panel">
-
-                <h3>📡 Status komunikacji</h3>
-
-                <div class="alert">
-                    🟢 Wszystkie monitorowane linie działają.
-                </div>
-
-                <div class="alert">
-                    🟢 Brak zgłoszonych awarii.
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- POJAZDY -->
-
-        <section
-            id="pojazdy"
-            class="section">
-
-            <div class="title">
-
-                <h2>🚍 Pojazdy</h2>
-
-                <p>
-                    Lista pojazdów znajdujących się obecnie w ruchu.
-                </p>
-
-            </div>
-
-
-            <div class="table-box">
-
-                <table>
-
-                    <tr>
-                        <th>Numer</th>
-                        <th>Model</th>
-                        <th>Linia</th>
-                        <th>Kierowca</th>
-                        <th>Status</th>
-                    </tr>
-
-                    <tr>
-                        <td>TD-101</td>
-                        <td>Solaris Urbino 18</td>
-                        <td>G1</td>
-                        <td>kierowca</td>
-                        <td class="green">
-                            🟢 W ruchu
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>TD-102</td>
-                        <td>Solaris Urbino 12</td>
-                        <td>G2</td>
-                        <td>kierowca2</td>
-                        <td class="green">
-                            🟢 W ruchu
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>TD-103</td>
-                        <td>MAN Lion's City</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="yellow">
-                            🟡 Rezerwa
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- KIEROWCY -->
-
-        <section
-            id="kierowcy"
-            class="section">
-
-            <div class="title">
-
-                <h2>👨‍✈️ Kierowcy</h2>
-
-            </div>
-
-
-            <div class="table-box">
-
-                <table>
-
-                    <tr>
-                        <th>Kierowca</th>
-                        <th>Linia</th>
-                        <th>Pojazd</th>
-                        <th>Status</th>
-                    </tr>
-
-                    <tr>
-                        <td>kierowca</td>
-                        <td>G1</td>
-                        <td>TD-101</td>
-                        <td class="online">
-                            🟢 Online
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>kierowca2</td>
-                        <td>G2</td>
-                        <td>TD-102</td>
-                        <td class="online">
-                            🟢 Online
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>kierowca3</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td class="yellow">
-                            🟡 Wolny
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- PRZYDZIAŁ -->
-
-        <section
-            id="przydzial"
-            class="section">
-
-            <div class="title">
-
-                <h2>🔄 Przydział pojazdu i kierowcy</h2>
-
-                <p>
-                    Przydziel kierowcę do konkretnej linii i pojazdu.
-                </p>
-
-            </div>
-
-
-            <div class="form-box">
-
-                <label>Kierowca</label>
-
-                <select id="driver">
-
-                    <option>kierowca</option>
-                    <option>kierowca2</option>
-                    <option>kierowca3</option>
-
-                </select>
-
-
-                <label>Linia</label>
-
-                <select id="line">
-
-                    <option>G1</option>
-                    <option>G2</option>
-                    <option>G3</option>
-
-                </select>
-
-
-                <label>Pojazd</label>
-
-                <select id="vehicle">
-
-                    <option>TD-101 — Solaris Urbino 18</option>
-                    <option>TD-102 — Solaris Urbino 12</option>
-                    <option>TD-103 — MAN Lion's City</option>
-
-                </select>
-
-
-                <label>Kierunek</label>
-
-                <input
-                    type="text"
-                    placeholder="Np. Zajezdnia PKS"
-                >
-
-
-                <button
-                    class="save"
-                    onclick="assignDriver()">
-
-                    🔄 Zapisz przydział
-
-                </button>
-
-
-                <div
-                    id="assignMessage"
-                    class="message">
-
-                    ✅ Przydział został zapisany
-                    w wersji demonstracyjnej.
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- KURSY -->
-
-        <section
-            id="kursy"
-            class="section">
-
-            <div class="title">
-
-                <h2>🚌 Aktualne kursy</h2>
-
-            </div>
-
-
-            <div class="table-box">
-
-                <table>
-
-                    <tr>
-                        <th>Linia</th>
-                        <th>Pojazd</th>
-                        <th>Kierowca</th>
-                        <th>Status</th>
-                        <th>Akcja</th>
-                    </tr>
-
-                    <tr>
-                        <td>G1</td>
-                        <td>TD-101</td>
-                        <td>kierowca</td>
-                        <td class="green">
-                            🟢 W trasie
-                        </td>
-                        <td>
-                            <button
-                                class="btn blue"
-                                onclick="showInfo()">
-                                Szczegóły
-                            </button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>G2</td>
-                        <td>TD-102</td>
-                        <td>kierowca2</td>
-                        <td class="green">
-                            🟢 W trasie
-                        </td>
-                        <td>
-                            <button
-                                class="btn blue"
-                                onclick="showInfo()">
-                                Szczegóły
-                            </button>
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-        </section>
-
-
-        <!-- KOMUNIKATY -->
-
-        <section
-            id="komunikaty"
-            class="section">
-
-            <div class="title">
-
-                <h2>📢 Komunikaty dla kierowców</h2>
-
-            </div>
-
-
-            <div class="form-box">
-
-                <label>Odbiorca</label>
-
-                <select>
-
-                    <option>Wszyscy kierowcy</option>
-                    <option>Linia G1</option>
-                    <option>Linia G2</option>
-                    <option>kierowca</option>
-
-                </select>
-
-
-                <label>Treść komunikatu</label>
-
-                <textarea
-                    placeholder="Wpisz komunikat dla kierowców...">
-                </textarea>
-
-
-                <button
-                    class="save"
-                    onclick="sendMessage()">
-
-                    📢 Wyślij komunikat
-
-                </button>
-
-
-                <div
-                    id="messageSent"
-                    class="message">
-
-                    ✅ Komunikat został wysłany
-                    w wersji demonstracyjnej.
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- AWARIE -->
-
-        <section
-            id="awarie"
-            class="section">
-
-            <div class="title">
-
-                <h2>⚠️ Awarie i zgłoszenia</h2>
-
-            </div>
-
-
-            <div class="panel">
-
-                <div class="alert">
-
-                    🟢 Brak aktywnych zgłoszeń awarii.
-
-                </div>
-
-            </div>
-
-
-            <div class="table-box">
-
-                <table>
-
-                    <tr>
-                        <th>Data</th>
-                        <th>Pojazd</th>
-                        <th>Zgłoszenie</th>
-                        <th>Status</th>
-                    </tr>
-
-                    <tr>
-                        <td>—</td>
-                        <td>—</td>
-                        <td>Brak zgłoszeń</td>
-                        <td class="green">
-                            OK
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
-<script>
-
-    function showSection(sectionId, button) {
-
-        const sections =
-            document.querySelectorAll(".section");
-
-        sections.forEach(function(section) {
-
-            section.classList.remove("active");
-
-        });
-
-
-        document
-            .getElementById(sectionId)
-            .classList.add("active");
-
-
-        const buttons =
-            document.querySelectorAll(".sidebar button");
-
-        buttons.forEach(function(btn) {
-
-            btn.classList.remove("active");
-
-        });
-
-
-        button.classList.add("active");
-
-    }
-
-
-    function assignDriver() {
-
-        document
-            .getElementById("assignMessage")
-            .style.display = "block";
-
-    }
-
-
-    function sendMessage() {
-
-        document
-            .getElementById("messageSent")
-            .style.display = "block";
-
-    }
-
-
-    function showInfo() {
-
-        alert(
-            "Szczegóły kursu są dostępne w wersji demonstracyjnej."
-        );
-
-    }
-
-
-    function logout() {
-
-        if (
-            confirm("Czy na pewno chcesz się wylogować?")
-        ) {
-
-            window.location.href =
-                "index.html";
-
-        }
-
-    }
-
-</script>
-
-</body>
-</html><!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panel motorniczego – Transportowe Dzielnice</title>
+
+<title>Rozkłady jazdy — Transportowe Dzielnice</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef2f6;
-    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
 }
+
+/* ===== HEADER ===== */
 
 header {
-    background: #172b4d;
+    background: linear-gradient(135deg, #005b96, #008bc2);
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 18px 7%;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
 }
 
-header h1 {
-    margin: 0 0 5px;
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-header p {
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+    font-size: 12px;
+```
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tabor — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
     margin: 0;
-    opacity: 0.85;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 18px 7%;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: .8;
+    margin-top: 3px;
 }
 
 nav {
-    background: #0f1f36;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 7px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 14px 18px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 1
+```
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Logowanie — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background:
+        linear-gradient(135deg, #004d80, #008bc2);
+    color: #17202a;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    padding: 20px 7%;
+    color: white;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-bet
+```
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel kierowcy — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: whit
+```
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel kierowcy — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
+}
+
+/* ===== HEADER ===== */
+
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: whit
+```
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panel motorniczego — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
+}
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 18px 7%;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
     display: block;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: .8;
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
 }
 
 nav a:hover {
-    background: #27466f;
+    background: rgba(255,255,255,.2);
+}
+
+.hero {
+    background: linear-gradient(135deg, #004d80, #008bc2);
+    color: white;
+    padding: 55px 7%;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 58px);
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+section {
+    padding: 45px 7%;
 }
 
 .container {
     max-width: 1200px;
-    margin: 25px auto;
-    padding: 0 15px;
-}
-
-.card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.card h2 {
-    margin-top: 0;
-    color: #172b4d;
+    margin: auto;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
 }
 
-.info {
-    background: #f5f7fa;
-    border-radius: 10px;
-    padding: 15px;
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
 }
 
-.info strong {
+.card h2 {
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
     display: block;
-    margin-bottom: 5px;
-    color: #172b4d;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d2d9de;
+    border-radius: 9px;
+    background: white;
+    font-size: 15px;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: #008bc2;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 button {
     border: none;
-    padding: 12px 18px;
-    border-radius: 8px;
-    cursor: pointer;
+    padding: 13px 18px;
+    border-radius: 9px;
+    font-size: 15px;
     font-weight: bold;
-    margin: 5px;
+    cursor: pointer;
 }
 
 .start {
-    background: #2e8b57;
+    background: #008bc2;
+    color: white;
+}
+
+.stop {
+    background: #d71920;
     color: white;
 }
 
 .pause {
-    background: #e0a800;
-    color: white;
+    background: #f0b400;
+    color: #17202a;
 }
 
-.end {
-    background: #c0392b;
-    color: white;
-}
-
-.announcement {
-    background: #e8f1ff;
-    padding: 15px;
+.status-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
     border-radius: 10px;
-    margin-top: 10px;
+    background: #edf2f4;
+    margin-bottom: 18px;
 }
 
-.stop {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+.status-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #777;
 }
 
-.stop:last-child {
-    border-bottom: none;
+.status-dot.green {
+    background: #22a447;
 }
 
-.status {
+.status-dot.yellow {
+    background: #f0b400;
+}
+
+.status-dot.red {
+    background: #d71920;
+}
+
+.status-text {
     font-weight: bold;
 }
 
-.green {
-    color: #16803c;
+.info-list {
+    list-style: none;
 }
 
-.yellow {
-    color: #c58a00;
+.info-list li {
+    padding: 11px 0;
+    border-bottom: 1px solid #e4e8ea;
 }
 
-.red {
-    color: #c0392b;
+.info-list li:last-child {
+    border-bottom: none;
 }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    color: #666;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>🚋 Panel Motorniczego</h1>
-    <p>Transportowe Dzielnice</p>
-</header>
-
-<nav>
-    <a href="index.html">🏠 Strona główna</a>
-    <a href="linie.html">🚌 Linie</a>
-    <a href="rozklady.html">🕐 Rozkłady</a>
-    <a href="pojazdy.html">🚍 Pojazdy</a>
-    <a href="zapowiedzi.html">🔊 Zapowiedzi</a>
-    <a href="panel-dyspozytora.html">📡 Dyspozytor</a>
-    <a href="panel-motorniczego.html">🚋 Motorniczy</a>
-</nav>
-
-<div class="container">
-
-    <div class="card">
-        <h2>👤 Dane motorniczego</h2>
-
-        <div class="grid">
-            <div class="info">
-                <strong>Stanowisko</strong>
-                Motorniczy
-            </div>
-
-            <div class="info">
-                <strong>Status</strong>
-                <span id="status" class="status green">Gotowy do rozpoczęcia kursu</span>
-            </div>
-
-            <div class="info">
-                <strong>Przydzielona linia</strong>
-                B7
-            </div>
-
-            <div class="info">
-                <strong>Pojazd</strong>
-                TR-201 – PESA Jazz
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>🚋 Mój kurs</h2>
-
-        <div class="grid">
-            <div class="info">
-                <strong>Linia</strong>
-                B7
-            </div>
-
-            <div class="info">
-                <strong>Kierunek</strong>
-                SPP 109 im. Mikołaja Bielańskiego
-            </div>
-
-            <div class="info">
-                <strong>Numer pojazdu</strong>
-                TR-201
-            </div>
-
-            <div class="info">
-                <strong>Model</strong>
-                PESA Jazz
-            </div>
-        </div>
-
-        <br>
-
-        <button class="start" onclick="startCourse()">
-            ▶ Rozpocznij kurs
-        </button>
-
-        <button class="pause" onclick="pauseCourse()">
-            ⏸ Przerwa
-        </button>
-
-        <button class="end" onclick="endCourse()">
-            ⏹ Zakończ kurs
-        </button>
-    </div>
-
-    <div class="card">
-        <h2>🗺️ Trasa linii B7</h2>
-
-        <div class="stop">🚋 PKP Energetyczna</div>
-        <div class="stop">🚋 Osiedlowa</div>
-        <div class="stop">🚋 Osiedle Zielonej Doliny</div>
-        <div class="stop">🚋 PKP Osiedle Wilczochowskiego</div>
-        <div class="stop">🏁 SPP 109 im. Mikołaja Bielańskiego</div>
-    </div>
-
-    <div class="card">
-        <h2>🔊 Zapowiedzi przystankowe</h2>
-
-        <button onclick="announcement('Następny przystanek: Osiedlowa.')">
-            🔊 Osiedlowa
-        </button>
-
-        <button onclick="announcement('Następny przystanek: Osiedle Zielonej Doliny.')">
-            🔊 Osiedle Zielonej Doliny
-        </button>
-
-        <button onclick="announcement('Następny przystanek: PKP Osiedle Wilczochowskiego.')">
-            🔊 PKP Osiedle Wilczochowskiego
-        </button>
-
-        <button onclick="announcement('Koniec trasy. Prosimy o opuszczenie pojazdu.')">
-            🔊 Koniec trasy
-        </button>
-
-        <div class="announcement" id="announcement">
-            Gotowy do odtworzenia zapowiedzi.
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>🕐 Rozkład jazdy</h2>
-
-        <div class="grid">
-            <div class="info">06:10</div>
-            <div class="info">06:40</div>
-            <div class="info">07:10</div>
-            <div class="info">07:40</div>
-            <div class="info">08:10</div>
-            <div class="info">08:40</div>
-            <div class="info">09:10</div>
-            <div class="info">09:40</div>
-            <div class="info">10:10</div>
-            <div class="info">10:40</div>
-            <div class="info">11:10</div>
-            <div class="info">11:40</div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>📢 Komunikaty dyspozytora</h2>
-
-        <div class="announcement">
-            Brak nowych komunikatów.
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    Transportowe Dzielnice © 2026
-</footer>
-
-<script>
-
-function startCourse() {
-    document.getElementById("status").innerText =
-        "Kurs rozpoczęty";
-
-    document.getElementById("status").className =
-        "status green";
-
-    alert("Kurs linii B7 został rozpoczęty.");
+.info-list strong {
+    display: inline-block;
+    min-width: 125px;
 }
 
-function pauseCourse() {
-    document.getElementById("status").innerText =
-        "Przerwa";
-
-    document.getElementById("status").className =
-        "status yellow";
-
-    alert("Kurs został oznaczony jako przerwa.");
-}
-
-function endCourse() {
-    document.getElementById("status").innerText =
-        "Kurs zakończony";
-
-    document.getElementById("status").className =
-        "status red";
-
-    alert("Kurs został zakończony.");
-}
-
-function announcement(text) {
-
-    document.getElementById("announcement").innerText =
-        text;
-
-    if ("speechSynthesis" in window) {
-
-        window.speechSynthesis.cancel();
-
-        const voice = new SpeechSynthesisUtterance(text);
-
-        voice.lang = "pl-PL";
-        voice.rate = 0.9;
-        voice.pitch = 1;
-
-        window.speechSynthesis.speak(voice);
-    }
-}
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>System ról – Transportowe Dzielnice</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef2f6;
-}
-
-header {
-    background: #172b4d;
-    color: white;
-    padding: 25px;
-    text-align: center;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 25px auto;
-    padding: 15px;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
-}
-
-.roles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.role {
-    padding: 20px;
+.stop-display {
+    background: #15191c;
+    color: #fff;
     border-radius: 12px;
-    background: #f5f7fa;
-}
+    padding: 22px;
+```
 
-.role h3 {
-    margin-top: 0;
-}
-
-.admin {
-    border-left: 6px solid #7b1fa2;
-}
-
-.dispatcher {
-    border-left: 6px solid #1565c0;
-}
-
-.driver {
-    border-left: 6px solid #2e7d32;
-}
-
-.motorman {
-    border-left: 6px solid #ef6c00;
-}
-
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 7px 0 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-
-button {
-    padding: 12px 18px;
-    border: 0;
-    border-radius: 8px;
-    background: #172b4d;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: .9;
-}
-
-.user {
-    padding: 15px;
-    margin-top: 10px;
-    background: #f5f7fa;
-    border-radius: 10px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>🔐 System ról</h1>
-    <p>Transportowe Dzielnice</p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <h2>👥 Dostępne role</h2>
-
-        <div class="roles">
-
-            <div class="role admin">
-                <h3>👑 Administrator</h3>
-                <p>Pełne zarządzanie systemem.</p>
-            </div>
-
-            <div class="role dispatcher">
-                <h3>📡 Dyspozytor</h3>
-                <p>Zarządzanie kursami, pojazdami i personelem.</p>
-            </div>
-
-            <div class="role driver">
-                <h3>🚌 Kierowca</h3>
-                <p>Obsługa przydzielonych autobusów i kursów.</p>
-            </div>
-
-            <div class="role motorman">
-                <h3>🚋 Motorniczy</h3>
-                <p>Obsługa przydzielonych tramwajów i kursów.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="card">
-
-        <h2>➕ Dodaj pracownika</h2>
-
-        <label>Nick / imię</label>
-        <input id="name" placeholder="np. Transportowy123">
-
-        <label>Rola</label>
-
-        <select id="role">
-            <option value="Kierowca">🚌 Kierowca</option>
-            <option value="Motorniczy">🚋 Motorniczy</option>
-            <option value="Dyspozytor">📡 Dyspozytor</option>
-            <option value="Administrator">👑 Administrator</option>
-        </select>
-
-        <label>Przydział</label>
-
-        <input id="assignment"
-               placeholder="np. G1 / TD-101">
-
-        <button onclick="addUser()">
-            ➕ Dodaj pracownika
-        </button>
-
-    </div>
-
-    <div class="card">
-
-        <h2>👨‍✈️ Lista pracowników</h2>
-
-        <div id="users"></div>
-
-    </div>
-
-</div>
-
-<script>
-
-let users = JSON.parse(
-    localStorage.getItem("transportUsers") || "[]"
-);
-
-function saveUsers() {
-
-    localStorage.setItem(
-        "transportUsers",
-        JSON.stringify(users)
-    );
-
-}
-
-function showUsers() {
-
-    const container =
-        document.getElementById("users");
-
-    container.innerHTML = "";
-
-    if (users.length === 0) {
-
-        container.innerHTML =
-            "<p>Brak pracowników.</p>";
-
-        return;
-    }
-
-    users.forEach((user, index) => {
-
-        const div =
-            document.createElement("div");
-
-        div.className = "user";
-
-        div.innerHTML = `
-            <strong>${user.name}</strong><br>
-            Rola: ${user.role}<br>
-            Przydział: ${user.assignment || "Brak"}<br><br>
-
-            <button onclick="removeUser(${index})">
-                🗑 Usuń
-            </button>
-        `;
-
-        container.appendChild(div);
-
-    });
-
-}
-
-function addUser() {
-
-    const name =
-        document.getElementById("name").value.trim();
-
-    const role =
-        document.getElementById("role").value;
-
-    const assignment =
-        document.getElementById("assignment").value.trim();
-
-    if (!name) {
-
-        alert("Wpisz nazwę pracownika.");
-
-        return;
-    }
-
-    users.push({
-        name: name,
-        role: role,
-        assignment: assignment
-    });
-
-    saveUsers();
-    showUsers();
-
-    document.getElementById("name").value = "";
-    document.getElementById("assignment").value = "";
-
-}
-
-function removeUser(index) {
-
-    if (confirm("Czy na pewno usunąć tego pracownika?")) {
-
-        users.splice(index, 1);
-
-        saveUsers();
-        showUsers();
-
-    }
-
-}
-
-showUsers();
-
-</script>
-
-</body>
-</html>
+```html
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zarządzanie – Transportowe Dzielnice</title>
+
+<title>Panel administratora — Transportowe Dzielnice</title>
 
 <style>
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #eef2f6;
-    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
 }
 
 header {
-    background: #172b4d;
+    background: linear-gradient(135deg, #005b96, #008bc2);
     color: white;
-    padding: 25px;
-    text-align: center;
+    padding: 18px 7%;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
 }
 
-header h1 {
-    margin: 0;
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: .8;
+    margin-top: 3px;
 }
 
 nav {
-    background: #0f1f36;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 7px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 14px 18px;
+    padding: 9px 12px
+```
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rekrutacja — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef2f4;
+    color: #17202a;
+}
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 18px 7%;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    opacity: .8;
+    margin-top: 3px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
 }
 
 nav a:hover {
-    background: #29476f;
+    background: rgba(255,255,255,.2);
+}
+
+.hero {
+    background: linear-gradient(135deg, #004d80, #008bc2);
+    color: white;
+    padding: 55px 7%;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 58px);
+    margin-bottom: 12px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+section {
+    padding: 45px 7%;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 15px;
+    max-width: 950px;
+    margin: auto;
 }
 
 .card {
     background: white;
-    border-radius: 14px;
-    padding: 20px;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.08);
 }
 
-.grid {
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: #68747d;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.required {
+    color: #d71920;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d2d9de;
+    border-radius: 9px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #008bc2;
+}
+
+.positions {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-.manage {
-    background: #f5f7fa;
+.position {
+    border: 2px solid #e0e5e8;
     border-radius: 12px;
-    padding: 20px;
+    padding: 18px;
+    cursor: pointer;
+    transition: .2s;
 }
 
-.manage h3 {
-    margin-top: 0;
-    color: #172b4d;
+.position:hover {
+    border-color: #008bc2;
+    background: #f5fbfe;
+}
+
+.position input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.position strong {
+    display: block;
+    margin-top: 8px;
+}
+
+.position small {
+    display: block;
+    color: #68747d;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 15px 0;
+    color: #505c63;
+    line-height: 1.4;
+}
+
+.checkbox input {
+    width: auto;
+    margin-top: 4px;
 }
 
 button {
     border: none;
-    border-radius: 8px;
-    padding: 11px 16px;
+    padding: 14px 20px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
     cursor: pointer;
-    background: #172b4d;
+}
+
+.submit {
+    background: #008bc2;
     color: white;
-    margin-top: 8px;
-}
-
-button:hover {
-    opacity: .9;
-}
-
-input, select {
     width: 100%;
-    padding: 11px;
-    margin: 6px 0 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
 }
 
-.item {
-    background: #f5f7fa;
-    padding: 14px;
-    margin-top: 10px;
+.submit:hover {
+    background: #006f9e;
+}
+
+.result {
+    display: none;
+    margin-top: 20px;
+    padding: 18px;
     border-radius: 10px;
+    font-weight: bold;
+    line-height: 1.5;
 }
 
-.danger {
-    background: #c0392b;
+.result.show {
+    display: block;
 }
 
 .success {
-    color: #16803c;
-    font-weight: bold;
+    background: #dff5e4;
+    color: #176b35;
+}
+
+.error {
+    background: #ffe0e0;
+    color: #a10000;
+}
+
+.notice {
+    background: #e7f4fb;
+    border-left: 5px solid #008bc2;
+    padding: 15px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 footer {
-    text-align: center;
-    padding: 25px;
-    color: #666;
+    background: #101820;
+    color: white;
+    padding: 35px 7%;
+}
+
+.footer-content {
+    max-width: 950px;
+    margin: auto;
+}
+
+footer p {
+    color: #adb6bd;
+    margin-top: 7px;
+}
+
+@media(max-width:650px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .positions {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 </style>
 </head>
@@ -5140,385 +1550,665 @@ footer {
 <body>
 
 <header>
-    <h1>⚙️ Centrum Zarządzania</h1>
-    <p>Transportowe Dzielnice</p>
-</header>
+
+<div class="nav">
+
+<div class="logo">
+🚍 TRANSPORTOWE DZIELNICE
+<span>Rekrutacja • Warszawa Mokotów</span>
+</div>
 
 <nav>
-    <a href="index.html">🏠 Start</a>
-    <a href="panel-admin.html">👑 Administrator</a>
-    <a href="role.html">👥 Role</a>
-    <a href="panel-dyspozytora.html">📡 Dyspozytor</a>
-    <a href="panel-kierowcy.html">🚌 Kierowca</a>
-    <a href="panel-motorniczego.html">🚋 Motorniczy</a>
+<a href="index.html">Start</a>
+<a href="linie.html">Linie</a>
+<a href="mapa.html">Mapa</a>
+<a href="rozklady.html">Rozkłady</a>
+<a href="pojazdy.html">Tabor</a>
 </nav>
-
-<div class="container">
-
-    <div class="card">
-        <h2>📊 Centrum zarządzania</h2>
-
-        <div class="grid">
-
-            <div class="manage">
-                <h3>👥 Personel</h3>
-                <p>Zarządzaj kierowcami, motorniczymi i dyspozytorami.</p>
-                <button onclick="location.href='role.html'">
-                    Otwórz personel
-                </button>
-            </div>
-
-            <div class="manage">
-                <h3>🚌 Pojazdy</h3>
-                <p>Zarządzaj autobusami i tramwajami.</p>
-                <button onclick="location.href='pojazdy.html'">
-                    Otwórz pojazdy
-                </button>
-            </div>
-
-            <div class="manage">
-                <h3>🛣️ Linie</h3>
-                <p>Dodawaj i edytuj linie komunikacyjne.</p>
-                <button onclick="location.href='linie.html'">
-                    Otwórz linie
-                </button>
-            </div>
-
-            <div class="manage">
-                <h3>🕐 Rozkłady</h3>
-                <p>Zarządzaj godzinami odjazdów.</p>
-                <button onclick="location.href='rozklady.html'">
-                    Otwórz rozkłady
-                </button>
-            </div>
-
-            <div class="manage">
-                <h3>📢 Komunikaty</h3>
-                <p>Zarządzaj komunikatami dla pracowników.</p>
-                <button onclick="showMessage()">
-                    Wyślij komunikat
-                </button>
-            </div>
-
-            <div class="manage">
-                <h3>🚨 Awarie</h3>
-                <p>Monitoruj zgłoszenia awarii.</p>
-                <button onclick="showBreakdown()">
-                    Otwórz awarie
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="card">
-
-        <h2>👤 Przydziel pracownika</h2>
-
-        <label>Pracownik</label>
-
-        <select id="employee">
-            <option>Kierowca – TD_Kierowca01</option>
-            <option>Kierowca – TD_Kierowca02</option>
-            <option>Motorniczy – Tramwajowy01</option>
-            <option>Motorniczy – Tramwajowy02</option>
-        </select>
-
-        <label>Linia</label>
-
-        <select id="line">
-            <option>G1</option>
-            <option>G2</option>
-            <option>B7</option>
-        </select>
-
-        <label>Pojazd</label>
-
-        <select id="vehicle">
-            <option>TD-101 – Solaris Urbino 18</option>
-            <option>TD-102 – Solaris Urbino 12</option>
-            <option>TR-201 – PESA Jazz</option>
-        </select>
-
-        <br>
-
-        <button onclick="assignEmployee()">
-            ✅ Przydziel
-        </button>
-
-        <div id="assignmentResult"></div>
-
-    </div>
-
-    <div class="card">
-
-        <h2>📋 Ostatnie działania</h2>
-
-        <div id="logs">
-
-            <div class="item">
-                System zarządzania został uruchomiony.
-            </div>
-
-        </div>
-
-    </div>
 
 </div>
 
+</header>
+
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>📋 Rekrutacja TD</h1>
+
+<p>
+Dołącz do zespołu Transportowych Dzielnic i pomóż rozwijać
+nasz transportowy świat Roblox.
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="notice">
+<strong>ℹ️ Ważne:</strong>
+To jest formularz demonstracyjny strony. Połączenie z
+prawdziwą bazą zgłoszeń lub Discordem wymaga dodatkowego
+systemu backendowego.
+</div>
+
+
+<form id="recruitmentForm">
+
+
+<!-- DANE -->
+
+<div class="card">
+
+<h2>👤 Dane kandydata</h2>
+
+<p class="card-description">
+Podaj podstawowe informacje potrzebne do rozpatrzenia zgłoszenia.
+</p>
+
+
+<div class="form-group">
+
+<label for="nick">
+Nick Roblox <span class="required">*</span>
+</label>
+
+<input
+id="nick"
+type="text"
+placeholder="np. TransportowyGracz"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="discord">
+Nick Discord
+</label>
+
+<input
+id="discord"
+type="text"
+placeholder="np. TransportowyGracz"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="age">
+Wiek
+</label>
+
+<input
+id="age"
+type="number"
+min="13"
+max="99"
+placeholder="Wpisz wiek"
+>
+
+</div>
+
+</div>
+
+
+<!-- STANOWISKO -->
+
+<div class="card">
+
+<h2>🚦 Wybierz stanowisko</h2>
+
+<p class="card-description">
+Zaznacz stanowisko, na które chcesz złożyć podanie.
+</p>
+
+
+<div class="positions">
+
+<label class="position">
+
+<input
+type="radio"
+name="position"
+value="Kierowca"
+required
+>
+
+<strong>🚌 Kierowca</strong>
+
+<small>
+Prowadzenie autobusów i obsługa linii TD.
+</small>
+
+</label>
+
+
+<label class="position">
+
+<input
+type="radio"
+name="position"
+value="Motorniczy"
+>
+
+<strong>🚋 Motorniczy</strong>
+
+<small>
+Prowadzenie tramwajów i obsługa tras tramwajowych.
+</small>
+
+</label>
+
+
+<label class="position">
+
+<input
+type="radio"
+name="position"
+value="Dyspozytor"
+>
+
+<strong>📡 Dyspozytor</strong>
+
+<small>
+Koordynowanie ruchu i kontakt z kierowcami.
+</small>
+
+</label>
+
+
+<label class="position">
+
+<input
+type="radio"
+name="position"
+value="Developer Roblox"
+>
+
+<strong>💻 Developer Roblox</strong>
+
+<small>
+Tworzenie skryptów, map, GUI i systemów w Roblox Studio.
+</small>
+
+</label>
+
+</div>
+
+</div>
+
+
+<!-- DOŚWIADCZENIE -->
+
+<div class="card">
+
+<h2>🛠️ Doświadczenie</h2>
+
+
+<div class="form-group">
+
+<label for="experience">
+Opisz swoje doświadczenie <span class="required">*</span>
+</label>
+
+<textarea
+id="experience"
+placeholder="Np. ile czasu grasz w Roblox, czy masz doświadczenie jako kierowca, developer, budowniczy itp."
+required
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="skills">
+Umiejętności
+</label>
+
+<textarea
+id="skills"
+placeholder="Np. Lua/Luau, Roblox Studio, budowanie map, GUI, moderacja..."
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="portfolio">
+Portfolio / przykładowe projekty
+</label>
+
+<textarea
+id="portfolio"
+placeholder="Wklej maksymalnie 3 przykładowe projekty lub linki do nich."
+></textarea>
+
+</div>
+
+</div>
+
+
+<!-- MOTYWACJA -->
+
+<div class="card">
+
+<h2>💬 Twoje zgłoszenie</h2>
+
+
+<div class="form-group">
+
+<label for="reason">
+Dlaczego chcesz dołączyć do TD? <span class="required">*</span>
+</label>
+
+<textarea
+id="reason"
+placeholder="Napisz kilka zdań..."
+required
+></textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="availability">
+Kiedy możesz być aktywny?
+</label>
+
+<select id="availability">
+
+<option>Codziennie</option>
+<option>W większość dni</option>
+<option>Głównie w weekendy</option>
+<option>Po szkole</option>
+<option>Inny termin</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- ZGODY -->
+
+<div class="card">
+
+<h2>✅ Zgody</h2>
+
+
+<label class="checkbox">
+
+<input
+type="checkbox"
+id="rules"
+required
+>
+
+<span>
+Potwierdzam, że zapoznałem/am się z zasadami
+rekrutacji TD i podaję prawdziwe informacje.
+</span>
+
+</label>
+
+
+<label class="checkbox">
+
+<input
+type="checkbox"
+id="contact"
+required
+>
+
+<span>
+Wyrażam zgodę na kontakt administracji TD w sprawie
+mojego zgłoszenia.
+</span>
+
+</label>
+
+
+<button
+type="submit"
+class="submit"
+>
+📨 Wyślij podanie
+</button>
+
+
+<div id="result" class="result"></div>
+
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
 <footer>
-    Transportowe Dzielnice © 2026
+
+<div class="footer-content">
+
+<strong>
+🚍 Transportowe Dzielnice
+</strong>
+
+<p>
+Rekrutacja • Warszawa Mokotów
+</p>
+
+<p>
+© 2026 Transportowe Dzielnice
+</p>
+
+</div>
+
 </footer>
+
 
 <script>
 
-function addLog(text) {
+document
+.getElementById("recruitmentForm")
+.addEventListener("submit", function(event) {
 
-    const logs = document.getElementById("logs");
+    event.preventDefault();
 
-    const item = document.createElement("div");
 
-    item.className = "item";
+    const nick =
+        document.getElementById("nick").value.trim();
 
-    item.innerText = text;
+    const experience =
+        document.getElementById("experience").value.trim();
 
-    logs.prepend(item);
-}
+    const reason =
+        document.getElementById("reason").value.trim();
 
-function assignEmployee() {
-
-    const employee =
-        document.getElementById("employee").value;
-
-    const line =
-        document.getElementById("line").value;
-
-    const vehicle =
-        document.getElementById("vehicle").value;
+    const position =
+        document.querySelector(
+            'input[name="position"]:checked'
+        );
 
     const result =
-        document.getElementById("assignmentResult");
+        document.getElementById("result");
+
+
+    if (
+        nick === "" ||
+        experience === "" ||
+        reason === "" ||
+        !position
+    ) {
+
+        result.className =
+            "result error show";
+
+        result.textContent =
+            "❌ Uzupełnij wszystkie wymagane pola.";
+
+        return;
+    }
+
+
+    result.className =
+        "result success show";
 
     result.innerHTML =
-        `<p class="success">
-        ✅ ${employee} został przydzielony do linii ${line}
-        i pojazdu ${vehicle}.
-        </p>`;
+        "✅ Podanie zostało przygotowane pomyślnie!<br><br>" +
+        "Stanowisko: " +
+        escapeHtml(position.value) +
+        "<br>" +
+        "Kandydat: " +
+        escapeHtml(nick) +
+        "<br><br>" +
+        "W wersji demonstracyjnej zgłoszenie nie jest jeszcze " +
+        "wysyłane do bazy ani na Discorda.";
 
-    addLog(
-        `${employee} → ${line} → ${vehicle}`
-    );
-}
 
-function showMessage() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
 
-    const message =
-        prompt("Wpisz komunikat dla pracowników:");
+});
 
-    if (!message) return;
 
-    alert("📢 Komunikat został przygotowany.");
+function escapeHtml(text) {
 
-    addLog(
-        "📢 Dodano komunikat: " + message
-    );
-}
+    const div =
+        document.createElement("div");
 
-function showBreakdown() {
+    div.textContent =
+        text;
 
-    addLog(
-        "🚨 Otwarto moduł zgłoszeń awarii."
-    );
-
-    alert(
-        "Moduł awarii: brak nowych zgłoszeń."
-    );
+    return div.innerHTML;
 }
 
 </script>
 
 </body>
 </html>
-<div class="card">
-    <h2>👥 Zarządzanie rolami</h2>
+```
 
-    <div id="users"></div>
-</div>
-<script>
+<!DOCTYPE html>
 
-let users = JSON.parse(
-    localStorage.getItem("transportUsers") || "[]"
-);
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komunikaty — Transportowe Dzielnice</title>
 
-const permissions = {
-    "Administrator": [
-        "Pełny dostęp",
-        "Zarządzanie personelem",
-        "Zarządzanie pojazdami",
-        "Zarządzanie liniami",
-        "Zarządzanie rozkładami",
-        "Zarządzanie komunikatami"
-    ],
-
-    "Dyspozytor": [
-        "Podgląd pojazdów",
-        "Zarządzanie kursami",
-        "Przydzielanie pojazdów",
-        "Przydzielanie pracowników",
-        "Komunikaty"
-    ],
-
-    "Kierowca": [
-        "Panel kierowcy",
-        "Moje kursy",
-        "Mój autobus",
-        "Zapowiedzi"
-    ],
-
-    "Motorniczy": [
-        "Panel motorniczego",
-        "Moje kursy",
-        "Mój tramwaj",
-        "Zapowiedzi"
-    ]
-};
-
-function saveUsers() {
-    localStorage.setItem(
-        "transportUsers",
-        JSON.stringify(users)
-    );
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-function showUsers() {
-
-    const container =
-        document.getElementById("users");
-
-    container.innerHTML = "";
-
-    if (users.length === 0) {
-
-        container.innerHTML =
-            "<p>Brak pracowników.</p>";
-
-        return;
-    }
-
-    users.forEach((user, index) => {
-
-        const div =
-            document.createElement("div");
-
-        div.className = "user";
-
-        const permissionList =
-            permissions[user.role] || [];
-
-        div.innerHTML = `
-            <h3>${user.name}</h3>
-
-            <p>
-                <strong>Aktualna rola:</strong>
-                ${user.role}
-            </p>
-
-            <p>
-                <strong>Przydział:</strong>
-                ${user.assignment || "Brak"}
-            </p>
-
-            <label>Zmień rolę:</label>
-
-            <select id="role-${index}">
-                <option ${user.role === "Kierowca" ? "selected" : ""}>
-                    Kierowca
-                </option>
-
-                <option ${user.role === "Motorniczy" ? "selected" : ""}>
-                    Motorniczy
-                </option>
-
-                <option ${user.role === "Dyspozytor" ? "selected" : ""}>
-                    Dyspozytor
-                </option>
-
-                <option ${user.role === "Administrator" ? "selected" : ""}>
-                    Administrator
-                </option>
-            </select>
-
-            <label>Przydział:</label>
-
-            <input
-                id="assignment-${index}"
-                value="${user.assignment || ""}"
-                placeholder="np. G1 / TD-101"
-            >
-
-            <h4>🔑 Uprawnienia</h4>
-
-            <ul>
-                ${permissionList
-                    .map(permission =>
-                        `<li>${permission}</li>`
-                    )
-                    .join("")}
-            </ul>
-
-            <button onclick="saveUser(${index})">
-                💾 Zapisz zmiany
-            </button>
-
-            <button
-                class="danger"
-                onclick="removeUser(${index})">
-                🗑 Usuń
-            </button>
-        `;
-
-        container.appendChild(div);
-
-    });
+body {
+    background: #eef2f4;
+    color: #17202a;
 }
 
-function saveUser(index) {
-
-    const newRole =
-        document.getElementById(
-            `role-${index}`
-        ).value;
-
-    const newAssignment =
-        document.getElementById(
-            `assignment-${index}`
-        ).value;
-
-    users[index].role = newRole;
-    users[index].assignment = newAssignment;
-
-    saveUsers();
-    showUsers();
-
-    alert(
-        "✅ Zapisano zmiany dla pracownika."
-    );
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 25px 8%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-function removeUser(index) {
-
-    if (!confirm(
-        "Czy na pewno usunąć tego pracownika?"
-    )) {
-        return;
-    }
-
-    users.splice(index, 1);
-
-    saveUsers();
-    showUsers();
+.logo {
+    font-size: 28px;
+    font-weight: bold;
 }
 
-showUsers();
+.subtitle {
+    margin-top: 5px;
+    opacity: 0.9;
+}
 
-</script>
+nav {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+.hero {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    color: #005b96;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #59636e;
+    font-size: 17px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filters button {
+    border: none;
+    background: white;
+    color: #005b96;
+    padding: 11px 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.filters button
+
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komunikaty — Transportowe Dzielnice</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef2f4;
+    color: #17202a;
+}
+
+header {
+    background: linear-gradient(135deg, #005b96, #008bc2);
+    color: white;
+    padding: 25px 8%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 5px;
+    opacity: 0.9;
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+.hero {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    color: #005b96;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #59636e;
+    font-size: 17px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filters button {
+    border: none;
+    background: white;
+    color: #005b96;
+    padding: 11px 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.filters button
