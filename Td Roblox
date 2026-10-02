@@ -1,0 +1,51 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    const navContainer = document.getElementById("td-navigation");
+
+    if (!navContainer) return;
+
+    navContainer.innerHTML = `
+        <nav class="td-nav">
+
+            <a href="index.html" class="td-logo">
+                🚍 Transportowe Dzielnice
+            </a>
+
+            <div class="td-links">
+
+                <a href="index.html">🏠 Start</a>
+
+                <a href="linie.html">🚌 Linie</a>
+
+                <a href="mapa.html">🗺️ Mapa</a>
+
+                <a href="rozklady.html">🕐 Rozkłady</a>
+
+                <a href="pojazdy.html">🚍 Pojazdy</a>
+
+                <a href="przystanki.html">🚏 Przystanki</a>
+
+                <a href="komunikaty.html">📢 Komunikaty</a>
+
+                <a href="status.html">🟢 Status</a>
+
+                <a href="kierowcy.html">👨‍✈️ Kierowcy</a>
+
+                <a href="eventy.html">🎃 Eventy</a>
+
+                <a href="rekrutacja.html">📝 Rekrutacja</a>
+
+                <a href="partnerstwa.html">🤝 Partnerstwa</a>
+
+                <a href="kontakt.html">📞 Kontakt</a>
+
+                <a href="o-nas.html">ℹ️ O nas</a>
+
+                <a href="regulamin.html">📜 Regulamin</a>
+
+            </div>
+
+        </nav>
+    `;
+
+});
