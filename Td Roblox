@@ -49,3 +49,5381 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
 });
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventy — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: white;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+    overflow-y: auto;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 28px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #7890a2;
+    margin-top: 5px;
+}
+
+.add-btn {
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #1689d7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stat-name {
+    color: #8196a8;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.panel {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.search {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.event-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #152d41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.active-status {
+    color: #68e493;
+    background: rgba(70,220,120,.12);
+}
+
+.planned-status {
+    color: #62b9f4;
+    background: rgba(22,137,215,.12);
+}
+
+.finished-status {
+    color: #8999a8;
+    background: rgba(130,145,160,.12);
+}
+
+.draft-status {
+    color: #ffc857;
+    background: rgba(255,200,87,.12);
+}
+
+.actions button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #172d40;
+    color: #b8c8d5;
+    margin-right: 4px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.modal-box {
+    width: 680px;
+    max-width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0d2031;
+    border: 1px solid #28445b;
+    border-radius: 17px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #b9c9d5;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.checks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.check {
+    background: #091a29;
+    border: 1px solid #243d51;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.check input {
+    width: auto;
+    margin-right: 6px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save {
+    background: #1689d7;
+    color: white;
+}
+
+.cancel {
+    background: #1b3042;
+    color: white;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filters,
+    .form-row {
+        flex-direction: column;
+        display: flex;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">🚍</div>
+        <h2>TD ROBLOX</h2>
+        <p>Panel Administracyjny</p>
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="admin.html">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="linie.html">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="przystanki.html">🚏 Przystanki</a>
+        <a href="pojazdy.html">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="komunikaty.html">📢 Komunikaty</a>
+        <a href="eventy.html" class="active">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>📅 Centrum eventów</h1>
+            <p>Zarządzanie wydarzeniami specjalnymi TD ROBLOX</p>
+        </div>
+
+        <button class="add-btn" onclick="openModal()">
+            ＋ Nowy event
+        </button>
+
+    </div>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">📅</div>
+            <div class="stat-number" id="total">4</div>
+            <div class="stat-name">Wszystkie eventy</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <div class="stat-number" id="active">1</div>
+            <div class="stat-name">Aktywne</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-number" id="planned">2</div>
+            <div class="stat-name">Zaplanowane</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">✅</div>
+            <div class="stat-number" id="finished">1</div>
+            <div class="stat-name">Zakończone</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Szukaj eventu..."
+                oninput="filterEvents()"
+            >
+
+            <select id="statusFilter" onchange="filterEvents()">
+                <option value="">Wszystkie statusy</option>
+                <option value="Aktywny">Aktywny</option>
+                <option value="Zaplanowany">Zaplanowany</option>
+                <option value="Zakończony">Zakończony</option>
+                <option value="Roboczy">Roboczy</option>
+            </select>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>EVENT</th>
+                    <th>NAZWA</th>
+                    <th>TERMIN</th>
+                    <th>ORGANIZATOR</th>
+                    <th>STATUS</th>
+                    <th>AKCJE</th>
+                </tr>
+            </thead>
+
+            <tbody id="eventTable">
+
+                <tr data-status="Aktywny">
+                    <td><div class="event-icon">🎃</div></td>
+                    <td><strong>Halloween TD</strong></td>
+                    <td>01–31.10.2026</td>
+                    <td>Administracja</td>
+                    <td>
+                        <span class="status active-status">
+                            ● Aktywny
+                        </span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewEvent(this)">👁️</button>
+                        <button onclick="editEvent(this)">✏️</button>
+                        <button onclick="deleteEvent(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-status="Zaplanowany">
+                    <td><div class="event-icon">❄️</div></td>
+                    <td><strong>Zimowy Event TD</strong></td>
+                    <td>01.12.2026–15.01.2027</td>
+                    <td>Administracja</td>
+                    <td>
+                        <span class="status planned-status">
+                            ● Zaplanowany
+                        </span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewEvent(this)">👁️</button>
+                        <button onclick="editEvent(this)">✏️</button>
+                        <button onclick="deleteEvent(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-status="Zaplanowany">
+                    <td><div class="event-icon">🚌</div></td>
+                    <td><strong>Świąteczna komunikacja</strong></td>
+                    <td>20.12.2026–06.01.2027</td>
+                    <td>Zarząd TD</td>
+                    <td>
+                        <span class="status planned-status">
+                            ● Zaplanowany
+                        </span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewEvent(this)">👁️</button>
+                        <button onclick="editEvent(this)">✏️</button>
+                        <button onclick="deleteEvent(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-status="Zakończony">
+                    <td><div class="event-icon">🎉</div></td>
+                    <td><strong>Letni Event TD</strong></td>
+                    <td>01–31.08.2026</td>
+                    <td>Zarząd TD</td>
+                    <td>
+                        <span class="status finished-status">
+                            ● Zakończony
+                        </span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewEvent(this)">👁️</button>
+                        <button onclick="editEvent(this)">✏️</button>
+                        <button onclick="deleteEvent(this)">🗑️</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<div class="modal" id="eventModal">
+
+    <div class="modal-box">
+
+        <h2>📅 Utwórz nowy event</h2>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Nazwa eventu</label>
+                <input id="eventName" type="text"
+                       placeholder="np. Zimowy Event TD">
+            </div>
+
+            <div class="form-group">
+                <label>Ikona</label>
+                <input id="eventIcon" type="text"
+                       placeholder="❄️" maxlength="4">
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Data rozpoczęcia</label>
+                <input id="startDate" type="date">
+            </div>
+
+            <div class="form-group">
+                <label>Data zakończenia</label>
+                <input id="endDate" type="date">
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select id="eventStatus">
+                <option>Zaplanowany</option>
+                <option>Aktywny</option>
+                <option>Roboczy</option>
+                <option>Zakończony</option>
+            </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Opis eventu</label>
+
+            <textarea id="eventDescription"
+                placeholder="Opisz wydarzenie..."></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Elementy eventu</label>
+
+            <div class="checks">
+
+                <label class="check">
+                    <input type="checkbox" checked>
+                    🚍 Specjalne linie
+                </label>
+
+                <label class="check">
+                    <input type="checkbox">
+                    🎁 Nagrody
+                </label>
+
+                <label class="check">
+                    <input type="checkbox">
+                    📢 Komunikaty
+                </label>
+
+                <label class="check">
+                    <input type="checkbox">
+                    🗺️ Zmiana mapy
+                </label>
+
+                <label class="check">
+                    <input type="checkbox">
+                    🎨 Dekoracje
+                </label>
+
+                <label class="check">
+                    <input type="checkbox">
+                    🏆 Konkurs
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button class="cancel" onclick="closeModal()">
+                Anuluj
+            </button>
+
+            <button class="save" onclick="addEvent()">
+                Utwórz event
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+
+}
+
+
+function openModal() {
+
+    document.getElementById("eventModal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("eventModal").style.display = "none";
+
+}
+
+
+function formatDate(date) {
+
+    if (!date) return "—";
+
+    const parts = date.split("-");
+
+    return parts[2] + "." + parts[1] + "." + parts[0];
+
+}
+
+
+function addEvent() {
+
+    const name =
+        document.getElementById("eventName").value.trim();
+
+    const icon =
+        document.getElementById("eventIcon").value.trim() || "📅";
+
+    const start =
+        document.getElementById("startDate").value;
+
+    const end =
+        document.getElementById("endDate").value;
+
+    const status =
+        document.getElementById("eventStatus").value;
+
+    if (!name || !start || !end) {
+
+        alert(
+            "Uzupełnij nazwę oraz obie daty eventu."
+        );
+
+        return;
+
+    }
+
+    const row =
+        document.createElement("tr");
+
+    row.dataset.status = status;
+
+    let statusClass = "planned-status";
+
+    if (status === "Aktywny") {
+        statusClass = "active-status";
+    }
+
+    if (status === "Zakończony") {
+        statusClass = "finished-status";
+    }
+
+    if (status === "Roboczy") {
+        statusClass = "draft-status";
+    }
+
+    row.innerHTML = `
+
+        <td>
+            <div class="event-icon">
+                ${icon}
+            </div>
+        </td>
+
+        <td>
+            <strong>${name}</strong>
+        </td>
+
+        <td>
+            ${formatDate(start)}
+            –
+            ${formatDate(end)}
+        </td>
+
+        <td>
+            Administrator
+        </td>
+
+        <td>
+            <span class="status ${statusClass}">
+                ● ${status}
+            </span>
+        </td>
+
+        <td class="actions">
+
+            <button onclick="viewEvent(this)">
+                👁️
+            </button>
+
+            <button onclick="editEvent(this)">
+                ✏️
+            </button>
+
+            <button onclick="deleteEvent(this)">
+                🗑️
+            </button>
+
+        </td>
+
+    `;
+
+    document
+        .getElementById("eventTable")
+        .appendChild(row);
+
+    closeModal();
+
+    resetForm();
+
+    updateStats();
+
+}
+
+
+function resetForm() {
+
+    document.getElementById("eventName").value = "";
+
+    document.getElementById("eventIcon").value = "";
+
+    document.getElementById("startDate").value = "";
+
+    document.getElementById("endDate").value = "";
+
+    document.getElementById("eventStatus").value =
+        "Zaplanowany";
+
+    document.getElementById("eventDescription").value = "";
+
+}
+
+
+function viewEvent(button) {
+
+    const row =
+        button.closest("tr");
+
+    alert(
+        "EVENT:\n\n" +
+        row.children[1].innerText +
+        "\n\nTERMIN: " +
+        row.children[2].innerText +
+        "\nORGANIZATOR: " +
+        row.children[3].innerText +
+        "\nSTATUS: " +
+        row.children[4].innerText
+    );
+
+}
+
+
+function editEvent(button) {
+
+    const row =
+        button.closest("tr");
+
+    alert(
+        "Edycja eventu:\n\n" +
+        row.children[1].innerText +
+        "\n\nPełny edytor eventu możemy rozbudować w kolejnej wersji."
+    );
+
+}
+
+
+function deleteEvent(button) {
+
+    if (
+        confirm(
+            "Czy na pewno usunąć ten event?"
+        )
+    ) {
+
+        button.closest("tr").remove();
+
+        updateStats();
+
+    }
+
+}
+
+
+function filterEvents() {
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase();
+
+    const status =
+        document
+            .getElementById("statusFilter")
+            .value;
+
+    const rows =
+        document.querySelectorAll("#eventTable tr");
+
+    rows.forEach(row => {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        const statusMatch =
+            !status ||
+            row.dataset.status === status;
+
+        const searchMatch =
+            text.includes(search);
+
+        row.style.display =
+            statusMatch &&
+            searchMatch
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+function updateStats() {
+
+    const rows =
+        [...document.querySelectorAll("#eventTable tr")];
+
+    let active = 0;
+    let planned = 0;
+    let finished = 0;
+
+    rows.forEach(row => {
+
+        if (row.dataset.status === "Aktywny") {
+            active++;
+        }
+
+        if (row.dataset.status === "Zaplanowany") {
+            planned++;
+        }
+
+        if (row.dataset.status === "Zakończony") {
+            finished++;
+        }
+
+    });
+
+    document.getElementById("total").innerText =
+        rows.length;
+
+    document.getElementById("active").innerText =
+        active;
+
+    document.getElementById("planned").innerText =
+        planned;
+
+    document.getElementById("finished").innerText =
+        finished;
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komunikaty — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: white;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 28px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #7890a2;
+    margin-top: 5px;
+}
+
+.add-btn {
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #1689d7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stat-name {
+    color: #8196a8;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.panel {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.search {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.info {
+    background: rgba(22,137,215,.13);
+    color: #63b9f2;
+}
+
+.warning {
+    background: rgba(255,200,70,.12);
+    color: #ffc857;
+}
+
+.danger {
+    background: rgba(220,70,70,.12);
+    color: #ff8585;
+}
+
+.event {
+    background: rgba(170,90,230,.13);
+    color: #d39aff;
+}
+
+.published {
+    color: #66df91;
+}
+
+.draft {
+    color: #ffc857;
+}
+
+.actions button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #172d40;
+    color: #b8c8d5;
+    margin-right: 4px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.72);
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.modal-box {
+    width: 620px;
+    max-width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0d2031;
+    border: 1px solid #28445b;
+    border-radius: 17px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #b9c9d5;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.preview {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #091a29;
+    border-left: 4px solid #1689d7;
+}
+
+.preview-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.preview-text {
+    color: #b9c9d5;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save {
+    background: #1689d7;
+    color: white;
+}
+
+.cancel {
+    background: #1b3042;
+    color: white;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 900px;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">🚍</div>
+        <h2>TD ROBLOX</h2>
+        <p>Panel Administracyjny</p>
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="admin.html">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="linie.html">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="przystanki.html">🚏 Przystanki</a>
+        <a href="pojazdy.html">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="komunikaty.html" class="active">📢 Komunikaty</a>
+        <a href="#">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>📢 Centrum komunikatów</h1>
+            <p>Tworzenie i zarządzanie komunikatami TD ROBLOX</p>
+        </div>
+
+        <button class="add-btn" onclick="openModal()">
+            ＋ Nowy komunikat
+        </button>
+
+    </div>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">📢</div>
+            <div class="stat-number" id="total">3</div>
+            <div class="stat-name">Wszystkie</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <div class="stat-number" id="published">2</div>
+            <div class="stat-name">Opublikowane</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">📝</div>
+            <div class="stat-number" id="draft">1</div>
+            <div class="stat-name">Wersje robocze</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">📅</div>
+            <div class="stat-number">0</div>
+            <div class="stat-name">Zaplanowane</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Szukaj komunikatu..."
+                oninput="filterMessages()"
+            >
+
+            <select id="typeFilter" onchange="filterMessages()">
+                <option value="">Wszystkie typy</option>
+                <option value="Informacja">Informacja</option>
+                <option value="Utrudnienia">Utrudnienia</option>
+                <option value="Pilne">Pilne</option>
+                <option value="Event">Event</option>
+            </select>
+
+            <select id="statusFilter" onchange="filterMessages()">
+                <option value="">Wszystkie statusy</option>
+                <option value="Opublikowany">Opublikowany</option>
+                <option value="Roboczy">Roboczy</option>
+            </select>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>TYTUŁ</th>
+                    <th>TYP</th>
+                    <th>AUTOR</th>
+                    <th>DATA</th>
+                    <th>STATUS</th>
+                    <th>AKCJE</th>
+                </tr>
+            </thead>
+
+            <tbody id="messageTable">
+
+                <tr data-type="Informacja" data-status="Opublikowany">
+                    <td><strong>Witamy w Transportowych Dzielnicach!</strong></td>
+                    <td>
+                        <span class="type-badge info">Informacja</span>
+                    </td>
+                    <td>Administrator</td>
+                    <td>06.10.2026</td>
+                    <td class="published">● Opublikowany</td>
+                    <td class="actions">
+                        <button onclick="viewMessage(this)">👁️</button>
+                        <button onclick="editMessage(this)">✏️</button>
+                        <button onclick="removeMessage(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Utrudnienia" data-status="Opublikowany">
+                    <td><strong>Utrudnienia na linii G3</strong></td>
+                    <td>
+                        <span class="type-badge warning">Utrudnienia</span>
+                    </td>
+                    <td>Dyspozytor</td>
+                    <td>06.10.2026</td>
+                    <td class="published">● Opublikowany</td>
+                    <td class="actions">
+                        <button onclick="viewMessage(this)">👁️</button>
+                        <button onclick="editMessage(this)">✏️</button>
+                        <button onclick="removeMessage(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Event" data-status="Roboczy">
+                    <td><strong>🎃 Przygotowania do Halloween</strong></td>
+                    <td>
+                        <span class="type-badge event">Event</span>
+                    </td>
+                    <td>Administrator</td>
+                    <td>06.10.2026</td>
+                    <td class="draft">● Roboczy</td>
+                    <td class="actions">
+                        <button onclick="viewMessage(this)">👁️</button>
+                        <button onclick="editMessage(this)">✏️</button>
+                        <button onclick="removeMessage(this)">🗑️</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<div class="modal" id="messageModal">
+
+    <div class="modal-box">
+
+        <h2>📢 Nowy komunikat</h2>
+
+        <div class="form-group">
+
+            <label>Tytuł komunikatu</label>
+
+            <input
+                id="messageTitle"
+                type="text"
+                placeholder="np. Utrudnienia na linii G1"
+                oninput="updatePreview()"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Typ komunikatu</label>
+
+            <select id="messageType" onchange="updatePreview()">
+                <option>Informacja</option>
+                <option>Utrudnienia</option>
+                <option>Pilne</option>
+                <option>Event</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Treść</label>
+
+            <textarea
+                id="messageText"
+                placeholder="Wpisz treść komunikatu..."
+                oninput="updatePreview()"
+            ></textarea>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select id="messageStatus">
+                <option>Opublikowany</option>
+                <option>Roboczy</option>
+            </select>
+
+        </div>
+
+
+        <div class="preview">
+
+            <div class="preview-title" id="previewTitle">
+                Podgląd komunikatu
+            </div>
+
+            <div class="preview-text" id="previewText">
+                Treść komunikatu pojawi się tutaj.
+            </div>
+
+        </div>
+
+
+        <div class="modal-buttons">
+
+            <button class="cancel" onclick="closeModal()">
+                Anuluj
+            </button>
+
+            <button class="save" onclick="addMessage()">
+                Zapisz komunikat
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+
+}
+
+
+function openModal() {
+
+    document.getElementById("messageModal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("messageModal").style.display = "none";
+
+}
+
+
+function updatePreview() {
+
+    const title =
+        document.getElementById("messageTitle").value.trim();
+
+    const text =
+        document.getElementById("messageText").value.trim();
+
+    document.getElementById("previewTitle").innerText =
+        title || "Podgląd komunikatu";
+
+    document.getElementById("previewText").innerText =
+        text || "Treść komunikatu pojawi się tutaj.";
+
+}
+
+
+function addMessage() {
+
+    const title =
+        document.getElementById("messageTitle").value.trim();
+
+    const type =
+        document.getElementById("messageType").value;
+
+    const text =
+        document.getElementById("messageText").value.trim();
+
+    const status =
+        document.getElementById("messageStatus").value;
+
+    if (!title || !text) {
+
+        alert(
+            "Uzupełnij tytuł i treść komunikatu."
+        );
+
+        return;
+
+    }
+
+    let badgeClass = "info";
+
+    if (type === "Utrudnienia") {
+        badgeClass = "warning";
+    }
+
+    if (type === "Pilne") {
+        badgeClass = "danger";
+    }
+
+    if (type === "Event") {
+        badgeClass = "event";
+    }
+
+    const statusClass =
+        status === "Opublikowany"
+        ? "published"
+        : "draft";
+
+    const statusText =
+        status === "Opublikowany"
+        ? "● Opublikowany"
+        : "● Roboczy";
+
+    const today =
+        new Date().toLocaleDateString("pl-PL");
+
+    const row =
+        document.createElement("tr");
+
+    row.dataset.type = type;
+
+    row.dataset.status = status;
+
+    row.dataset.text =
+        title + " " + text;
+
+    row.innerHTML = `
+        <td><strong>${title}</strong></td>
+        <td>
+            <span class="type-badge ${badgeClass}">
+                ${type}
+            </span>
+        </td>
+        <td>Administrator</td>
+        <td>${today}</td>
+        <td class="${statusClass}">
+            ${statusText}
+        </td>
+        <td class="actions">
+            <button onclick="viewMessage(this)">👁️</button>
+            <button onclick="editMessage(this)">✏️</button>
+            <button onclick="removeMessage(this)">🗑️</button>
+        </td>
+    `;
+
+    document
+        .getElementById("messageTable")
+        .appendChild(row);
+
+    closeModal();
+
+    resetForm();
+
+    updateStats();
+
+}
+
+
+function resetForm() {
+
+    document.getElementById("messageTitle").value = "";
+
+    document.getElementById("messageText").value = "";
+
+    document.getElementById("messageType").value =
+        "Informacja";
+
+    document.getElementById("messageStatus").value =
+        "Opublikowany";
+
+    updatePreview();
+
+}
+
+
+function viewMessage(button) {
+
+    const row =
+        button.closest("tr");
+
+    alert(
+        "TYTUŁ:\n" +
+        row.children[0].innerText +
+        "\n\nTYP: " +
+        row.children[1].innerText +
+        "\nAUTOR: " +
+        row.children[2].innerText +
+        "\nDATA: " +
+        row.children[3].innerText
+    );
+
+}
+
+
+function editMessage(button) {
+
+    const row =
+        button.closest("tr");
+
+    alert(
+        "Edycja komunikatu:\n\n" +
+        row.children[0].innerText +
+        "\n\nFormularz edycji możemy rozbudować w kolejnej wersji."
+    );
+
+}
+
+
+function removeMessage(button) {
+
+    if (
+        confirm(
+            "Czy na pewno usunąć ten komunikat?"
+        )
+    ) {
+
+        button.closest("tr").remove();
+
+        updateStats();
+
+    }
+
+}
+
+
+function filterMessages() {
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter").value;
+
+    const status =
+        document.getElementById("statusFilter").value;
+
+    const rows =
+        document.querySelectorAll("#messageTable tr");
+
+    rows.forEach(row => {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        const typeMatch =
+            !type ||
+            row.dataset.type === type;
+
+        const statusMatch =
+            !status ||
+            row.dataset.status === status;
+
+        const searchMatch =
+            text.includes(search);
+
+        row.style.display =
+            typeMatch &&
+            statusMatch &&
+            searchMatch
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+function updateStats() {
+
+    const rows =
+        [...document.querySelectorAll("#messageTable tr")];
+
+    let published = 0;
+    let draft = 0;
+
+    rows.forEach(row => {
+
+        if (
+            row.dataset.status ===
+            "Opublikowany"
+        ) {
+            published++;
+        }
+
+        if (
+            row.dataset.status ===
+            "Roboczy"
+        ) {
+            draft++;
+        }
+
+    });
+
+    document.getElementById("total").innerText =
+        rows.length;
+
+    document.getElementById("published").innerText =
+        published;
+
+    document.getElementById("draft").innerText =
+        draft;
+
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Przystanki — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: white;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 28px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #7890a2;
+    margin-top: 5px;
+}
+
+.add-btn {
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #1689d7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stat-name {
+    color: #8196a8;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.panel {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.search {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.active {
+    background: rgba(50,190,100,.12);
+    color: #66df91;
+}
+
+.request {
+    background: rgba(255,200,70,.12);
+    color: #ffc857;
+}
+
+.closed {
+    background: rgba(220,70,70,.12);
+    color: #ff8585;
+}
+
+.actions button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #172d40;
+    color: #b8c8d5;
+    margin-right: 4px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.modal-box {
+    width: 500px;
+    max-width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0d2031;
+    border: 1px solid #28445b;
+    border-radius: 17px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #b9c9d5;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save {
+    background: #1689d7;
+    color: white;
+}
+
+.cancel {
+    background: #1b3042;
+    color: white;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 800px;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">🚍</div>
+        <h2>TD ROBLOX</h2>
+        <p>Panel Administracyjny</p>
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="admin.html">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="linie.html">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="przystanki.html" class="active">🚏 Przystanki</a>
+        <a href="pojazdy.html">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="#">📢 Komunikaty</a>
+        <a href="#">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>🚏 Baza przystanków</h1>
+            <p>Zarządzanie przystankami Transportowych Dzielnic</p>
+        </div>
+
+        <button class="add-btn" onclick="openModal()">
+            ＋ Dodaj przystanek
+        </button>
+
+    </div>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">🚏</div>
+            <div class="stat-number" id="total">6</div>
+            <div class="stat-name">Wszystkie przystanki</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <div class="stat-number" id="active">5</div>
+            <div class="stat-name">Aktywne</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⚠️</div>
+            <div class="stat-number" id="request">1</div>
+            <div class="stat-name">Na żądanie</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⛔</div>
+            <div class="stat-number" id="closed">0</div>
+            <div class="stat-name">Wyłączone</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Szukaj przystanku..."
+                oninput="filterStops()"
+            >
+
+            <select id="typeFilter" onchange="filterStops()">
+                <option value="">Wszystkie typy</option>
+                <option value="Zwykły">Zwykły</option>
+                <option value="Na żądanie">Na żądanie</option>
+                <option value="Pętla">Pętla</option>
+                <option value="Dworzec">Dworzec</option>
+            </select>
+
+            <select id="statusFilter" onchange="filterStops()">
+                <option value="">Wszystkie statusy</option>
+                <option value="Aktywny">Aktywny</option>
+                <option value="Wyłączony">Wyłączony</option>
+            </select>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>PRZYSTANEK</th>
+                    <th>TYP</th>
+                    <th>LOKALIZACJA</th>
+                    <th>LINIE</th>
+                    <th>STATUS</th>
+                    <th>AKCJE</th>
+                </tr>
+            </thead>
+
+            <tbody id="stopTable">
+
+                <tr data-type="Zwykły" data-status="Aktywny">
+                    <td><strong>Osiedlowa</strong></td>
+                    <td>Zwykły</td>
+                    <td>Osiedle MZK</td>
+                    <td>G1, G2</td>
+                    <td>
+                        <span class="badge active">● Aktywny</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Pętla" data-status="Aktywny">
+                    <td><strong>Zajezdnia PKS</strong></td>
+                    <td>Pętla</td>
+                    <td>Nowogród</td>
+                    <td>G1</td>
+                    <td>
+                        <span class="badge active">● Aktywny</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Zwykły" data-status="Aktywny">
+                    <td><strong>Zajezdnia MZK</strong></td>
+                    <td>Zwykły</td>
+                    <td>Nowogród</td>
+                    <td>G1</td>
+                    <td>
+                        <span class="badge active">● Aktywny</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Zwykły" data-status="Aktywny">
+                    <td><strong>Osiedle MZK</strong></td>
+                    <td>Zwykły</td>
+                    <td>Osiedle Zamkowe</td>
+                    <td>G2</td>
+                    <td>
+                        <span class="badge active">● Aktywny</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Na żądanie" data-status="Aktywny">
+                    <td><strong>Statkowskiego</strong></td>
+                    <td>Na żądanie</td>
+                    <td>Transportowa Dzielnica</td>
+                    <td>H2</td>
+                    <td>
+                        <span class="badge request">● Na żądanie</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Zwykły" data-status="Aktywny">
+                    <td><strong>Metro Polinezyjskie</strong></td>
+                    <td>Zwykły</td>
+                    <td>Centrum TD</td>
+                    <td>X3</td>
+                    <td>
+                        <span class="badge active">● Aktywny</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewStop(this)">👁️</button>
+                        <button onclick="editStop(this)">✏️</button>
+                        <button onclick="removeStop(this)">🗑️</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<div class="modal" id="stopModal">
+
+    <div class="modal-box">
+
+        <h2>➕ Dodaj przystanek</h2>
+
+        <div class="form-group">
+            <label>Nazwa przystanku</label>
+            <input
+                id="stopName"
+                type="text"
+                placeholder="np. Osiedlowa"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Typ przystanku</label>
+
+            <select id="stopType">
+                <option>Zwykły</option>
+                <option>Na żądanie</option>
+                <option>Pętla</option>
+                <option>Dworzec</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label>Lokalizacja</label>
+
+            <input
+                id="stopLocation"
+                type="text"
+                placeholder="np. Nowogród"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Obsługiwane linie</label>
+
+            <input
+                id="stopLines"
+                type="text"
+                placeholder="np. G1, G2, X3"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+
+            <select id="stopStatus">
+                <option>Aktywny</option>
+                <option>Wyłączony</option>
+            </select>
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="cancel" onclick="closeModal()">
+                Anuluj
+            </button>
+
+            <button class="save" onclick="addStop()">
+                Dodaj przystanek
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+
+}
+
+
+function openModal() {
+
+    document.getElementById("stopModal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("stopModal").style.display = "none";
+
+}
+
+
+function addStop() {
+
+    const name =
+        document.getElementById("stopName").value.trim();
+
+    const type =
+        document.getElementById("stopType").value;
+
+    const location =
+        document.getElementById("stopLocation").value.trim();
+
+    const lines =
+        document.getElementById("stopLines").value.trim() || "—";
+
+    const status =
+        document.getElementById("stopStatus").value;
+
+    if (!name || !location) {
+
+        alert(
+            "Uzupełnij nazwę przystanku i lokalizację."
+        );
+
+        return;
+
+    }
+
+    const row = document.createElement("tr");
+
+    row.dataset.type = type;
+    row.dataset.status = status;
+
+    let badgeClass = "active";
+
+    if (type === "Na żądanie") {
+        badgeClass = "request";
+    }
+
+    if (status === "Wyłączony") {
+        badgeClass = "closed";
+    }
+
+    const badgeText =
+        status === "Wyłączony"
+        ? "● Wyłączony"
+        : type === "Na żądanie"
+        ? "● Na żądanie"
+        : "● Aktywny";
+
+    row.innerHTML = `
+        <td><strong>${name}</strong></td>
+        <td>${type}</td>
+        <td>${location}</td>
+        <td>${lines}</td>
+        <td>
+            <span class="badge ${badgeClass}">
+                ${badgeText}
+            </span>
+        </td>
+        <td class="actions">
+            <button onclick="viewStop(this)">👁️</button>
+            <button onclick="editStop(this)">✏️</button>
+            <button onclick="removeStop(this)">🗑️</button>
+        </td>
+    `;
+
+    document.getElementById("stopTable").appendChild(row);
+
+    closeModal();
+
+    document.getElementById("stopName").value = "";
+    document.getElementById("stopLocation").value = "";
+    document.getElementById("stopLines").value = "";
+
+    updateStats();
+
+}
+
+
+function removeStop(button) {
+
+    if (confirm("Czy na pewno usunąć ten przystanek?")) {
+
+        button.closest("tr").remove();
+
+        updateStats();
+
+    }
+
+}
+
+
+function viewStop(button) {
+
+    const row = button.closest("tr");
+
+    alert(
+        "PRZYSTANEK: " +
+        row.children[0].innerText +
+        "\nTYP: " +
+        row.children[1].innerText +
+        "\nLOKALIZACJA: " +
+        row.children[2].innerText +
+        "\nLINIE: " +
+        row.children[3].innerText
+    );
+
+}
+
+
+function editStop(button) {
+
+    const row = button.closest("tr");
+
+    alert(
+        "Edycja przystanku: " +
+        row.children[0].innerText +
+        "\n\nPełny formularz edycji można rozbudować w kolejnym module."
+    );
+
+}
+
+
+function filterStops() {
+
+    const search =
+        document.getElementById("search").value.toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter").value;
+
+    const status =
+        document.getElementById("statusFilter").value;
+
+    const rows =
+        document.querySelectorAll("#stopTable tr");
+
+    rows.forEach(row => {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        const typeMatch =
+            !type || row.dataset.type === type;
+
+        const statusMatch =
+            !status || row.dataset.status === status;
+
+        const searchMatch =
+            text.includes(search);
+
+        row.style.display =
+            typeMatch && statusMatch && searchMatch
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+function updateStats() {
+
+    const rows =
+        [...document.querySelectorAll("#stopTable tr")];
+
+    let active = 0;
+    let request = 0;
+    let closed = 0;
+
+    rows.forEach(row => {
+
+        if (row.dataset.status === "Aktywny") {
+            active++;
+        }
+
+        if (row.dataset.type === "Na żądanie") {
+            request++;
+        }
+
+        if (row.dataset.status === "Wyłączony") {
+            closed++;
+        }
+
+    });
+
+    document.getElementById("total").innerText = rows.length;
+    document.getElementById("active").innerText = active;
+    document.getElementById("request").innerText = request;
+    document.getElementById("closed").innerText = closed;
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linie — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: white;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 28px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #7890a2;
+    margin-top: 5px;
+}
+
+.add-btn {
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #1689d7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stat-name {
+    color: #8196a8;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.panel {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.search {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.active {
+    background: rgba(50,190,100,.12);
+    color: #66df91;
+}
+
+.warning {
+    background: rgba(255,200,70,.12);
+    color: #ffc857;
+}
+
+.offline {
+    background: rgba(220,70,70,.12);
+    color: #ff8585;
+}
+
+.actions button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #172d40;
+    color: #b8c8d5;
+    margin-right: 4px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.modal-box {
+    width: 520px;
+    max-width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0d2031;
+    border: 1px solid #28445b;
+    border-radius: 17px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #b9c9d5;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.stops-box {
+    background: #091a29;
+    border: 1px solid #203b50;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.stop-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 8px;
+}
+
+.stop-row input {
+    flex: 1;
+}
+
+.stop-row button {
+    width: 38px;
+    border: none;
+    border-radius: 7px;
+    background: #3a2025;
+    color: #ff8b8b;
+    cursor: pointer;
+}
+
+.add-stop {
+    width: 100%;
+    padding: 9px;
+    border: 1px dashed #38546a;
+    border-radius: 8px;
+    background: transparent;
+    color: #75b9e7;
+    cursor: pointer;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save {
+    background: #1689d7;
+    color: white;
+}
+
+.cancel {
+    background: #1b3042;
+    color: white;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 850px;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">🚍</div>
+        <h2>TD ROBLOX</h2>
+        <p>Panel Administracyjny</p>
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="admin.html">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="linie.html" class="active">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="#">🚏 Przystanki</a>
+        <a href="pojazdy.html">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="#">📢 Komunikaty</a>
+        <a href="#">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>🚌 Linie komunikacyjne</h1>
+            <p>Zarządzanie trasami i rozkładem linii TD</p>
+        </div>
+
+        <button class="add-btn" onclick="openModal()">
+            ＋ Dodaj linię
+        </button>
+
+    </div>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">🚌</div>
+            <div class="stat-number" id="total">4</div>
+            <div class="stat-name">Wszystkie linie</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <div class="stat-number" id="active">3</div>
+            <div class="stat-name">Aktywne</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🚧</div>
+            <div class="stat-number" id="warning">1</div>
+            <div class="stat-name">Utrudnienia</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⛔</div>
+            <div class="stat-number" id="inactive">0</div>
+            <div class="stat-name">Nieaktywne</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Szukaj linii lub kierunku..."
+                oninput="filterLines()"
+            >
+
+            <select id="typeFilter" onchange="filterLines()">
+                <option value="">Wszystkie typy</option>
+                <option value="Autobus">Autobus</option>
+                <option value="Tramwaj">Tramwaj</option>
+                <option value="Metro">Metro</option>
+                <option value="Nocna">Nocna</option>
+            </select>
+
+            <select id="statusFilter" onchange="filterLines()">
+                <option value="">Wszystkie statusy</option>
+                <option value="Aktywna">Aktywna</option>
+                <option value="Utrudnienia">Utrudnienia</option>
+                <option value="Nieaktywna">Nieaktywna</option>
+            </select>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>LINIA</th>
+                    <th>TYP</th>
+                    <th>KIERUNEK</th>
+                    <th>PRZYSTANKI</th>
+                    <th>POJAZDY</th>
+                    <th>STATUS</th>
+                    <th>AKCJE</th>
+                </tr>
+            </thead>
+
+            <tbody id="lineTable">
+
+                <tr data-type="Autobus" data-status="Aktywna">
+                    <td><strong>G1</strong></td>
+                    <td>Autobus</td>
+                    <td>Zajezdnia PKS</td>
+                    <td>4</td>
+                    <td>0</td>
+                    <td>
+                        <span class="badge active">● Aktywna</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewLine(this)">👁️</button>
+                        <button onclick="editLine(this)">✏️</button>
+                        <button onclick="removeLine(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Autobus" data-status="Aktywna">
+                    <td><strong>G2</strong></td>
+                    <td>Autobus</td>
+                    <td>Osiedle Zamkowe</td>
+                    <td>5</td>
+                    <td>0</td>
+                    <td>
+                        <span class="badge active">● Aktywna</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewLine(this)">👁️</button>
+                        <button onclick="editLine(this)">✏️</button>
+                        <button onclick="removeLine(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Autobus" data-status="Utrudnienia">
+                    <td><strong>G3</strong></td>
+                    <td>Autobus</td>
+                    <td>Nowogród</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>
+                        <span class="badge warning">● Utrudnienia</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewLine(this)">👁️</button>
+                        <button onclick="editLine(this)">✏️</button>
+                        <button onclick="removeLine(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Tramwaj" data-status="Aktywna">
+                    <td><strong>X1</strong></td>
+                    <td>Tramwaj</td>
+                    <td>Zajezdnia Koronowska</td>
+                    <td>7</td>
+                    <td>3</td>
+                    <td>
+                        <span class="badge active">● Aktywna</span>
+                    </td>
+                    <td class="actions">
+                        <button onclick="viewLine(this)">👁️</button>
+                        <button onclick="editLine(this)">✏️</button>
+                        <button onclick="removeLine(this)">🗑️</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<div class="modal" id="lineModal">
+
+    <div class="modal-box">
+
+        <h2>➕ Dodaj linię</h2>
+
+        <div class="form-group">
+            <label>Numer linii</label>
+            <input id="lineNumber" type="text" placeholder="np. G4">
+        </div>
+
+        <div class="form-group">
+            <label>Typ komunikacji</label>
+
+            <select id="lineType">
+                <option>Autobus</option>
+                <option>Tramwaj</option>
+                <option>Metro</option>
+                <option>Nocna</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Kierunek</label>
+            <input id="lineDirection" type="text"
+                   placeholder="np. Osiedle Zamkowe">
+        </div>
+
+        <div class="form-group">
+
+            <label>Przystanki</label>
+
+            <div class="stops-box" id="stopsBox">
+
+                <div class="stop-row">
+                    <input type="text" placeholder="Nazwa przystanku">
+                    <button onclick="removeStop(this)">×</button>
+                </div>
+
+            </div>
+
+            <button class="add-stop" onclick="addStop()">
+                ＋ Dodaj przystanek
+            </button>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select id="lineStatus">
+                <option>Aktywna</option>
+                <option>Utrudnienia</option>
+                <option>Nieaktywna</option>
+            </select>
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="cancel" onclick="closeModal()">
+                Anuluj
+            </button>
+
+            <button class="save" onclick="addLine()">
+                Dodaj linię
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+
+}
+
+
+function openModal() {
+
+    document.getElementById("lineModal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("lineModal").style.display = "none";
+
+}
+
+
+function addStop() {
+
+    const box = document.getElementById("stopsBox");
+
+    const row = document.createElement("div");
+
+    row.className = "stop-row";
+
+    row.innerHTML = `
+        <input type="text" placeholder="Nazwa przystanku">
+        <button onclick="removeStop(this)">×</button>
+    `;
+
+    box.appendChild(row);
+
+}
+
+
+function removeStop(button) {
+
+    const rows =
+        document.querySelectorAll(".stop-row");
+
+    if (rows.length > 1) {
+        button.parentElement.remove();
+    }
+
+}
+
+
+function addLine() {
+
+    const number =
+        document.getElementById("lineNumber").value.trim();
+
+    const type =
+        document.getElementById("lineType").value;
+
+    const direction =
+        document.getElementById("lineDirection").value.trim();
+
+    const status =
+        document.getElementById("lineStatus").value;
+
+    const stops =
+        [...document.querySelectorAll("#stopsBox input")]
+        .map(input => input.value.trim())
+        .filter(Boolean);
+
+    if (!number || !direction || stops.length === 0) {
+
+        alert(
+            "Uzupełnij numer linii, kierunek i przynajmniej jeden przystanek."
+        );
+
+        return;
+
+    }
+
+    let statusClass = "active";
+
+    if (status === "Utrudnienia") {
+        statusClass = "warning";
+    }
+
+    if (status === "Nieaktywna") {
+        statusClass = "offline";
+    }
+
+    const row = document.createElement("tr");
+
+    row.dataset.type = type;
+    row.dataset.status = status;
+
+    row.innerHTML = `
+        <td><strong>${number}</strong></td>
+        <td>${type}</td>
+        <td>${direction}</td>
+        <td>${stops.length}</td>
+        <td>0</td>
+        <td>
+            <span class="badge ${statusClass}">
+                ● ${status}
+            </span>
+        </td>
+        <td class="actions">
+            <button onclick="viewLine(this)">👁️</button>
+            <button onclick="editLine(this)">✏️</button>
+            <button onclick="removeLine(this)">🗑️</button>
+        </td>
+    `;
+
+    document.getElementById("lineTable").appendChild(row);
+
+    closeModal();
+
+    resetForm();
+
+    updateStats();
+
+}
+
+
+function resetForm() {
+
+    document.getElementById("lineNumber").value = "";
+    document.getElementById("lineDirection").value = "";
+
+    document.getElementById("stopsBox").innerHTML = `
+        <div class="stop-row">
+            <input type="text" placeholder="Nazwa przystanku">
+            <button onclick="removeStop(this)">×</button>
+        </div>
+    `;
+
+}
+
+
+function removeLine(button) {
+
+    if (confirm("Czy na pewno usunąć tę linię?")) {
+
+        button.closest("tr").remove();
+
+        updateStats();
+
+    }
+
+}
+
+
+function viewLine(button) {
+
+    const row = button.closest("tr");
+
+    alert(
+        "LINIA: " + row.children[0].innerText +
+        "\nTYP: " + row.children[1].innerText +
+        "\nKIERUNEK: " + row.children[2].innerText +
+        "\nPRZYSTANKI: " + row.children[3].innerText
+    );
+
+}
+
+
+function editLine(button) {
+
+    const row = button.closest("tr");
+
+    alert(
+        "Edycja linii " +
+        row.children[0].innerText +
+        "\n\nPełny formularz edycji możemy rozbudować w następnym module."
+    );
+
+}
+
+
+function filterLines() {
+
+    const search =
+        document.getElementById("search").value.toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter").value;
+
+    const status =
+        document.getElementById("statusFilter").value;
+
+    const rows =
+        document.querySelectorAll("#lineTable tr");
+
+    rows.forEach(row => {
+
+        const text =
+            row.innerText.toLowerCase();
+
+        const typeMatch =
+            !type || row.dataset.type === type;
+
+        const statusMatch =
+            !status || row.dataset.status === status;
+
+        const searchMatch =
+            text.includes(search);
+
+        row.style.display =
+            typeMatch && statusMatch && searchMatch
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+function updateStats() {
+
+    const rows =
+        [...document.querySelectorAll("#lineTable tr")];
+
+    let active = 0;
+    let warning = 0;
+    let inactive = 0;
+
+    rows.forEach(row => {
+
+        if (row.dataset.status === "Aktywna") active++;
+        if (row.dataset.status === "Utrudnienia") warning++;
+        if (row.dataset.status === "Nieaktywna") inactive++;
+
+    });
+
+    document.getElementById("total").innerText = rows.length;
+    document.getElementById("active").innerText = active;
+    document.getElementById("warning").innerText = warning;
+    document.getElementById("inactive").innerText = inactive;
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabor — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: white;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 28px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #7890a2;
+    margin-top: 5px;
+}
+
+.add-btn {
+    border: none;
+    padding: 13px 18px;
+    border-radius: 10px;
+    background: #1689d7;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.stat {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.stat-name {
+    color: #8196a8;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.panel {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #30485c;
+    background: #091a29;
+    color: white;
+    outline: none;
+}
+
+.search {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.active {
+    background: rgba(50,190,100,.12);
+    color: #66df91;
+}
+
+.service {
+    background: rgba(22,137,215,.13);
+    color: #63b9f2;
+}
+
+.offline {
+    background: rgba(220,70,70,.12);
+    color: #ff8585;
+}
+
+.actions button {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #172d40;
+    color: #b8c8d5;
+    margin-right: 4px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    width: 450px;
+    max-width: 92%;
+    background: #0d2031;
+    border: 1px solid #28445b;
+    border-radius: 17px;
+    padding: 25px;
+}
+
+.modal-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #b9c9d5;
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save {
+    background: #1689d7;
+    color: white;
+}
+
+.cancel {
+    background: #1b3042;
+    color: white;
+}
+
+@media(max-width: 1000px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 750px;
+    }
+
+    .panel {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">🚍</div>
+
+        <h2>TD ROBLOX</h2>
+
+        <p>Panel Administracyjny</p>
+
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="admin.html">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="#">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="#">🚏 Przystanki</a>
+        <a href="pojazdy.html" class="active">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="#">📢 Komunikaty</a>
+        <a href="#">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="header">
+
+        <div>
+            <h1>🚍 Baza Taboru</h1>
+            <p>Zarządzanie pojazdami Transportowych Dzielnic</p>
+        </div>
+
+        <button class="add-btn" onclick="openModal()">
+            ＋ Dodaj pojazd
+        </button>
+
+    </div>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">🚍</div>
+            <div class="stat-number" id="total">4</div>
+            <div class="stat-name">Wszystkie pojazdy</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <div class="stat-number" id="active">2</div>
+            <div class="stat-name">W ruchu</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🔧</div>
+            <div class="stat-number" id="service">1</div>
+            <div class="stat-name">W serwisie</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">⛔</div>
+            <div class="stat-number" id="offline">1</div>
+            <div class="stat-name">Wyłączone</div>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                class="search"
+                type="text"
+                placeholder="🔎 Szukaj po numerze lub modelu..."
+                oninput="filterVehicles()"
+            >
+
+            <select id="typeFilter" onchange="filterVehicles()">
+                <option value="">Wszystkie typy</option>
+                <option value="Autobus">Autobus</option>
+                <option value="Tramwaj">Tramwaj</option>
+                <option value="Metro">Metro</option>
+            </select>
+
+            <select id="statusFilter" onchange="filterVehicles()">
+                <option value="">Wszystkie statusy</option>
+                <option value="W ruchu">W ruchu</option>
+                <option value="W serwisie">W serwisie</option>
+                <option value="Wyłączony">Wyłączony</option>
+            </select>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>NR TABOROWY</th>
+                    <th>MODEL</th>
+                    <th>TYP</th>
+                    <th>LINIA</th>
+                    <th>STATUS</th>
+                    <th>AKCJE</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="vehicleTable">
+
+                <tr data-type="Autobus" data-status="W ruchu">
+                    <td><strong>7531</strong></td>
+                    <td>Autobus TD City</td>
+                    <td>Autobus</td>
+                    <td>G1</td>
+                    <td><span class="badge active">● W ruchu</span></td>
+                    <td class="actions">
+                        <button onclick="editVehicle(this)">✏️</button>
+                        <button onclick="removeVehicle(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Autobus" data-status="W ruchu">
+                    <td><strong>4531</strong></td>
+                    <td>TD Urbino</td>
+                    <td>Autobus</td>
+                    <td>G2</td>
+                    <td><span class="badge active">● W ruchu</span></td>
+                    <td class="actions">
+                        <button onclick="editVehicle(this)">✏️</button>
+                        <button onclick="removeVehicle(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Tramwaj" data-status="W serwisie">
+                    <td><strong>8840</strong></td>
+                    <td>TD Tram 2026</td>
+                    <td>Tramwaj</td>
+                    <td>—</td>
+                    <td><span class="badge service">● W serwisie</span></td>
+                    <td class="actions">
+                        <button onclick="editVehicle(this)">✏️</button>
+                        <button onclick="removeVehicle(this)">🗑️</button>
+                    </td>
+                </tr>
+
+                <tr data-type="Metro" data-status="Wyłączony">
+                    <td><strong>M-001</strong></td>
+                    <td>TD Metro</td>
+                    <td>Metro</td>
+                    <td>—</td>
+                    <td><span class="badge offline">● Wyłączony</span></td>
+                    <td class="actions">
+                        <button onclick="editVehicle(this)">✏️</button>
+                        <button onclick="removeVehicle(this)">🗑️</button>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<div class="modal" id="vehicleModal">
+
+    <div class="modal-box">
+
+        <h2>➕ Dodaj pojazd</h2>
+
+        <div class="form-group">
+            <label>Numer taborowy</label>
+            <input id="vehicleNumber" type="text" placeholder="np. 7531">
+        </div>
+
+        <div class="form-group">
+            <label>Model</label>
+            <input id="vehicleModel" type="text" placeholder="np. TD City">
+        </div>
+
+        <div class="form-group">
+            <label>Typ pojazdu</label>
+
+            <select id="vehicleType">
+                <option>Autobus</option>
+                <option>Tramwaj</option>
+                <option>Metro</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label>Linia</label>
+            <input id="vehicleLine" type="text" placeholder="np. G1">
+        </div>
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select id="vehicleStatus">
+                <option>W ruchu</option>
+                <option>W serwisie</option>
+                <option>Wyłączony</option>
+            </select>
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="cancel" onclick="closeModal()">
+                Anuluj
+            </button>
+
+            <button class="save" onclick="addVehicle()">
+                Dodaj pojazd
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+
+}
+
+
+function openModal() {
+
+    document.getElementById("vehicleModal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("vehicleModal").style.display = "none";
+
+}
+
+
+function addVehicle() {
+
+    const number = document.getElementById("vehicleNumber").value.trim();
+    const model = document.getElementById("vehicleModel").value.trim();
+    const type = document.getElementById("vehicleType").value;
+    const line = document.getElementById("vehicleLine").value.trim() || "—";
+    const status = document.getElementById("vehicleStatus").value;
+
+    if (!number || !model) {
+
+        alert("Uzupełnij numer taborowy i model.");
+
+        return;
+
+    }
+
+    let statusClass = "active";
+
+    if (status === "W serwisie") {
+        statusClass = "service";
+    }
+
+    if (status === "Wyłączony") {
+        statusClass = "offline";
+    }
+
+    const row = document.createElement("tr");
+
+    row.dataset.type = type;
+    row.dataset.status = status;
+
+    row.innerHTML = `
+        <td><strong>${number}</strong></td>
+        <td>${model}</td>
+        <td>${type}</td>
+        <td>${line}</td>
+        <td>
+            <span class="badge ${statusClass}">
+                ● ${status}
+            </span>
+        </td>
+        <td class="actions">
+            <button onclick="editVehicle(this)">✏️</button>
+            <button onclick="removeVehicle(this)">🗑️</button>
+        </td>
+    `;
+
+    document.getElementById("vehicleTable").appendChild(row);
+
+    closeModal();
+
+    updateStats();
+
+    document.getElementById("vehicleNumber").value = "";
+    document.getElementById("vehicleModel").value = "";
+    document.getElementById("vehicleLine").value = "";
+
+}
+
+
+function removeVehicle(button) {
+
+    if (confirm("Czy na pewno usunąć ten pojazd?")) {
+
+        button.closest("tr").remove();
+
+        updateStats();
+
+    }
+
+}
+
+
+function editVehicle(button) {
+
+    const row = button.closest("tr");
+
+    const number = row.children[0].innerText;
+    const model = row.children[1].innerText;
+
+    alert(
+        "Edycja pojazdu " +
+        number +
+        "\nModel: " +
+        model +
+        "\n\nPełny formularz edycji dodamy w kolejnej wersji."
+    );
+
+}
+
+
+function filterVehicles() {
+
+    const search =
+        document.getElementById("search").value.toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter").value;
+
+    const status =
+        document.getElementById("statusFilter").value;
+
+    const rows =
+        document.querySelectorAll("#vehicleTable tr");
+
+    rows.forEach(row => {
+
+        const text = row.innerText.toLowerCase();
+
+        const typeMatch =
+            !type || row.dataset.type === type;
+
+        const statusMatch =
+            !status || row.dataset.status === status;
+
+        const searchMatch =
+            text.includes(search);
+
+        row.style.display =
+            typeMatch && statusMatch && searchMatch
+            ? ""
+            : "none";
+
+    });
+
+}
+
+
+function updateStats() {
+
+    const rows =
+        [...document.querySelectorAll("#vehicleTable tr")];
+
+    let active = 0;
+    let service = 0;
+    let offline = 0;
+
+    rows.forEach(row => {
+
+        if (row.dataset.status === "W ruchu") active++;
+        if (row.dataset.status === "W serwisie") service++;
+        if (row.dataset.status === "Wyłączony") offline++;
+
+    });
+
+    document.getElementById("total").innerText = rows.length;
+    document.getElementById("active").innerText = active;
+    document.getElementById("service").innerText = service;
+    document.getElementById("offline").innerText = offline;
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Administracyjny — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #08131f;
+    color: #fff;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #0b1b2b;
+    border-right: 1px solid #203548;
+    padding: 22px 15px;
+}
+
+.logo {
+    text-align: center;
+    padding: 12px;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 55px;
+    height: 55px;
+    margin: auto;
+    border-radius: 15px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.logo h2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.logo p {
+    color: #7f94a7;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    color: #62798c;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 20px 10px 8px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 9px;
+    color: #b8c8d5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1689d7;
+    color: white;
+}
+
+.main {
+    margin-left: 250px;
+    padding: 25px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 26px;
+}
+
+.status {
+    padding: 9px 14px;
+    border-radius: 20px;
+    background: rgba(50,190,100,.12);
+    color: #66df91;
+    font-size: 13px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card-icon {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    color: #8196a8;
+    font-size: 13px;
+}
+
+.section {
+    margin-top: 25px;
+    background: #0d2031;
+    border: 1px solid #1d3549;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.section-header h2 {
+    font-size: 18px;
+}
+
+.add-button {
+    border: none;
+    background: #1689d7;
+    color: white;
+    padding: 9px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 13px 10px;
+    border-bottom: 1px solid #1c3346;
+    font-size: 13px;
+}
+
+th {
+    color: #70879a;
+    font-size: 11px;
+}
+
+.online {
+    color: #63df8b;
+}
+
+.warning {
+    color: #ffc857;
+}
+
+.offline {
+    color: #ff7777;
+}
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.action {
+    padding: 16px;
+    background: #10283c;
+    border: 1px solid #203d53;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.action:hover {
+    background: #15364f;
+    transform: translateY(-2px);
+}
+
+.action strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.action span {
+    color: #7e95a8;
+    font-size: 12px;
+}
+
+.logout {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 9px;
+    background: #182b3c;
+    color: #ff8888;
+    cursor: pointer;
+}
+
+@media(max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        margin-top: 15px;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🚍
+        </div>
+
+        <h2>TD ROBLOX</h2>
+
+        <p>Panel Administracyjny</p>
+
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">GŁÓWNE</div>
+
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">👥 Gracze</a>
+        <a href="#">🛡️ Administracja</a>
+
+        <div class="menu-title">KOMUNIKACJA</div>
+
+        <a href="#">🚌 Linie autobusowe</a>
+        <a href="#">🚋 Linie tramwajowe</a>
+        <a href="#">🚇 Metro</a>
+        <a href="#">🚏 Przystanki</a>
+        <a href="#">🚍 Tabor</a>
+
+        <div class="menu-title">ZARZĄDZANIE</div>
+
+        <a href="#">📢 Komunikaty</a>
+        <a href="#">📅 Eventy</a>
+        <a href="#">🗺️ Mapa</a>
+        <a href="#">📝 Zgłoszenia</a>
+        <a href="#">📜 Logi</a>
+
+        <div class="menu-title">SYSTEM</div>
+
+        <a href="#">⚙️ Ustawienia</a>
+
+    </div>
+
+    <button class="logout" onclick="logout()">
+        🚪 Wyloguj się
+    </button>
+
+</aside>
+
+
+<main class="main">
+
+    <div class="topbar">
+
+        <div>
+            <h1>Dashboard</h1>
+            <p style="color:#718799;margin-top:5px;">
+                Centrum zarządzania Transportowymi Dzielnicami
+            </p>
+        </div>
+
+        <div class="status">
+            🟢 SYSTEM ONLINE
+        </div>
+
+    </div>
+
+
+    <section class="cards">
+
+        <div class="card">
+            <div class="card-icon">👥</div>
+            <h3 id="players">0</h3>
+            <p>Gracze online</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🚌</div>
+            <h3>0</h3>
+            <p>Autobusy w ruchu</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🚋</div>
+            <h3>0</h3>
+            <p>Tramwaje w ruchu</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">👨‍✈️</div>
+            <h3>0</h3>
+            <p>Personel online</p>
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>⚡ Szybkie akcje</h2>
+
+        </div>
+
+        <div class="quick-actions">
+
+            <div class="action" onclick="newAnnouncement()">
+                <strong>📢 Nowy komunikat</strong>
+                <span>Wyślij komunikat do graczy</span>
+            </div>
+
+            <div class="action">
+                <strong>🚌 Zarządzaj liniami</strong>
+                <span>Dodaj lub edytuj linię</span>
+            </div>
+
+            <div class="action">
+                <strong>🚍 Baza taboru</strong>
+                <span>Zarządzaj pojazdami TD</span>
+            </div>
+
+            <div class="action">
+                <strong>📅 Nowy event</strong>
+                <span>Utwórz wydarzenie</span>
+            </div>
+
+            <div class="action">
+                <strong>👥 Gracze</strong>
+                <span>Sprawdź aktywnych graczy</span>
+            </div>
+
+            <div class="action">
+                <strong>📜 Logi</strong>
+                <span>Historia działań administracji</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>🚌 Aktywne linie</h2>
+
+            <button class="add-button">
+                + Dodaj linię
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>LINIA</th>
+                    <th>KIERUNEK</th>
+                    <th>POJAZDY</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td><strong>G1</strong></td>
+                    <td>Zajezdnia PKS</td>
+                    <td>0</td>
+                    <td class="online">● Aktywna</td>
+                </tr>
+
+                <tr>
+                    <td><strong>G2</strong></td>
+                    <td>Osiedle Zamkowe</td>
+                    <td>0</td>
+                    <td class="online">● Aktywna</td>
+                </tr>
+
+                <tr>
+                    <td><strong>G3</strong></td>
+                    <td>Nowogród</td>
+                    <td>0</td>
+                    <td class="warning">● Oczekuje</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>📢 Ostatnie komunikaty</h2>
+
+            <button class="add-button" onclick="newAnnouncement()">
+                + Nowy
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>DATA</th>
+                    <th>KOMUNIKAT</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>—</td>
+                    <td>Brak nowych komunikatów</td>
+                    <td class="offline">Brak danych</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+
+<script>
+
+// Sprawdzenie logowania
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+// Wylogowanie
+function logout() {
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+}
+
+
+// Przykładowa akcja
+function newAnnouncement() {
+
+    const text = prompt(
+        "Wpisz treść komunikatu dla graczy:"
+    );
+
+    if (text && text.trim() !== "") {
+
+        alert(
+            "Komunikat został przygotowany:\n\n" +
+            text
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logowanie — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #07111f, #0d2940);
+    color: white;
+}
+
+.login-container {
+    width: 420px;
+    max-width: 92%;
+    background: rgba(15, 30, 48, 0.97);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 18px;
+    border-radius: 18px;
+    background: #1689d7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 8px 25px rgba(22,137,215,0.35);
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9eafbf;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #dbe7f0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 45px 14px 15px;
+    border: 1px solid #31485c;
+    border-radius: 12px;
+    background: #0a1a2a;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus {
+    border-color: #1689d7;
+    box-shadow: 0 0 0 3px rgba(22,137,215,0.15);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9eafbf;
+    user-select: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #1689d7;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0e75bb;
+    transform: translateY(-1px);
+}
+
+.message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.error {
+    background: rgba(220, 60, 60, 0.15);
+    color: #ff8d8d;
+    border: 1px solid rgba(220,60,60,0.25);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #718596;
+    font-size: 12px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(22,137,215,0.12);
+    color: #63b9f2;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="logo">🚍</div>
+
+    <h1>TD ROBLOX</h1>
+
+    <div class="subtitle">
+        Panel Administracyjny<br>
+        Transportowe Dzielnice
+    </div>
+
+    <form id="loginForm">
+
+        <label for="username">Nazwa użytkownika</label>
+
+        <div class="input-box">
+            <input
+                type="text"
+                id="username"
+                placeholder="Wpisz nazwę użytkownika"
+                autocomplete="username"
+                required
+            >
+        </div>
+
+        <label for="password">Hasło</label>
+
+        <div class="input-box">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Wpisz hasło"
+                autocomplete="current-password"
+                required
+            >
+
+            <span
+                class="toggle-password"
+                onclick="togglePassword()"
+                id="toggleIcon"
+            >👁️</span>
+
+        </div>
+
+        <button type="submit">
+            ZALOGUJ SIĘ
+        </button>
+
+    </form>
+
+    <div id="message" class="message error">
+        Nieprawidłowa nazwa użytkownika lub hasło.
+    </div>
+
+    <div class="footer">
+        TD ROBLOX © 2026
+        <div class="badge">
+            🔐 Panel chroniony
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+// DEMONSTRACYJNE DANE LOGOWANIA
+// Zmień je przed użyciem swojej wersji.
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "TD1234";
+
+function togglePassword() {
+
+    const password = document.getElementById("password");
+    const icon = document.getElementById("toggleIcon");
+
+    if (password.type === "password") {
+        password.type = "text";
+        icon.textContent = "🙈";
+    } else {
+        password.type = "password";
+        icon.textContent = "👁️";
+    }
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+
+    const message = document.getElementById("message");
+
+    if (
+        username === ADMIN_USERNAME &&
+        password === ADMIN_PASSWORD
+    ) {
+
+        sessionStorage.setItem("td_admin_logged", "true");
+
+        window.location.href = "admin.html";
+
+    } else {
+
+        message.style.display = "block";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
