@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracze — TD ROBLOX</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef3f8;
+    color: #172b4d;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    background: #071b36;
+    color: white;
+    overflow-y: auto;
+}
+
+.logo {
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    background: #1479e9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 20px;
+}
+
+.logo p {
+    color: #9db1cc;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu-title {
+    padding: 18px 20px 8px;
+    color: #7890ad;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.menu a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 20px;
+    color: #d8e4f2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu a:hover,
+.menu a.active {
+    background: #1479e9;
+    color: white;
+}
+
+.menu-icon {
+    width: 22px;
+    text-align: center;
+}
+
+.logout {
+    margin: 20px;
+    justify-content: center;
+    background: rgba(255,255,255,.08);
+    color: #ffb4b4 !important;
+    border-radius: 10px;
+}
+
+.main {
+    margin-left: 260px;
+    min-height: 100vh;
+}
+
+.topbar {
+    height: 75px;
+    background: white;
+    border-bottom: 1px solid #dce4ed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.topbar h2 {
+    font-size: 22px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1479e9;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.content {
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 27px;
+}
+
+.header p {
+    color: #718096;
+    margin-top: 6px;
+}
+
+.btn {
+    border: none;
+    background: #1479e9;
+    color: white;
+    padding: 12px 17px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #0965c5;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
+
+.stat-icon {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.stat h3 {
+    font-size: 26px;
+}
+
+.stat p {
+    color: #718096;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.05);
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    padding: 11px;
+    border: 1px solid #d6dee8;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #1479e9;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 14px 10px;
+    border-bottom: 1px solid #edf1f5;
+    font-size: 13px;
+}
+
+th {
+    color: #718096;
+    font-size: 12px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: #e8f2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.online {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.offline {
+    background: #edf1f5;
+    color: #64748b;
+}
+
+.admin {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.driver {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.player-btn {
+    border: none;
+    background: #edf4ff;
+    color: #1479e9;
+    padding: 7px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.player-btn:hover {
+    background: #1479e9;
+    color: white;
+}
+
+.empty {
+    display: none;
+    text-align: center;
+    padding: 35px;
+    color: #718096;
+}
+
+@media(max-width:1000px) {
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .filters {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:700px) {
+    .sidebar {
+        width: 75px;
+    }
+
+    .logo h1,
+    .logo p,
+    .menu-title,
+    .menu a span:not(.menu-icon) {
+        display: none;
+    }
+
+    .menu a {
+        justify-content: center;
+    }
+
+    .main {
+        margin-left: 75px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        min-width: 800px;
+    }
+
+    .card {
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">🚍</div>
+        <h1>TD ROBLOX</h1>
+        <p>Panel Administracyjny</p>
+    </div>
+
+    <div class="menu">
+
+        <div class="menu-title">Główne</div>
+
+        <a href="admin.html">
+            <span class="menu-icon">🏠</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="gracze.html" class="active">
+            <span class="menu-icon">👥</span>
+            <span>Gracze</span>
+        </a>
+
+        <a href="administracja.html">
+            <span class="menu-icon">🛡️</span>
+            <span>Administracja</span>
+        </a>
+
+        <div class="menu-title">Komunikacja</div>
+
+        <a href="linie.html">
+            <span class="menu-icon">🚌</span>
+            <span>Linie autobusowe</span>
+        </a>
+
+        <a href="linie_tramwajowe.html">
+            <span class="menu-icon">🚋</span>
+            <span>Linie tramwajowe</span>
+        </a>
+
+        <a href="metro.html">
+            <span class="menu-icon">🚇</span>
+            <span>Metro</span>
+        </a>
+
+        <a href="przystanki.html">
+            <span class="menu-icon">🚏</span>
+            <span>Przystanki</span>
+        </a>
+
+        <a href="pojazdy.html">
+            <span class="menu-icon">🚍</span>
+            <span>Tabor</span>
+        </a>
+
+        <div class="menu-title">Zarządzanie</div>
+
+        <a href="komunikaty.html">
+            <span class="menu-icon">📢</span>
+            <span>Komunikaty</span>
+        </a>
+
+        <a href="eventy.html">
+            <span class="menu-icon">📅</span>
+            <span>Eventy</span>
+        </a>
+
+        <a href="mapa.html">
+            <span class="menu-icon">🗺️</span>
+            <span>Mapa</span>
+        </a>
+
+        <a href="zgloszenia.html">
+            <span class="menu-icon">📝</span>
+            <span>Zgłoszenia</span>
+        </a>
+
+        <a href="logi.html">
+            <span class="menu-icon">📜</span>
+            <span>Logi systemowe</span>
+        </a>
+
+        <a href="#" class="logout" onclick="logout()">
+            <span class="menu-icon">🚪</span>
+            <span>Wyloguj</span>
+        </a>
+
+    </div>
+</aside>
+
+
+<main class="main">
+
+<header class="topbar">
+
+    <h2>Gracze</h2>
+
+    <div class="user">
+        <div>
+            <strong>Administrator</strong><br>
+            <small style="color:#718096;">TD ROBLOX</small>
+        </div>
+
+        <div class="avatar">A</div>
+    </div>
+
+</header>
+
+
+<section class="content">
+
+    <div class="header">
+
+        <div>
+            <h1>👥 Gracze TD ROBLOX</h1>
+            <p>Zarządzanie użytkownikami serwera Roblox.</p>
+        </div>
+
+        <button class="btn" onclick="refreshPlayers()">
+            🔄 Odśwież
+        </button>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">👥</div>
+            <h3 id="allCount">128</h3>
+            <p>Wszyscy gracze</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🟢</div>
+            <h3 id="onlineCount">37</h3>
+            <p>Online</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🚌</div>
+            <h3 id="driverCount">18</h3>
+            <p>Kierowcy</p>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🛡️</div>
+            <h3 id="adminCount">6</h3>
+            <p>Administracja</p>
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="filters">
+
+            <input
+                id="search"
+                type="text"
+                placeholder="🔎 Szukaj gracza..."
+                oninput="filterPlayers()"
+            >
+
+            <select id="statusFilter" onchange="filterPlayers()">
+                <option value="">Wszystkie statusy</option>
+                <option value="online">Online</option>
+                <option value="offline">Offline</option>
+            </select>
+
+            <select id="roleFilter" onchange="filterPlayers()">
+                <option value="">Wszystkie role</option>
+                <option value="Gracz">Gracz</option>
+                <option value="Kierowca">Kierowca</option>
+                <option value="Moderator">Moderator</option>
+                <option value="Administrator">Administrator</option>
+            </select>
+
+            <button class="btn" onclick="clearFilters()">
+                Wyczyść
+            </button>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>GRACZ</th>
+                    <th>ID ROBLOX</th>
+                    <th>ROLA</th>
+                    <th>STATUS</th>
+                    <th>OSTATNIO ONLINE</th>
+                    <th>AKCJE</th>
+                </tr>
+            </thead>
+
+            <tbody id="playersTable">
+
+                <tr data-name="TransportowyStasiek" data-status="online" data-role="Administrator">
+                    <td>
+                        <div class="player">
+                            <div class="player-avatar">👑</div>
+                            <strong>TransportowyStasiek</strong>
+                        </div>
+                    </td>
+                    <td>100245781</td>
+                    <td><span class="badge admin">Administrator</span></td>
+                    <td><span class="badge online">ONLINE</span></td>
+                    <td>Teraz</td>
+                    <td>
+                        <button class="player-btn" onclick="showPlayer('TransportowyStasiek')">
+                            Zobacz
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr data-name="TD_Driver01" data-status="online" data-role="Kierowca">
+                    <td>
+                        <div class="player">
+                            <div class="player-avatar">🚌</div>
+                            <strong>TD_Driver01</strong>
+                        </div>
+                    </td>
+                    <td>100345221</td>
+                    <td><span class="badge driver">Kierowca</span></td>
+                    <td><span class="badge online">ONLINE</span></td>
+                    <td>2 min temu</td>
+                    <td>
+                        <button class="player-btn" onclick="showPlayer('TD_Driver01')">
+                            Zobacz
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr data-name="MZK_Player" data-status="offline" data-role="Gracz">
+                    <td>
+                        <div class="player">
+                            <div class="player-avatar">👤</div>
+                            <strong>MZK_Player</strong>
+                        </div>
+                    </td>
+                    <td>100548912</td>
+                    <td><span class="badge">Gracz</span></td>
+                    <td><span class="badge offline">OFFLINE</span></td>
+                    <td>35 min temu</td>
+                    <td>
+                        <button class="player-btn" onclick="showPlayer('MZK_Player')">
+                            Zobacz
+                        </button>
+                    </td>
+                </tr>
+
+
+                <tr data-name="TD_Moderator" data-status="online" data-role="Moderator">
+                    <td>
+                        <div class="player">
+                            <div class="player-avatar">🛡️</div>
+                            <strong>TD_Moderator</strong>
+                        </div>
+                    </td>
+                    <td>100671452</td>
+                    <td><span class="badge admin">Moderator</span></td>
+                    <td><span class="badge online">ONLINE</span></td>
+                    <td>5 min temu</td>
+                    <td>
+                        <button class="player-btn" onclick="showPlayer('TD_Moderator')">
+                            Zobacz
+                        </button>
+                    </td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
+
+        <div id="empty" class="empty">
+            🔎 Nie znaleziono graczy.
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+
+if (sessionStorage.getItem("td_admin_logged") !== "true") {
+    window.location.href = "logowanie.html";
+}
+
+
+function filterPlayers() {
+
+    const search =
+        document.getElementById("search").value.toLowerCase();
+
+    const status =
+        document.getElementById("statusFilter").value;
+
+    const role =
+        document.getElementById("roleFilter").value;
+
+    const rows =
+        document.querySelectorAll("#playersTable tr");
+
+    let visible = 0;
+
+    rows.forEach(row => {
+
+        const name =
+            row.dataset.name.toLowerCase();
+
+        const rowStatus =
+            row.dataset.status;
+
+        const rowRole =
+            row.dataset.role;
+
+        const matchesSearch =
+            name.includes(search);
+
+        const matchesStatus =
+            !status || rowStatus === status;
+
+        const matchesRole =
+            !role || rowRole === role;
+
+        if (
+            matchesSearch &&
+            matchesStatus &&
+            matchesRole
+        ) {
+            row.style.display = "";
+            visible++;
+        } else {
+            row.style.display = "none";
+        }
+
+    });
+
+    document.getElementById("empty").style.display =
+        visible === 0 ? "block" : "none";
+}
+
+
+function clearFilters() {
+
+    document.getElementById("search").value = "";
+    document.getElementById("statusFilter").value = "";
+    document.getElementById("roleFilter").value = "";
+
+    filterPlayers();
+}
+
+
+function refreshPlayers() {
+
+    alert("Lista graczy została odświeżona.");
+
+}
+
+
+function showPlayer(name) {
+
+    alert(
+        "Profil gracza: " + name +
+        "\n\nFunkcja szczegółowego profilu zostanie rozbudowana w kolejnym module."
+    );
+
+}
+
+
+function logout() {
+
+    if (!confirm("Czy na pewno chcesz się wylogować?")) {
+        return;
+    }
+
+    sessionStorage.removeItem("td_admin_logged");
+
+    window.location.href = "logowanie.html";
+}
+
+</script>
+
+</body>
+</html>
