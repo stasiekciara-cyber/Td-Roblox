@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TD TEST 1.0 | Transportowe Dzielnice</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#eef2f7;color:#17243a}
+header{background:#10264a;color:white;padding:24px 18px}
+header h1{margin:0;font-size:27px}
+header p{color:#cbd8ee;margin-bottom:0}
+nav{background:#183965;padding:12px;display:flex;gap:8px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;padding:9px 12px;border-radius:8px}
+nav a:hover{background:#315789}
+main{max-width:1000px;margin:auto;padding:18px}
+.hero{background:linear-gradient(120deg,#124c91,#1688c9);color:white;padding:25px;border-radius:16px}
+.hero h2{font-size:27px;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.card{background:white;padding:18px;border-radius:13px;box-shadow:0 3px 12px #10264a12}
+.card h3{margin-top:0}
+button{border:0;background:#176bc0;color:white;padding:11px 15px;border-radius:8px;font-size:15px;cursor:pointer}
+button:hover{background:#104d8d}
+input,select{width:100%;padding:11px;margin:7px 0 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px}
+.result{background:#e8f4ff;padding:12px;border-radius:8px;margin-top:10px;overflow-wrap:anywhere}
+.badge{display:inline-block;background:#d9f7e7;color:#126b43;padding:5px 9px;border-radius:20px;font-size:12px}
+footer{text-align:center;padding:22px;color:#617086}
+section{scroll-margin-top:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚍 TRANSPORTOWE DZIELNICE</h1>
+  <p>TD TEST 1.0 • Testowa platforma komunikacyjna</p>
+</header>
+
+<nav>
+  <a href="#start">🏠 Start</a>
+  <a href="#linie">🚌 Linie</a>
+  <a href="#przystanki">🚏 Przystanki</a>
+  <a href="#kierowca">🎮 Kierowca</a>
+  <a href="#dyspozytor">🧭 Dyspozytor</a>
+</nav>
+
+<main>
+<section class="hero" id="start">
+  <span class="badge">WERSJA TESTOWA</span>
+  <h2>Witaj w TD TEST 1.0!</h2>
+  <p>Sprawdzaj nowe funkcje, linie i pomysły dla Transportowych Dzielnic.</p>
+  <button onclick="document.querySelector('#linie').scrollIntoView({behavior:'smooth'})">
+    Odkryj systemy
+  </button>
+</section>
+
+<div class="grid">
+  <div class="card">
+    <h3>🚌 Komunikacja</h3>
+    <p>Testowa baza autobusów i tramwajów.</p>
+  </div>
+  <div class="card">
+    <h3>🚏 Przystanki</h3>
+    <p>Sprawdź wyszukiwarkę przystanków.</p>
+  </div>
+  <div class="card">
+    <h3>🖥️ Systemy TD</h3>
+    <p>Testuj demonstracyjne panele.</p>
+  </div>
+</div>
+
+<section id="linie" class="card">
+  <h2>🚌 Linie komunikacyjne</h2>
+  <label for="rodzaj">Rodzaj komunikacji</label>
+  <select id="rodzaj" onchange="pokazLinie()">
+    <option value="autobus">Autobusy</option>
+    <option value="tramwaj">Tramwaje</option>
+  </select>
+  <div id="listaLinii" class="result"></div>
+</section>
+
+<section id="przystanki" class="card" style="margin-top:18px">
+  <h2>🚏 Wyszukiwarka przystanków</h2>
+  <label for="szukaj">Wpisz nazwę przystanku</label>
+  <input id="szukaj" placeholder="Np. Osiedlowa">
+  <button onclick="szukajPrzystanku()">Szukaj</button>
+  <div id="wynikPrzystanku" class="result" aria-live="polite">
+    Wpisz nazwę, aby rozpocząć wyszukiwanie.
+  </div>
+</section>
+
+<section id="kierowca" class="card" style="margin-top:18px">
+  <h2>🎮 Panel kierowcy</h2>
+  <p>Demonstracja zgłoszenia rozpoczęcia kursu.</p>
+  <label for="kierowcaNumer">Numer taborowy</label>
+  <input id="kierowcaNumer" placeholder="Np. 7730">
+  <label for="kierowcaLinia">Numer linii</label>
+  <input id="kierowcaLinia" placeholder="Np. 118">
+  <button onclick="rozpocznijKurs()">Rozpocznij test kursu</button>
+  <div id="wynikKierowcy" class="result" aria-live="polite">
+    Kurs nie został jeszcze zgłoszony.
+  </div>
+</section>
+
+<section id="dyspozytor" class="card" style="margin-top:18px">
+  <h2>🧭 Panel dyspozytora</h2>
+  <p>Przykładowe komunikaty testowe.</p>
+  <label for="komunikat">Treść komunikatu</label>
+  <input id="komunikat" placeholder="Np. Test systemu TD">
+  <button onclick="wyslijKomunikat()">Opublikuj komunikat testowy</button>
+  <div id="wynikDyspozytora" class="result" aria-live="polite">
+    Brak nowych komunikatów.
+  </div>
+</section>
+
+<p style="text-align:center;margin-top:22px">
+  <strong>⚠️ To wersja demonstracyjna.</strong><br>
+  Dane są zapisywane tylko w widoku strony, nie na wspólnym serwerze.
+</p>
+</main>
+
+<footer>
+  Transportowe Dzielnice © 2026<br>
+  TD TEST 1.0 • Projekt testowy
+</footer>
+
+<script>
+const przystanki = [
+  "Woronicza",
+  "Osiedlowa",
+  "Metro Wierzbno",
+  "Zajezdnia MZK",
+  "Dworzec Kolejowy",
+  "Metro Karolin",
+  "CH Karolin",
+  "Zajezdnia Woronicza"
+];
+
+function pokazLinie(){
+  const rodzaj = document.getElementById("rodzaj").value;
+  const lista = rodzaj === "autobus"
+    ? ["118","119","130","131","162","163","164","165","167","168","172","174","179","180","185","187","192","193","200","229","300","401","402","503","504"]
+    : ["10","11","14","16","17","18","19","31","67"];
+
+  document.getElementById("listaLinii").innerHTML =
+    "<strong>Dostępne linie:</strong><p>" +
+    lista.map(l => '<span style="display:inline-block;background:#e8eef8;padding:7px;margin:4px;border-radius:6px">'+l+'</span>').join("") +
+    "</p>";
+}
+
+function szukajPrzystanku(){
+  const tekst = document.getElementById("szukaj").value.trim();
+  const wynik = document.getElementById("wynikPrzystanku");
+
+  if(!tekst){
+    wynik.textContent = "Najpierw wpisz nazwę przystanku.";
+    return;
+  }
+
+  const znalezione = przystanki.filter(p =>
+    p.toLocaleLowerCase("pl").includes(tekst.toLocaleLowerCase("pl"))
+  );
+
+  wynik.textContent = znalezione.length
+    ? "Znalezione przystanki: " + znalezione.join(", ")
+    : "Nie znaleziono przystanku w testowej bazie.";
+}
+
+function rozpocznijKurs(){
+  const numer = document.getElementById("kierowcaNumer").value.trim();
+  const linia = document.getElementById("kierowcaLinia").value.trim();
+  const wynik = document.getElementById("wynikKierowcy");
+
+  if(!numer || !linia){
+    wynik.textContent = "Uzupełnij numer taborowy i numer linii.";
+    return;
+  }
+
+  wynik.textContent = "TEST: pojazd " + numer +
+    " zgłoszony do kursu na linii " + linia +
+    ". To tylko demonstracja.";
+}
+
+function wyslijKomunikat(){
+  const tekst = document.getElementById("komunikat").value.trim();
+  const wynik = document.getElementById("wynikDyspozytora");
+
+  if(!tekst){
+    wynik.textContent = "Wpisz treść komunikatu.";
+    return;
+  }
+
+  const box = document.createElement("div");
+  box.textContent = "📢 KOMUNIKAT TESTOWY: " + tekst;
+  wynik.replaceChildren(box);
+}
+
+pokazLinie();
+</script>
+
+</body>
+  </html>
