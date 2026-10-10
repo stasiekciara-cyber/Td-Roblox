@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Panel kierowcy TD</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#edf2f8;color:#17243a}
+header{background:#12315b;color:white;padding:22px}
+header h1{margin:0;font-size:24px}
+header p{margin-bottom:0;color:#d5e6ff}
+main{max-width:850px;margin:auto;padding:16px}
+.card{background:white;border-radius:14px;padding:18px;margin-bottom:15px;box-shadow:0 3px 12px #0000000c}
+label{display:block;margin:12px 0 6px;font-weight:bold}
+input,select{width:100%;padding:12px;border:1px solid #ccd5e1;border-radius:8px;font-size:16px}
+button{padding:12px 15px;border:0;border-radius:8px;background:#1769aa;color:white;font-weight:bold;font-size:15px;margin-top:12px}
+.secondary{background:#52657d}
+.status{padding:12px;background:#eaf4ff;border-radius:8px;margin-top:12px}
+footer{text-align:center;padding:20px;color:#65748a}
+a{color:#1769aa}
+</style>
+</head>
+<body>
+<header>
+<h1>🚌 PANEL KIEROWCY TD</h1>
+<p>Transportowe Dzielnice • System testowy 1.0</p>
+</header>
+<main>
+<div class="card">
+<h2>👨‍✈️ Dane kursu</h2>
+<label for="numer">Numer taborowy</label>
+<input id="numer" placeholder="Np. 7730">
+
+<label for="linia">Linia</label>
+<select id="linia">
+<option>118</option><option>119</option>
+<option>130</option><option>131</option>
+<option>162</option><option>163</option>
+<option>164</option><option>165</option>
+<option>167</option><option>168</option>
+<option>172</option><option>174</option>
+<option>179</option><option>180</option>
+<option>185</option><option>187</option>
+<option>192</option><option>193</option>
+<option>200</option><option>229</option>
+<option>300</option><option>401</option>
+<option>402</option><option>503</option>
+<option>504</option>
+</select>
+
+<label for="kierunek">Kierunek jazdy</label>
+<input id="kierunek" placeholder="Np. Metro Wilanowska">
+
+<button onclick="start()">Rozpocznij kurs</button>
+<button class="secondary" onclick="koniec()">Zakończ kurs</button>
+<div class="status" id="status">Oczekiwanie na rozpoczęcie kursu.</div>
+</div>
+
+<div class="card">
+<h2>🚏 Przystanki</h2>
+<label for="przystanek">Następny przystanek</label>
+<select id="przystanek">
+<option>Woronicza</option>
+<option>Osiedlowa</option>
+<option>Metro Wierzbno</option>
+<option>Wołoska</option>
+<option>Metro Wilanowska</option>
+<option>Dworzec Kolejowy</option>
+</select>
+<button onclick="zapowiedz()">Wyświetl zapowiedź</button>
+<div class="status" id="zapowiedz">Brak zapowiedzi.</div>
+</div>
+
+<div class="card">
+<h2>📢 Komunikaty</h2>
+<p id="komunikat">Brak nowych komunikatów dyspozytora.</p>
+</div>
+
+<div class="card">
+<a href="logowanie.html">← Powrót do logowania</a>
+</div>
+</main>
+<footer>Transportowe Dzielnice © 2026 • DEMO</footer>
+<script>
+function start(){
+ const n=document.getElementById("numer").value.trim();
+ const l=document.getElementById("linia").value;
+ const k=document.getElementById("kierunek").value.trim();
+ const s=document.getElementById("status");
+ if(!n||!k){
+  s.textContent="Uzupełnij numer taborowy i kierunek.";
+  return;
+ }
+ s.textContent="DEMO: rozpoczęto kurs. Tabor "+n+
+ ", linia "+l+", kierunek: "+k+".";
+}
+function koniec(){
+ document.getElementById("status").textContent=
+ "DEMO: kurs zakończony.";
+}
+function zapowiedz(){
+ const p=document.getElementById("przystanek").value;
+ document.getElementById("zapowiedz").textContent=
+ "Następny przystanek: "+p+". Prosimy zachować ostrożność.";
+}
+</script>
+</body>
+</html>
