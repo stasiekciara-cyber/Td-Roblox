@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logowanie TD | Transportowe Dzielnice</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#0b1d38,#1769aa);
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;padding:18px;color:#17243a
+}
+.panel{
+ width:100%;max-width:420px;background:white;
+ padding:28px;border-radius:20px;
+ box-shadow:0 15px 45px #0004
+}
+.logo{text-align:center;font-size:48px}
+h1{text-align:center;font-size:25px;margin:8px 0}
+.sub{text-align:center;color:#68778c;margin-bottom:25px}
+label{display:block;font-weight:bold;margin-top:15px}
+input,select{
+ width:100%;padding:13px;margin-top:7px;
+ border:1px solid #cbd5e1;border-radius:9px;font-size:16px
+}
+button{
+ width:100%;padding:13px;margin-top:20px;
+ background:#1769aa;color:white;border:0;
+ border-radius:9px;font-size:16px;font-weight:bold
+}
+button:hover{background:#104c7d}
+.info{background:#edf6ff;padding:12px;border-radius:9px;
+ margin-top:16px;font-size:13px;line-height:1.5}
+#wynik{margin-top:18px;padding:14px;border-radius:10px;
+ display:none;overflow-wrap:anywhere}
+.ok{background:#e1f8e9;color:#126b37}
+.error{background:#ffeded;color:#a12424}
+a{color:#1769aa}
+</style>
+</head>
+<body>
+<div class="panel">
+ <div class="logo">🚌</div>
+ <h1>TRANSPORTOWE DZIELNICE</h1>
+ <p class="sub">Panel logowania pracowników TD</p>
+
+ <form id="formularz">
+  <label for="login">Login</label>
+  <input id="login" autocomplete="username"
+         placeholder="Wpisz login" required>
+
+  <label for="haslo">Hasło</label>
+  <input id="haslo" type="password"
+         autocomplete="current-password"
+         placeholder="Wpisz hasło" required>
+
+  <label for="rola">Stanowisko</label>
+  <select id="rola">
+   <option value="kierowca">Kierowca</option>
+   <option value="dyspozytor">Dyspozytor</option>
+   <option value="administrator">Administrator</option>
+  </select>
+
+  <button type="submit">Zaloguj się</button>
+ </form>
+
+ <div id="wynik" role="status"></div>
+
+ <div class="info">
+  <strong>Wersja testowa</strong><br>
+  To demonstracyjny ekran logowania. Nie wpisuj prawdziwych haseł.
+  Konta i role nie są zabezpieczone przez serwer.
+ </div>
+
+ <p style="text-align:center;margin-top:22px">
+  <a href="index.html">← Powrót na stronę główną</a>
+ </p>
+</div>
+
+<script>
+document.getElementById("formularz").addEventListener("submit",
+function(e){
+ e.preventDefault();
+
+ const login=document.getElementById("login").value.trim();
+ const haslo=document.getElementById("haslo").value;
+ const rola=document.getElementById("rola").value;
+ const wynik=document.getElementById("wynik");
+
+ wynik.style.display="block";
+ wynik.className="";
+
+ if(!login || !haslo){
+  wynik.classList.add("error");
+  wynik.textContent="Uzupełnij login i hasło.";
+  return;
+ }
+
+ const nazwy={
+  kierowca:"Kierowca",
+  dyspozytor:"Dyspozytor",
+  administrator:"Administrator"
+ };
+
+ wynik.classList.add("ok");
+ wynik.textContent="DEMO: zalogowano jako "+nazwy[rola]+
+ ". Login: "+login+
+ ". To nie jest prawdziwe uwierzytelnianie.";
+});
+</script>
+</body>
+</html>
