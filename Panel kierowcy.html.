@@ -107,3 +107,524 @@ function zapowiedz(){
 </script>
 </body>
 </html>
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0756a5">
+<title>Panel Kierowcy | Transportowe Dzielnice</title>
+<style>
+:root {
+  --blue: #0756a5;
+  --dark: #092744;
+  --light: #edf4fb;
+  --white: #ffffff;
+  --green: #16834a;
+  --red: #c73535;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+}
+header {
+  background: linear-gradient(135deg, #063b75, #0874d1);
+  color: white;
+  padding: 24px 16px;
+}
+.header-inner, main, footer {
+  width: min(100% - 28px, 950px);
+  margin: auto;
+}
+.logo {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: .85;
+}
+h1 { margin: 10px 0 5px; font-size: 27px; }
+.subtitle { margin: 0; opacity: .9; font-size: 14px; }
+nav {
+  background: white;
+  padding: 12px 14px;
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #d9e4f0;
+}
+nav a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 8px;
+}
+main { padding: 20px 0 30px; }
+.notice {
+  background: #fff7dc;
+  border: 1px solid #eed68a;
+  color: #674d00;
+  border-radius: 12px;
+  padding: 13px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px #12304b0b;
+  border: 1px solid #e0eaf4;
+  min-width: 0;
+}
+.full { grid-column: 1 / -1; }
+.card h2 { font-size: 17px; margin: 0 0 16px; }
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 13px 0 7px;
+}
+input, select {
+  width: 100%;
+  min-height: 45px;
+  border: 1px solid #cbd8e6;
+  border-radius: 9px;
+  padding: 11px;
+  font-size: 15px;
+  background: white;
+  color: var(--dark);
+}
+button {
+  border: 0;
+  border-radius: 9px;
+  min-height: 45px;
+  padding: 12px 15px;
+  background: var(--blue);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:disabled { opacity: .45; cursor: not-allowed; }
+button.secondary { background: #e6eef7; color: var(--dark); }
+button.danger { background: var(--red); }
+button.success { background: var(--green); }
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 14px;
+}
+.actions button { width: 100%; }
+.status {
+  display: inline-block;
+  border-radius: 30px;
+  background: #e4edf7;
+  color: #164a7e;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.status.active { background: #d9f4e3; color: #126837; }
+.big { font-size: 23px; font-weight: bold; margin: 12px 0 5px; }
+.muted { color: #64778b; font-size: 13px; line-height: 1.5; }
+.stop-box {
+  background: #f1f6fc;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.stop-name { font-size: 21px; font-weight: bold; margin-top: 8px; }
+.progress {
+  height: 8px;
+  background: #d9e5f2;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+.progress div {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width .2s;
+}
+.log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.log li {
+  border-bottom: 1px solid #e7edf4;
+  padding: 11px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.log li:last-child { border-bottom: 0; }
+footer {
+  padding: 20px 0 28px;
+  color: #64778b;
+  font-size: 12px;
+  text-align: center;
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .full { grid-column: auto; }
+  h1 { font-size: 24px; }
+  .card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">TRANSPORTOWE DZIELNICE</div>
+    <h1>Panel kierowcy</h1>
+    <p class="subtitle">System obsługi kursów autobusowych TD</p>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Strona główna</a>
+  <a href="przystanki.html">Przystanki</a>
+  <a href="pojazdy.html">Tabor</a>
+  <a href="rozklady.html">Rozkłady jazdy</a>
+</nav>
+
+<main>
+  <div class="notice">
+    <strong>Tryb demonstracyjny</strong><br>
+    To lokalny panel testowy. Nie jest prawdziwym systemem logowania
+    ani oficjalnym systemem dyspozytorskim.
+  </div>
+
+  <div class="grid">
+
+    <section class="card">
+      <h2>👨‍✈️ Dane kierowcy</h2>
+
+      <label for="driver">Imię lub identyfikator kierowcy</label>
+      <input id="driver" placeholder="Np. Kierowca TD">
+
+      <label for="vehicle">Numer taborowy</label>
+      <input id="vehicle" placeholder="Np. 7730" maxlength="12">
+
+      <label for="line">Wybierz linię</label>
+      <select id="line">
+        <option value="G1">G1 — Zajezdnia MZK – Dworzec Kolejowy</option>
+        <option value="G2">G2 — Osiedle Zamkowe – Zajezdnia MZK</option>
+        <option value="G3">G3 — Zajezdnia MZK – CH Karolin</option>
+        <option value="201">201 — Linia testowa</option>
+      </select>
+
+      <label for="direction">Kierunek</label>
+      <select id="direction">
+        <option value="0">Kierunek podstawowy</option>
+        <option value="1">Kierunek przeciwny</option>
+      </select>
+
+      <div class="actions">
+        <button id="startBtn" class="success" onclick="startCourse()">
+          Rozpocznij kurs
+        </button>
+        <button class="secondary" onclick="resetForm()">
+          Wyczyść dane
+        </button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🚌 Status kursu</h2>
+      <span id="status" class="status">KURS NIEAKTYWNY</span>
+      <div class="big" id="displayLine">Linia —</div>
+      <p class="muted" id="displayVehicle">Tabor: nie wybrano</p>
+      <p class="muted" id="displayDriver">Kierowca: nie podano</p>
+      <div class="stop-box">
+        <span class="muted">Aktualny przystanek</span>
+        <div class="stop-name" id="currentStop">Brak aktywnego kursu</div>
+        <p class="muted" id="stopCounter">0 / 0 przystanków</p>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+      <div class="actions">
+        <button id="nextBtn" onclick="nextStop()" disabled>
+          Następny przystanek →
+        </button>
+        <button id="endBtn" class="danger" onclick="endCourse()" disabled>
+          Zakończ kurs
+        </button>
+      </div>
+    </section>
+
+    <section class="card full">
+      <h2>📍 Lista przystanków</h2>
+      <p class="muted">
+        Lista demonstracyjna. Nazwy można później dopasować do mapy TD.
+      </p>
+      <label for="customStop">Dodaj przystanek do listy testowej</label>
+      <div style="display:flex;gap:8px">
+        <input id="customStop" placeholder="Nazwa przystanku">
+        <button onclick="addStop()" style="flex-shrink:0">Dodaj</button>
+      </div>
+      <ol id="stopList" style="line-height:1.9;padding-left:23px"></ol>
+    </section>
+
+    <section class="card full">
+      <h2>📋 Historia operacji</h2>
+      <ul id="history" class="log">
+        <li>Panel uruchomiony. Oczekiwanie na rozpoczęcie kursu.</li>
+      </ul>
+      <button class="secondary" onclick="clearHistory()" style="margin-top:10px">
+        Wyczyść historię
+      </button>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  Transportowe Dzielnice © 2026<br>
+  Panel kierowcy — wersja demonstracyjna
+</footer>
+
+<script>
+const routes = {
+  G1: [
+    "Zajezdnia MZK",
+    "Osiedlowa",
+    "Centrum",
+    "Dworzec Kolejowy"
+  ],
+  G2: [
+    "Osiedle Zamkowe",
+    "Zamkowa",
+    "Osiedle MZK",
+    "Zajezdnia MZK"
+  ],
+  G3: [
+    "Zajezdnia MZK",
+    "Osiedlowa",
+    "Centrum Handlowe",
+    "CH Karolin"
+  ],
+  "201": [
+    "Przystanek początkowy",
+    "Osiedlowa",
+    "Przystanek końcowy"
+  ]
+};
+
+let stops = [];
+let stopIndex = 0;
+let active = false;
+let historyItems = [];
+
+const $ = id => document.getElementById(id);
+
+function logEvent(message) {
+  const now = new Date().toLocaleTimeString("pl-PL", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  historyItems.unshift(now + " — " + message);
+  historyItems = historyItems.slice(0, 20);
+
+  $("history").replaceChildren();
+
+  historyItems.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    $("history").appendChild(li);
+  });
+}
+
+function renderStops() {
+  $("stopList").replaceChildren();
+
+  stops.forEach((stop, index) => {
+    const li = document.createElement("li");
+    li.textContent = stop;
+
+    if (active && index === stopIndex) {
+      li.style.fontWeight = "bold";
+      li.style.color = "#0756a5";
+    }
+
+    $("stopList").appendChild(li);
+  });
+}
+
+function showStatus() {
+  $("displayLine").textContent =
+    "Linia " + $("line").value;
+
+  $("displayVehicle").textContent =
+    "Tabor: " + $("vehicle").value;
+
+  $("displayDriver").textContent =
+    "Kierowca: " + $("driver").value;
+
+  $("currentStop").textContent =
+    active ? stops[stopIndex] : "Brak aktywnego kursu";
+
+  $("stopCounter").textContent =
+    active
+      ? (stopIndex + 1) + " / " + stops.length + " przystanków"
+      : "0 / 0 przystanków";
+
+  $("progressBar").style.width =
+    active && stops.length > 1
+      ? (stopIndex / (stops.length - 1) * 100) + "%"
+      : "0%";
+
+  $("status").textContent =
+    active ? "KURS AKTYWNY" : "KURS NIEAKTYWNY";
+
+  $("status").className = active
+    ? "status active"
+    : "status";
+
+  $("startBtn").disabled = active;
+  $("nextBtn").disabled = !active;
+  $("endBtn").disabled = !active;
+
+  renderStops();
+}
+
+function startCourse() {
+  if (active) return;
+
+  const driver = $("driver").value.trim();
+  const vehicle = $("vehicle").value.trim();
+  const line = $("line").value;
+
+  if (!driver || !vehicle) {
+    alert("Uzupełnij identyfikator kierowcy i numer taborowy.");
+    return;
+  }
+
+  stops = [...routes[line]];
+
+  if ($("direction").value === "1") {
+    stops.reverse();
+  }
+
+  stopIndex = 0;
+  active = true;
+
+  logEvent(
+    "Rozpoczęto kurs " + line +
+    ", tabor " + vehicle + ", kierowca " + driver
+  );
+
+  showStatus();
+}
+
+function nextStop() {
+  if (!active) return;
+
+  if (stopIndex < stops.length - 1) {
+    stopIndex++;
+
+    logEvent("Przejazd do przystanku: " + stops[stopIndex]);
+    showStatus();
+  } else {
+    alert("To ostatni przystanek. Możesz zakończyć kurs.");
+  }
+}
+
+function endCourse() {
+  if (!active) return;
+
+  logEvent(
+    "Zakończono kurs " + $("line").value +
+    ", tabor " + $("vehicle").value
+  );
+
+  active = false;
+  stopIndex = 0;
+  showStatus();
+}
+
+function resetForm() {
+  if (active) {
+    alert("Najpierw zakończ aktywny kurs.");
+    return;
+  }
+
+  $("driver").value = "";
+  $("vehicle").value = "";
+  showStatus();
+}
+
+function addStop() {
+  if (active) {
+    alert("Zakończ kurs przed zmianą listy przystanków.");
+    return;
+  }
+
+  const input = $("customStop");
+  const name = input.value.trim();
+
+  if (!name) {
+    alert("Wpisz nazwę przystanku.");
+    return;
+  }
+
+  stops.push(name);
+  input.value = "";
+
+  renderStops();
+  logEvent("Dodano przystanek testowy: " + name);
+}
+
+function clearHistory() {
+  historyItems = [];
+  $("history").replaceChildren();
+
+  const li = document.createElement("li");
+  li.textContent = "Historia została wyczyszczona.";
+  $("history").appendChild(li);
+}
+
+stops = [...routes[$("line").value]];
+$("line").addEventListener("change", () => {
+  if (!active) {
+    stops = [...routes[$("line").value]];
+
+    if ($("direction").value === "1") {
+      stops.reverse();
+    }
+
+    showStatus();
+  }
+});
+
+$("direction").addEventListener("change", () => {
+  if (!active) {
+    stops = [...routes[$("line").value]];
+
+    if ($("direction").value === "1") {
+      stops.reverse();
+    }
+
+    renderStops();
+  }
+});
+
+showStatus();
+</script>
+</body>
+</html>
